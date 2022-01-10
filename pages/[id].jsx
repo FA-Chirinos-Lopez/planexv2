@@ -11,7 +11,7 @@ import 'react-slideshow-image/dist/styles.css'
 
 
 
-
+const ID=""
 
 
 const URL = "https://backend-l3ahb.ondigitalocean.app"
@@ -33,6 +33,7 @@ function findId(data, idToLookFor) {
 
 
 export default function ScreensDisplay({ screensData,imgDataADS }) {
+   
 
   //FULLSCREEN
   const handle = useFullScreenHandle();
@@ -67,8 +68,8 @@ export default function ScreensDisplay({ screensData,imgDataADS }) {
     </Layout>)
     //ADD ADVERTISEMENTS
     imgDataADS && advertisementsData.map((advertisementsData,id) => (
-        slideImages.push( <div   key={advertisementsData.id}>
-          <div key={id}>
+        slideImages.push( 
+          <div key={advertisementsData.id}>
           <AdsContainer img={findId(imgDataADS,id+1)} CallToAction={advertisementsData.attributes.CallToAction}
           Time={advertisementsData.attributes.Time} Title={advertisementsData.attributes.Title}  
           Location={advertisementsData.attributes.Location}  />
@@ -77,7 +78,7 @@ export default function ScreensDisplay({ screensData,imgDataADS }) {
             
         </div>
         
-        </div>
+        
         )))
     return (
       <div >
@@ -134,40 +135,8 @@ export default function ScreensDisplay({ screensData,imgDataADS }) {
 
 
   
-  export async function getStaticPaths() {
-    try {
-      const resScreens = await fetch(URL+"/api/screens");
-      const data = await resScreens.json();
-      const paths = data.data.map(({ id }) => ({ params: { id: `${id}` } }));
-      return {
-        paths,
-        fallback: true,
-      };
-    } catch (error) {
-      console.log(error);
-    }
-  }
-  
-  export async function getStaticProps({ params }) {
-    try {
-      const resImagesAds = await fetch(URL+"/api/advertisements?populate=*");
-      const resScreens = await fetch(URL+"/api/screens/"+params.id+"?populate=*");
-      const imgAdsData= await resImagesAds.json();
-      const dataScreens = await resScreens.json();
-      const screensData = dataScreens.data
-      const imgDataADS = imgAdsData.data
-      console.log(screensData)
-      console.log(imgDataADS)
-     
-      return {
-        props: {
-          screensData,imgDataADS
-        },revalidate:5
-      };
-    } catch (error) {
-      console.log(error);
-    }
-  }
+
+
 
 
 
@@ -247,6 +216,44 @@ export default function ScreensDisplay({ screensData,imgDataADS }) {
           </div>
         </div>
       );
+    }
+  }
+  
+
+  export async function getStaticProps({ params }) {
+    try {
+      const resImagesAds = await fetch(URL+"/api/advertisements?populate=*");
+      const resScreens = await fetch(URL+"/api/screens/"+params.id+"?populate=*");
+      const imgAdsData= await resImagesAds.json();
+      const dataScreens = await resScreens.json();
+      const screensData = dataScreens.data
+      const imgDataADS = imgAdsData.data
+      
+      console.log(imgDataADS,"IMAGES")
+     
+      return {
+        props: {
+          screensData,imgDataADS
+        },revalidate:1
+      };
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+
+  export async function getStaticPaths() {
+    try {
+      const resScreens = await fetch(URL+"/api/screens?populate=*");
+      const data = await resScreens.json();
+      const paths = data.data.map(({ id }) => ({ params: { id: `${id}` } }));
+      
+      return {
+        paths,
+        fallback: true,
+      };
+    } catch (error) {
+      console.log(error);
     }
   }
   
