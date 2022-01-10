@@ -74,7 +74,7 @@ export default function ScreensDisplay({ screensData,imgDataADS }) {
           Time={advertisementsData.attributes.Time} Title={advertisementsData.attributes.Title}  
           Location={advertisementsData.attributes.Location}  />
              
-           {console.log(findId(imgDataADS,id+1))}  
+           
             
         </div>
         
