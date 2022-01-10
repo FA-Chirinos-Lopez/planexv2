@@ -11,7 +11,7 @@ import 'react-slideshow-image/dist/styles.css'
 
 
 
-const ID=""
+
 
 
 const URL = "https://backend-l3ahb.ondigitalocean.app"
@@ -67,17 +67,17 @@ export default function ScreensDisplay({ screensData,imgDataADS }) {
     </Layout>)
     //ADD ADVERTISEMENTS
     imgDataADS && advertisementsData.map((advertisementsData,id) => (
-        slideImages.push( 
-          <div key={advertisementsData.id}>
+        slideImages.push( <div   key={advertisementsData.id}>
+          <div key={id}>
           <AdsContainer img={findId(imgDataADS,id+1)} CallToAction={advertisementsData.attributes.CallToAction}
           Time={advertisementsData.attributes.Time} Title={advertisementsData.attributes.Title}  
           Location={advertisementsData.attributes.Location}  />
              
-           
+           {console.log(findId(imgDataADS,id+1))}  
             
         </div>
         
-        
+        </div>
         )))
     return (
       <div >
