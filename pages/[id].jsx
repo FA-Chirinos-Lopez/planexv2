@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import Layout from "../components/Layout";
-import Container from "../components/container";
+import Container from "../components/Container";
 import AdsContainer from "../components/AdsContainer";
 import { FullScreen, useFullScreenHandle } from "react-full-screen";
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -33,6 +33,7 @@ function findId(data, idToLookFor) {
 
 
 export default function ScreensDisplay({ screensData,imgDataADS }) {
+    
 
   //FULLSCREEN
   const handle = useFullScreenHandle();
@@ -90,6 +91,7 @@ export default function ScreensDisplay({ screensData,imgDataADS }) {
     Enter fullscreen
     </button>
     
+    
         <br/><br/><br/><br/><br/>
 
          {/********************SEMINARS***********************************************************************/}
@@ -141,8 +143,8 @@ export default function ScreensDisplay({ screensData,imgDataADS }) {
       const paths = data.data.map(({ id }) => ({ params: { id: `${id}` } }));
       return {
         paths,
-        fallback: false,
-      };
+        fallback: true 
+      } 
     } catch (error) {
       console.log(error);
     }
@@ -162,12 +164,15 @@ export default function ScreensDisplay({ screensData,imgDataADS }) {
       return {
         props: {
           screensData,imgDataADS
-        },
+        },revalidate:1
       };
     } catch (error) {
       console.log(error);
     }
+
+    
   }
+  
 
 
 
@@ -249,4 +254,7 @@ export default function ScreensDisplay({ screensData,imgDataADS }) {
       );
     }
   }
+
+
+  
   

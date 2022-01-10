@@ -8,6 +8,10 @@ import Link from "next/link";
 const URL = "https://backend-l3ahb.ondigitalocean.app"
 
 export default function Home({screensData}) {
+
+
+
+
   return (
     <div>
     <Layout>
@@ -36,19 +40,22 @@ export default function Home({screensData}) {
 }
 
 
-export async function getServerSideProps() {
+export async function getStaticProps() {
   console.log(process.env.DB_URL)
    try {
   const resScreens = await fetch(URL+"/api/screens?populate=%2A");
 
   const dataScreens = await resScreens.json();
   const screensData = dataScreens.data
+  console.log(screensData)
+  
     return {
       props: {
         screensData,
-      },
+      },revalidate:1
     };
   } catch (error) {
     console.log(error);
   }
+
 }
