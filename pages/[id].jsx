@@ -162,7 +162,7 @@ export default function ScreensDisplay({ screensData,imgDataADS }) {
       return {
         props: {
           screensData,imgDataADS
-        },
+        },revalidate:5
       };
     } catch (error) {
       console.log(error);

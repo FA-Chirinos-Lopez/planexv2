@@ -12,7 +12,7 @@ export default function Home({screensData}) {
     <div>
     <Layout>
     <div className="container" >
-    
+    ww
     <h1 className="display-5">Screens Main View</h1>
     <div className="row g-2" >
     
@@ -36,7 +36,7 @@ export default function Home({screensData}) {
 }
 
 
-export async function getServerSideProps() {
+export async function getStaticProps() {
   console.log(process.env.DB_URL)
    try {
   const resScreens = await fetch(URL+"/api/screens?populate=%2A");
@@ -46,7 +46,7 @@ export async function getServerSideProps() {
     return {
       props: {
         screensData,
-      },
+      }, revalidate:5,
     };
   } catch (error) {
     console.log(error);
