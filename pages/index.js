@@ -36,8 +36,8 @@ export default function Home({screensData}) {
 }
 
 
-export async function getStaticProps() {
-
+export async function getServerSideProps() {
+  console.log(process.env.DB_URL)
    try {
   const resScreens = await fetch(URL+"/api/screens?populate=%2A");
 
@@ -46,7 +46,7 @@ export async function getStaticProps() {
     return {
       props: {
         screensData,
-      }, revalidate:1,
+      },
     };
   } catch (error) {
     console.log(error);
