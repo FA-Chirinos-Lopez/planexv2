@@ -141,7 +141,7 @@ export default function ScreensDisplay({ screensData,imgDataADS }) {
       const paths = data.data.map(({ id }) => ({ params: { id: `${id}` } }));
       return {
         paths,
-        fallback: false,
+        fallback: true,
       };
     } catch (error) {
       console.log(error);
