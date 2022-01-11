@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import Layout from "../components/Layout";
-import Container from "../components/container";
+import Container from "../components/Container";
 import AdsContainer from "../components/AdsContainer";
 import { FullScreen, useFullScreenHandle } from "react-full-screen";
 import 'bootstrap/dist/css/bootstrap.min.css';
