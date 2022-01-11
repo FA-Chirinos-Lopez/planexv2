@@ -141,7 +141,7 @@ export default function ScreensDisplay({ screensData,imgDataADS }) {
       const paths = data.data.map(({ id }) => ({ params: { id: `${id}` } }));
       return {
         paths,
-        fallback: false,
+        fallback: 'blocking',
       };
     } catch (error) {
       console.log(error);
@@ -162,7 +162,7 @@ export default function ScreensDisplay({ screensData,imgDataADS }) {
       return {
         props: {
           screensData,imgDataADS
-        },
+        },revalidate:1
       };
     } catch (error) {
       console.log(error);

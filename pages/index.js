@@ -18,7 +18,7 @@ export default function Home({screensData}) {
     
     {screensData.map((screensData) => (
         <div  key={screensData.id} className="col-6 card " style={{width: "18rem", height:"13rem"}}>
-        <h3 className="card-title" style={{textAlign: "center"}}>{screensData.attributes.ScreenName} ID:{screensData.id}</h3>
+        <h3 className="card-title" style={{textAlign: "center"}}>{screensData.attributes.ScreenName} IID:{screensData.id}</h3>
         <Link href={`/${screensData.id}`}>
         <div style={{textAlign: "center"}} >
                 <h1 className="display-6 btn btn-primary card-title"  >Go to screen</h1>
