@@ -1,4 +1,4 @@
-import Head from 'next/head'
+
 import Layout from "../components/Layout";
 import Container from "../components/Container";
 import AdsContainer from "../components/AdsContainer";
@@ -7,6 +7,9 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { Slide } from "react-slideshow-image";
 import React , { Component } from "react";
 import 'react-slideshow-image/dist/styles.css'
+import useSWR, { mutate } from "swr"
+
+
 
 
 
@@ -32,17 +35,32 @@ function findId(data, idToLookFor) {
 }
 
 
-export default function ScreensDisplay({ screensData,imgDataADS }) {
-
-  //FULLSCREEN
+export default function ScreensDisplay({ initialScreensData,initialImgDataADS }) {
+   console.log(initialScreensData.id)
+    //FULLSCREEN
   const handle = useFullScreenHandle();
   //RESET ARRAY OF SLIDES
   slideImages.length=0
-  //ARRAYS DEFINITION
-  let seminarsData= screensData.attributes.stage_timetables.data;
+
+
+  /* const {data,error} = useSWR("/api/screens/"+initialScreensData.id+"?populate=*",fetcher,{revalidateOnMount:true,refreshInterval: 5 })
+      if(error) return "an error has occured "+{error}
+      if(!data) return "loading..." */
+      const id= initialScreensData.id
+      const {imgDataADS} = getAdvertisementData()
+      const { screensData, isLoading, isError } = getScreensData(id)
+      
+      if(!screensData) return "loading..."    
+      if (screensData) {
+        
+        console.log("HAY DATOS")
+        
+       
+    //ARRAYS DEFINITION
+    let seminarsData= screensData.attributes.stage_timetables.data;
   let halldescriptorsData= screensData.attributes.hall_descriptors.data;
   let advertisementsData= screensData.attributes.advertisementsToAdd.data;
-  
+   
   
   
   //ADD SEMINARS
@@ -79,6 +97,7 @@ export default function ScreensDisplay({ screensData,imgDataADS }) {
         
         </div>
         )))
+    
     return (
       <div >
       <FullScreen handle={handle}>
@@ -128,46 +147,10 @@ export default function ScreensDisplay({ screensData,imgDataADS }) {
       
          
       </div>
-    );
+    )}
   }
 
 
-
-  
-  export async function getStaticPaths() {
-    try {
-      const resScreens = await fetch(URL+"/api/screens");
-      const data = await resScreens.json();
-      const paths = data.data.map(({ id }) => ({ params: { id: `${id}` } }));
-      return {
-        paths,
-        fallback: 'blocking',
-      };
-    } catch (error) {
-      console.log(error);
-    }
-  }
-  
-  export async function getStaticProps({ params }) {
-    try {
-      const resImagesAds = await fetch(URL+"/api/advertisements?populate=*");
-      const resScreens = await fetch(URL+"/api/screens/"+params.id+"?populate=*");
-      const imgAdsData= await resImagesAds.json();
-      const dataScreens = await resScreens.json();
-      const screensData = dataScreens.data
-      const imgDataADS = imgAdsData.data
-      console.log(screensData)
-      console.log(imgDataADS)
-     
-      return {
-        props: {
-          screensData,imgDataADS
-        },revalidate:1
-      };
-    } catch (error) {
-      console.log(error);
-    }
-  }
 
 
 
@@ -247,6 +230,100 @@ export default function ScreensDisplay({ screensData,imgDataADS }) {
           </div>
         </div>
       );
+    }
+  }
+  
+
+
+  
+  
+  export async function getStaticPaths() {
+    try {
+      const resScreens = await fetch(URL+"/api/screens");
+      const data = await resScreens.json();
+      const paths = data.data.map(({ id }) => ({ params: { id: id.toString() } }));
+      console.log(paths,"paths")
+      return {
+        paths,
+        fallback: 'blocking',
+      };
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+ 
+  export async function getStaticProps({ params }) {
+    try {
+       
+       
+        const resImagesAds = await fetch(URL+"/api/advertisements?populate=*");
+        const resScreens = await fetch(URL+"/api/screens/"+params.id+"?populate=*");
+        const imgAdsData= await resImagesAds.json();
+        const dataScreens = await resScreens.json();
+        const initialScreensData = dataScreens.data
+        const initialImgDataADS = imgAdsData.data
+        console.log(initialScreensData)
+      
+       
+     
+      return {
+        props: {
+            initialScreensData,initialImgDataADS
+        },revalidate:1
+      };
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+
+  
+  async function fetcher(url){
+    const res = await fetch(URL+url)
+    const {data} = await res.json();
+    
+    return data
+  }
+
+  function getScreensData(id) {
+  
+    const {data,error} = useSWR("/api/screens/"+id+"?populate=*",fetcher,{revalidateOnMount:true,refreshInterval: 5 })
+    if(error) return "an error has occured "+{error}
+    if(!data) return "loading..."
+    console.log(data)
+    return {
+        screensData: data,
+        isLoading: !error && !data,
+        isError: error
+    }
+  }
+
+
+/*   function getScreensData(id) {
+  
+    const {data,error} = useSWR("/api/screens/"+id+"?populate=*",fetcher,{revalidateOnMount:true,refreshInterval: 5 })
+    if(error) return "an error has occured "+{error}
+    if(!data) return "loading..."
+    console.log(data)
+    return {
+        imgDataADS: data,
+        isLoading: !error && !data,
+        isError: error
+    }
+  } */
+
+
+  function getAdvertisementData() {
+    const urlimg = "/api/advertisements?populate=*"
+    const {data,error} = useSWR(urlimg,fetcher,{revalidateOnMount:true,refreshInterval: 5 })
+    if(error) return "an error has occured "+{error}
+    if(!data) return "loading..."
+    console.log(data)
+    return {
+        imgDataADS: data,
+        isLoading: !error && !data,
+        isError: error
     }
   }
   
