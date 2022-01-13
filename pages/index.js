@@ -13,7 +13,7 @@ const URL = "https://backend-l3ahb.ondigitalocean.app"
 
 export default function Home({initialScreensData}) {
   
-  const {screensData,isLoading,isError} = getScreensData(initialScreensData)
+  const {screensData,isLoading,isError} = GetScreensData(initialScreensData)
   if(isError) return "an error has occured "+{error}
   if(isLoading) return "loading..."
   if(!screensData) return "loading..."    
@@ -79,7 +79,7 @@ async function fetcher(url){
 }
 
 
-  function getScreensData({initialScreensData}) {
+  function GetScreensData({initialScreensData}) {
   
   const {data,error} = useSWR("/api/screens?populate=*",fetcher,{ initialData:initialScreensData,revalidateOnMount:true,refreshInterval: 5 })
   if(error) return "an error has occured "+{error}
