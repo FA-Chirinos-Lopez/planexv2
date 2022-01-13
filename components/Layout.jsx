@@ -1,7 +1,7 @@
 import Head from "next/head"
 import Image from "next/image"
-import FooterSL from "./footerSL"
-import HeaderSL from "./headerSL"
+import FooterSL from "./FooterSL"
+import HeaderSL from "./HeaderSL"
 
 export default function Layout({children}) {
     return (
