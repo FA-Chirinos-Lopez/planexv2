@@ -7,7 +7,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { Slide } from "react-slideshow-image";
 import React , { Component } from "react";
 import 'react-slideshow-image/dist/styles.css'
-import useSWR, { mutate } from "swr"
+import useSWR from "swr"
 
 
 

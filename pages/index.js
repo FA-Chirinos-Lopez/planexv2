@@ -1,8 +1,8 @@
 import Layout from "../components/Layout";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Link from "next/link";
-import React, { useState, useEffect } from 'react';
-import useSWR, { mutate } from "swr"
+import React from 'react';
+import useSWR from "swr"
 
 
 const URL = "https://backend-l3ahb.ondigitalocean.app"
