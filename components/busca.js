@@ -1,4 +1,4 @@
-
+import Head from 'next/head'
 import Layout from "../components/Layout";
 import Container from "../components/Container";
 import AdsContainer from "../components/AdsContainer";
@@ -8,8 +8,6 @@ import { Slide } from "react-slideshow-image";
 import React , { Component } from "react";
 import 'react-slideshow-image/dist/styles.css'
 import useSWR, { mutate } from "swr"
-
-
 
 
 
@@ -35,32 +33,30 @@ function findId(data, idToLookFor) {
 }
 
 
-export default function ScreensDisplay({ initialScreensData,initialImgDataADS }) {
-   console.log(initialScreensData.id)
+export default function ScreensDisplay({ initialScreensData,ImgDataADS }) {
+
     //FULLSCREEN
   const handle = useFullScreenHandle();
   //RESET ARRAY OF SLIDES
   slideImages.length=0
 
 
-  /* const {data,error} = useSWR("/api/screens/"+initialScreensData.id+"?populate=*",fetcher,{revalidateOnMount:true,refreshInterval: 5 })
+  const {data,error} = useSWR("/api/screens?populate=*",fetcher,{revalidateOnMount:true,refreshInterval: 5 })
       if(error) return "an error has occured "+{error}
-      if(!data) return "loading..." */
-      const id= initialScreensData.id
-      const {imgDataADS} = getAdvertisementData()
-      const { screensData, isLoading, isError } = getScreensData(id)
-      
+      if(!data) return "loading..."
+      if(data) {let screensData = data}
       if(!screensData) return "loading..."    
       if (screensData) {
         
         console.log("HAY DATOS")
-        
-       
-    //ARRAYS DEFINITION
-    let seminarsData= screensData.attributes.stage_timetables.data;
+        console.log(screensData,"yehe")
+        let halldescriptorsData = screensData[0].attributes
+        console.log(halldescriptorsData)
+  //ARRAYS DEFINITION
+ /*  let seminarsData= screensData.attributes.stage_timetables.data;
   let halldescriptorsData= screensData.attributes.hall_descriptors.data;
   let advertisementsData= screensData.attributes.advertisementsToAdd.data;
-   
+   */
   
   
   //ADD SEMINARS
@@ -97,7 +93,6 @@ export default function ScreensDisplay({ initialScreensData,initialImgDataADS })
         
         </div>
         )))
-    
     return (
       <div >
       <FullScreen handle={handle}>
@@ -241,8 +236,7 @@ export default function ScreensDisplay({ initialScreensData,initialImgDataADS })
     try {
       const resScreens = await fetch(URL+"/api/screens");
       const data = await resScreens.json();
-      const paths = data.data.map(({ id }) => ({ params: { id: id.toString() } }));
-      console.log(paths,"paths")
+      const paths = data.data.map(({ id }) => ({ params: { id: `${id}` } }));
       return {
         paths,
         fallback: 'blocking',
@@ -252,24 +246,22 @@ export default function ScreensDisplay({ initialScreensData,initialImgDataADS })
     }
   }
 
- 
+  
   export async function getStaticProps({ params }) {
     try {
-       
-       
         const resImagesAds = await fetch(URL+"/api/advertisements?populate=*");
         const resScreens = await fetch(URL+"/api/screens/"+params.id+"?populate=*");
         const imgAdsData= await resImagesAds.json();
         const dataScreens = await resScreens.json();
         const initialScreensData = dataScreens.data
-        const initialImgDataADS = imgAdsData.data
+        const imgDataADS = imgAdsData.data
         console.log(initialScreensData)
-      
-       
+        console.log(imgDataADS)
+        
      
       return {
         props: {
-            initialScreensData,initialImgDataADS
+            initialScreensData,imgDataADS
         },revalidate:1
       };
     } catch (error) {
@@ -279,49 +271,21 @@ export default function ScreensDisplay({ initialScreensData,initialImgDataADS })
 
 
   
-  async function fetcher(url){
-    const res = await fetch(URL+url)
+  async function fetcher(props){
+    const res = await fetch(URL+"/api/screens/"+"13"+"?populate=*")
     const {data} = await res.json();
     
     return data
   }
 
-  function getScreensData(id) {
+  function getScreensData({ initialScreensData}) {
   
-    const {data,error} = useSWR("/api/screens/"+id+"?populate=*",fetcher,{revalidateOnMount:true,refreshInterval: 5 })
+    const {data,error} = useSWR("me",fetcher,{ initialData:initialScreensData,revalidateOnMount:true,refreshInterval: 5 })
     if(error) return "an error has occured "+{error}
     if(!data) return "loading..."
     console.log(data)
     return {
         screensData: data,
-        isLoading: !error && !data,
-        isError: error
-    }
-  }
-
-
-/*   function getScreensData(id) {
-  
-    const {data,error} = useSWR("/api/screens/"+id+"?populate=*",fetcher,{revalidateOnMount:true,refreshInterval: 5 })
-    if(error) return "an error has occured "+{error}
-    if(!data) return "loading..."
-    console.log(data)
-    return {
-        imgDataADS: data,
-        isLoading: !error && !data,
-        isError: error
-    }
-  } */
-
-
-  function getAdvertisementData() {
-    const urlimg = "/api/advertisements?populate=*"
-    const {data,error} = useSWR(urlimg,fetcher,{revalidateOnMount:true,refreshInterval: 5 })
-    if(error) return "an error has occured "+{error}
-    if(!data) return "loading..."
-    console.log(data)
-    return {
-        imgDataADS: data,
         isLoading: !error && !data,
         isError: error
     }

@@ -1,19 +1,32 @@
 import Layout from "../components/Layout";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Link from "next/link";
-
-
+import React, { useState, useEffect } from 'react';
+import useSWR, { mutate } from "swr"
 
 
 const URL = "https://backend-l3ahb.ondigitalocean.app"
 
-export default function Home({screensData}) {
-  return (
+
+
+
+
+export default function Home({initialScreensData}) {
+  
+  const {screensData,isLoading,isError} = getScreensData(initialScreensData)
+  if(isError) return "an error has occured "+{error}
+  if(isLoading) return "loading..."
+  if(!screensData) return "loading..."    
+  if (screensData) {
+      
+      console.log("HAY DATOS")
+      
+    return (
     <div>
     <Layout>
     <div className="container" >
     
-    <h1 className="display-5">Screens Main View</h1>
+    <h1 className="display-5">Screens Main View--- {screensData.map((screensData)=> (<div key={screensData.id}>{screensData.id}</div>))}</h1>
     <div className="row g-2" >
     
     {screensData.map((screensData) => (
@@ -28,27 +41,53 @@ export default function Home({screensData}) {
         </Link>       
         </div>
     ))}
+
     </div>
     </div>
     </Layout>
     </div>
-  )
+  )}
 }
 
 
-export async function getServerSideProps() {
-  console.log(process.env.DB_URL)
-   try {
-  const resScreens = await fetch(URL+"/api/screens?populate=%2A");
 
-  const dataScreens = await resScreens.json();
-  const screensData = dataScreens.data
-    return {
-      props: {
-        screensData,
-      },
-    };
-  } catch (error) {
-    console.log(error);
+export async function getStaticProps() {
+  
+  try {
+ const resScreens = await fetch(URL+"/api/screens?populate=%2A");
+
+ const dataScreens = await resScreens.json();
+ const initialScreensData = dataScreens.data
+ console.log(initialScreensData,"datos de getstaticsprops")
+   return {
+     props: {
+      initialScreensData,
+     }, revalidate:1
+   };
+ } catch (error) {
+   console.log(error);
+ }
+}
+
+
+
+async function fetcher(url){
+  const res = await fetch(URL+url)
+  const {data} = await res.json();
+  
+  return data
+}
+
+
+  function getScreensData({initialScreensData}) {
+  
+  const {data,error} = useSWR("/api/screens?populate=*",fetcher,{ initialData:initialScreensData,revalidateOnMount:true,refreshInterval: 5 })
+  if(error) return "an error has occured "+{error}
+  if(!data) return "loading..."
+  console.log(data)
+  return {
+      screensData: data,
+      isLoading: !error && !data,
+      isError: error
   }
 }
