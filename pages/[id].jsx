@@ -1,7 +1,7 @@
 
-import Layout from "../components/Layout";
-import Container from "../components/Container";
-import AdsContainer from "../components/AdsContainer";
+import Layout from "../components/layout";
+import Container from "../components/container";
+import AdsContainer from "../components/adsContainer";
 import { FullScreen, useFullScreenHandle } from "react-full-screen";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Slide } from "react-slideshow-image";

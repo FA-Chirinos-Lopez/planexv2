@@ -1,4 +1,4 @@
-import SpacerSL from "./SpacerSL"
+import SpacerSL from "./spacerSL"
 
 export default function Container(props) {
     return (

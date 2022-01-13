@@ -1,7 +1,7 @@
-import FooterSL from "./FooterSL";
-import HeaderSL from "./HeaderSL";
-import Layout from "./Layout";
-import SpacerSL from "./SpacerSL";
+import FooterSL from "./footerSL";
+import HeaderSL from "./headerSL";
+import Layout from "./layout";
+import SpacerSL from "./spacerSL";
 
 
 export default function AdsContainer(props) {

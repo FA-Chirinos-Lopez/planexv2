@@ -1,4 +1,4 @@
-import Layout from "../components/Layout";
+import Layout from "../components/layout";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Link from "next/link";
 import React, { useState, useEffect } from 'react';
