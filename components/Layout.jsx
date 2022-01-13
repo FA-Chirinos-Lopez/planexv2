@@ -5,7 +5,7 @@ import HeaderSL from "./HeaderSL"
 
 export default function Layout({children}) {
     return (
-        <div style={{backgroundColor:"#B9B7BD"}} >
+        <div style={{backgroundColor:"#B9B7BD", height:"100vh",border: "5px solid red"}} >
         <HeaderSL/>
         <Head>
         <link

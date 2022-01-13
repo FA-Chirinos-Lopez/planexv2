@@ -47,8 +47,8 @@ export default function ScreensDisplay({ initialScreensData,initialImgDataADS })
       if(error) return "an error has occured "+{error}
       if(!data) return "loading..." */
       const id= initialScreensData.id
-      const {imgDataADS} = getAdvertisementData()
-      const { screensData, isLoading, isError } = getScreensData(id)
+      const {imgDataADS} = GetAdvertisementData()
+      const { screensData, isLoading, isError } = GetScreensData(id)
       
       if(!screensData) return "loading..."    
       if (screensData) {
@@ -286,7 +286,7 @@ export default function ScreensDisplay({ initialScreensData,initialImgDataADS })
     return data
   }
 
-  function getScreensData(id) {
+  function GetScreensData(id) {
   
     const {data,error} = useSWR("/api/screens/"+id+"?populate=*",fetcher,{revalidateOnMount:true,refreshInterval: 5 })
     if(error) return "an error has occured "+{error}
@@ -314,7 +314,7 @@ export default function ScreensDisplay({ initialScreensData,initialImgDataADS })
   } */
 
 
-  function getAdvertisementData() {
+  function GetAdvertisementData() {
     const urlimg = "/api/advertisements?populate=*"
     const {data,error} = useSWR(urlimg,fetcher,{revalidateOnMount:true,refreshInterval: 5 })
     if(error) return "an error has occured "+{error}
