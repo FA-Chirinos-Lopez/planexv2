@@ -1,0 +1,90 @@
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: Segoe UI, Open Sans, sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+
+
+
+
+h1 {
+	font-size: 4rem;
+}
+
+.screen {
+	// find out the aspect ratio of the screens
+	width: 1080px;
+	height: 1920px;
+	margin: 80px 0;
+	background: grey;
+}
+
+.header {
+	width: 100%;
+	height: 15%;
+	background: black;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.main {
+	width: 100%;
+	height: 75%;
+	&__image {
+		height: 60%;
+		&__img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+		}
+	}
+	&__cta {
+		height: 10%;
+		border-top: solid black 4px;
+		border-bottom: solid black 4px;
+		display: flex;
+		justify-content: center;
+		justify-content: content;
+		align-items: center;
+	}
+	&__time {
+		height: 30%;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		&__container {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			&__h2 {
+				font-size: 2rem;
+        color: azure;
+			}
+			&__h3 {
+				font-size: 1rem;
+        color:azure
+			}
+		}
+	}
+}
+
+.footer {
+	width: 100%;
+	height: 10%;
+	background: black;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}

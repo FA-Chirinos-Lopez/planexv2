@@ -5,23 +5,41 @@ import SpacerSL from "./SpacerSL";
 
 
 export default function AdsContainer(props) {
+
+    
+   
+    const time = props.Time.split("");
+    //["0", "0", ":", "0", "0", ":", ......]
+
+    const time1 = time.slice(0, 5);
+    // ["0", "0", ":", "0", "0"]
+
+    
+    //"00:00"
+    const ftime =  time1.join("")
+    
     return (
-        <div style={{height:"100vh"}}>
-        <Layout>
-        <div style={{display:"table", margin:"auto"}}>
+        <div >
+        <Layout ads="sss">
+        <header className="header">
+		<h1 className="header__h1">Call to action</h1>
+	    </header>
+        <main className="main">
          
             
-            <div style={{height:"40vh"}}><img src={props.img} height="500vh"/></div>
-            <div style={{height:"50vh"}}>
+            <div className="main__image" ><img src={props.img} /></div>
             
-            <div style={{position:"relative", top:"20vh"}}><SpacerSL/> <h1>{props.CallToAction}</h1><SpacerSL/> </div> 
             
-            <div style={{position:"relative", top:"20vh"}}><h2>{props.Time}</h2></div>
-            <div style={{position:"relative", top:"20vh"}}><h3>{props.Title}</h3></div>
-            <div style={{position:"relative", top:"20vh"}}><p>{props.Location}</p></div>
+            <div className="main__cta"><h1 className="main__cta_h1">{props.CallToAction}</h1></div> 
+            <main className="main__time">
+            <div className="main__time__container">
+            <div className="main__time__container__h1"><h1>{ftime}</h1></div>
+            <div className="main__time__container__h2"><h2>{props.Title}</h2></div>
+            <div className="main__time__container__h3"><h3>{props.Location}</h3></div>
             </div>
+            </main>
            
-        </div>
+        </main>
         </Layout>
         
         </div>

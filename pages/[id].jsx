@@ -68,7 +68,7 @@ export default function ScreensDisplay({ initialScreensData,initialImgDataADS })
     {seminarsData && seminarsData.map((seminarsData) => (
      <div   key={seminarsData.id}>
      <Container title={seminarsData.attributes.title} subtitle={seminarsData.attributes.subtitle} 
-     description={seminarsData.attributes.description} left1={"NOW"} left2={"10:00 - 12:00"} />
+     description={seminarsData.attributes.description} left1={"NOW"} left2={seminarsData.attributes.time} />
     </div>
     ))}
     </Layout>)
@@ -116,7 +116,7 @@ export default function ScreensDisplay({ initialScreensData,initialImgDataADS })
         {seminarsData && seminarsData.map((seminarsData) => (
          <div   key={seminarsData.id}>
          <Container title={seminarsData.attributes.title} subtitle={seminarsData.attributes.subtitle} 
-         description={seminarsData.attributes.description} left1={"NOW"} left2={"10:00 - 12:00"} />
+         description={seminarsData.attributes.description} left1={"NOW"} left2={seminarsData.attributes.time} />
         </div>
         ))}
         </Layout>
