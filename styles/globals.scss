@@ -1,9 +1,11 @@
 html,
 body {
-  padding: 0;
-  margin: 0;
-  font-family: Segoe UI, Open Sans, sans-serif;
-}
+	
+	
+	padding: 0;
+	margin: 0;
+	font-family: Segoe UI, Open Sans, sans-serif;
+	}
 
 a {
   color: inherit;
@@ -37,6 +39,9 @@ h1 {
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	&__h1 { 
+		color: white;
+	}
 }
 
 .main {
