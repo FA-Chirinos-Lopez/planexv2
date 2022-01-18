@@ -1,12 +1,14 @@
-import Head from "next/head"
-import Image from "next/image"
-import FooterSL from "./FooterSL"
-import HeaderSL from "./HeaderSL"
-import { useState } from "react"
 
-export default function Layout({children,ads}) {
+import { useState } from "react"
+import SeminarsHeader from "./SeminarsHeader"
+import SeminarsFooter from "./SeminarsFooter"
+import { months,days } from "../utils/daysandmonths"
+
+export default function Layout(props) {
+  const contentType = true;
   
-  const [time,setTime] = useState("00:00")
+
+  const [time,setTime] = useState("")
       // initial
     let d = new Date();
     //setTime(d.toString().slice(16, 24))
@@ -18,23 +20,23 @@ export default function Layout({children,ads}) {
     }, 1000);
 
 
+
     return (
-        <div style={{backgroundColor:"#B9B7BD"}} >
-        {ads?(null):(<HeaderSL time={time}/>)}
+      <div className="layout">
+      
+        <div className="screenSeminars">
+        <div className="dateSeminars">{days[d.getDay()]} {time}</div>
+        {contentType ?(<SeminarsHeader theatreName={props.theatreName} topicOrSubtitle={props.topicOrSubtitle} sponsoredByImg={props.sponsoredByImg} />):(null)}
+
+        {contentType ? <ul className="mainSeminars">{props.children}</ul>
+        :(null)}
         
-        <Head>
-        <link
-        href="https://fonts.googleapis.com/css2?family=Inter&display=optional"
-        rel="stylesheet"
-      />
-        </Head>
- 
-        <main>
         
-        {children}
-       
-        </main>
-    <FooterSL/>
-    </div>
+        
+        
+
+        {contentType?(<SeminarsFooter EventName={props.EventName} EventStart={props.EventStart} EventEnd={props.EventEnd} FooterImage={props.FooterImage} />):(null)}
+      </div>
+      </div>
     )
 }

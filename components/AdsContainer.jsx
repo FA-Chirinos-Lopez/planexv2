@@ -7,7 +7,7 @@ import SpacerSL from "./SpacerSL";
 export default function AdsContainer(props) {
 
     
-   
+   if (props.Time){
     const time = props.Time.split("");
     //["0", "0", ":", "0", "0", ":", ......]
 
@@ -16,11 +16,10 @@ export default function AdsContainer(props) {
 
     
     //"00:00"
-    const ftime =  time1.join("")
+    const ftime =  time1.join("")}
     
     return (
         <div >
-        <Layout ads="sss">
         <header className="header">
 		<h1 className="header__h1">Call to action</h1>
 	    </header>
@@ -40,7 +39,6 @@ export default function AdsContainer(props) {
             </main>
            
         </main>
-        </Layout>
         
         </div>
 
