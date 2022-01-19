@@ -50,6 +50,10 @@ h1 {
 	font-size: 3rem;
 }
 
+h2 {
+	font-size: 2rem;
+}
+
 .screenSeminars {
 	width: 1080px; // will be 100vw in final application
 	height: 1920px; // will be 100vh in final application
@@ -113,20 +117,31 @@ h1 {
 	display: grid;
 	grid-auto-rows: 240px;
 	grid-row-gap: 10px;
-	// grid-auto-columns: 70% 30%;
+	
+	//grid-auto-columns: 70% 30%;
 	&__item {
+		
+
+
 		list-style: none;
 		background-color: $white;
 		padding: 0 $paddingH 0 $paddingH;
 		display: flex;
 		justify-content: center;
 		align-items: center;
+		
+		//Get full width of row
+		width: 103%; 
+		position: relative;
+		right: 3.02%;
+		
+	
 		&__grid {
 			display: grid;
 			grid-auto-rows: auto;
-			// grid-row-gap: 10px;
-			//grid-auto-columns: 70% 30%;
-			// grid-column-gap: 40px;
+			//grid-row-gap: 10px;
+			grid-auto-columns: 70% 30%;
+			grid-column-gap: 40px;
 			&__h1 {
 				grid-row: 1 / 2;
 				grid-column: 1 / 2;
@@ -172,7 +187,7 @@ h1 {
 
 .footerSeminars {
 	position: relative;
-	bottom: 0.8%;
+	bottom: .9%;
 	height: 15%;
 	background: $purple;
 	padding: 0 $paddingH 0 $paddingH;
@@ -201,5 +216,220 @@ h1 {
 			grid-column: 2 / 3;
 			aspect-ratio: 16 / 9;
 		}
+	}
+}
+
+
+
+.ads{
+
+		
+
+
+
+// imaginary screen
+&__adsbody {
+	background: lightgrey;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-family: Sen, Open Sans, sans-serif;
+	color: white;
+}
+
+
+
+&__screen {
+	width: 1080px; // will be 100vw in final application
+	height: 1920px; // will be 100vh in final application
+	margin: 80px 0; // delete in final application
+}
+
+&__date {
+	height: 5%;
+	font-size: 2rem;
+	background-color: $purple;
+	display: flex;
+	align-items: center;
+	padding-left: $paddingH;
+}
+
+&__header {
+	height: 15%;
+	background: $blue;
+	padding: 0 $paddingH 0 $paddingH;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	&__grid {
+		display: grid;
+		grid-auto-rows: auto;
+		grid-auto-columns: 72.5% 27.5%;
+		&__h1 {
+			grid-row: 1 / 2;
+			grid-column: 1 / 2;
+			font-size: 4rem;
+		}
+		&__h2 {
+			grid-row: 2 / 3;
+			grid-column: 1 / 2;
+			font-size: 2.5rem;
+		}
+		&__img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+			grid-row: 1 / 3;
+			grid-column: 2 / 3;
+			aspect-ratio: 16 / 9;
+		}
+		&__p {
+			grid-row: 3 / 4;
+			grid-column: 2 / 3;
+			justify-self: end;
+			margin-top: 10px;
+			font-size: 1.25rem;
+		}
+	}
+}
+
+
+
+&__footer {
+	height: 15%;
+	background: $purple;
+	padding: 0 $paddingH 0 $paddingH;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	&__grid {
+		display: grid;
+		grid-auto-rows: auto;
+		grid-auto-columns: 72.5% 27.5%;
+		&__h1 {
+			grid-row: 1 / 2;
+			grid-column: 1 / 2;
+			font-size: 4rem;
+		}
+		&__h2 {
+			grid-row: 2 / 3;
+			grid-column: 1 / 2;
+			font-size: 2.5rem;
+		}
+		&__img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+			grid-row: 1 / 3;
+			grid-column: 2 / 3;
+			aspect-ratio: 16 / 9;
+		}
+	}
+}
+
+
+	
+}
+
+
+.adsConainer__main {
+	color: $black;
+	overflow: auto;
+	height: 65%;
+	background: $blue;
+	//border: 1px solid rgb(255, 0, 0);
+
+	&__img {
+		width: 100%;
+		height: 55%;
+		object-fit: cover;
+	}
+	&__info {
+		background-color: $white;
+		padding: $paddingH;
+		&__h1,
+		&__h2,
+		&__p {
+			margin-bottom: 20px;
+		}
+	}
+}
+
+
+.adsFullScreen{
+
+	
+	
+		background: lightgrey;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		font-family: Sen, Open Sans, sans-serif;
+		color: white;
+	
+
+	
+	
+	
+	&__screen {
+		width: 1080px; // will be 100vw in final application
+		height: 1920px; // will be 100vh in final application
+		margin: 80px 0; // delete in final application
+	}
+	
+	&__date {
+		height: 5%;
+		font-size: 2rem;
+		background-color: $purple;
+		display: flex;
+		align-items: center;
+		padding-left: $paddingH;
+	}
+	
+
+	&__footer {
+		height: 15%;
+		background: $purple;
+		padding: 0 $paddingH 0 $paddingH;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		&__grid {
+			display: grid;
+			grid-auto-rows: auto;
+			grid-auto-columns: 72.5% 27.5%;
+			&__h1 {
+				grid-row: 1 / 2;
+				grid-column: 1 / 2;
+				font-size: 4rem;
+			}
+			&__h2 {
+				grid-row: 2 / 3;
+				grid-column: 1 / 2;
+				font-size: 2.5rem;
+			}
+			&__img {
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+				grid-row: 1 / 3;
+				grid-column: 2 / 3;
+				aspect-ratio: 16 / 9;
+			}
+		}
+	}
+	
+
+}
+
+
+.adsFullScreen__main{
+	color: $black;
+	height: 80%;
+	background: $blue;
+	&__img {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
 	}
 }

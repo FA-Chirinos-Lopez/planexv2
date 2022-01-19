@@ -40,7 +40,10 @@ export default function ContainerSeminars({title, subtitle, description,timeStar
     // console.log(getValueInMinutes(timeEnd),"end")
     // console.log(getValueInMinutes(time),"time")
     function isNow(){
-        if(getValueInMinutes(timeStart)<getValueInMinutes(time) && getValueInMinutes(time)<getValueInMinutes(timeEnd)){
+        if(
+            getValueInMinutes(timeStart)<getValueInMinutes(time) 
+            && 
+            getValueInMinutes(time)<getValueInMinutes(timeEnd)){
            return "ON NOW"
         }else{
             return 
@@ -77,7 +80,7 @@ export default function ContainerSeminars({title, subtitle, description,timeStar
                 </div>
             </li>
     
-    )}else{return (null)}
+    )}else{return null}
     
 }
 

@@ -23,7 +23,7 @@ export default function Home({initialScreensData}) {
     return (
     <div>
     <Layout 
-    contentType="seminar" 
+    contentType="Seminar" 
     EventName={theatreInfo.attributes.EventName} 
     EventStart={theatreInfo.attributes.EventStart} 
     EventEnd={theatreInfo.attributes.EventEnd} 
@@ -97,7 +97,12 @@ async function fetcher(url){
 
   function GetScreensData({initialScreensData}) {
   
-  const {data,error} = useSWR("/api/screens?populate=*",fetcher,{fallbackData:initialScreensData,revalidateOnMount:true,refreshInterval: 5 })
+  const {data,error} = useSWR(
+    "/api/screens?populate=*",
+    fetcher,
+    {fallbackData:initialScreensData,
+      revalidateOnMount:true,
+      refreshInterval: 5 })
   if(error) return "an error has occured "+{error}
   if(!data) return "loading..."
   console.log(data)
@@ -110,7 +115,11 @@ async function fetcher(url){
 
 function GetTheatreInfo(initialTheatreInfo) {
   
-  const {data,error} = useSWR("/api/theatre-info?populate=*",fetcher,{fallbackData:initialTheatreInfo ,revalidateOnMount:true,refreshInterval: 5 })
+  const {data,error} = useSWR(
+    "/api/theatre-info?populate=*",
+    fetcher,
+    {fallbackData:initialTheatreInfo,
+      revalidateOnMount:true,refreshInterval: 5 })
   if(error) return "an error has occured "+{error}
   if(!data) return "loading..."
   
