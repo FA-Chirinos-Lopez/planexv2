@@ -41,26 +41,26 @@ export default function Layout(props) {
     if(contentType=="Seminar")
     {
       return (//RENDER SEMINARS
-        <div className="layout" >
-        
-          <div className="screenSeminars">
-          <div className="dateSeminars">{days[d.getDay()]} {time}</div>
-          {contentType ?(<SeminarsHeader 
-                            TheatreName={props.TheatreName} 
-                            TopicOrSubtitle={props.TopicOrSubtitle} 
-                            SponsoredByImg={props.SponsoredByImg} />):(null)}
-  
-          {contentType ? <ul className="mainSeminars">{props.children}</ul>
-          :(null)}
-  
-          {contentType?(<SeminarsFooter 
-                          EventName={props.EventName} 
-                          EventStart={props.EventStart} 
-                          EventEnd={props.EventEnd} 
-                          FooterImage={props.FooterImage} />):(null)}
-        </div>
-        </div>
-      )
+      <div className="layout" >
+      
+        <div className="screenSeminars">
+        <div className="dateSeminars">{days[d.getDay()]} {time}</div>
+        {contentType ?(<SeminarsHeader 
+                          TheatreName={props.TheatreName} 
+                          TopicOrSubtitle={props.TopicOrSubtitle} 
+                          SponsoredByImg={props.SponsoredByImg} />):(null)}
+
+        {contentType ? <ul className="mainSeminars">{props.children}</ul>
+        :(null)}
+
+        {contentType?(<SeminarsFooter 
+                        EventName={props.EventName} 
+                        EventStart={props.EventStart} 
+                        EventEnd={props.EventEnd} 
+                        FooterImage={props.FooterImage} />):(null)}
+      </div>
+      </div>
+    )
   }else if(contentType=="Advertisement" && !fullScreen){
     return(//RENDER NORMAL ADVERTS
       <div className="layout">

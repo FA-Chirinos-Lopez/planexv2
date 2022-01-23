@@ -70,15 +70,20 @@ export default function ContainerSeminars({title, subtitle, description,timeStar
 
  if(getValueInMinutes(time)<getValueInMinutes(timeEnd)){
     return (
+      
             <li className="mainSeminars__item">
+              
                 <div className="mainSeminars__item__grid">
+                
                     <h1 className="mainSeminars__item__grid__h1">{title}</h1>
                     <h2 className="mainSeminars__item__grid__h2">{subtitle}</h2>
                     <p className="mainSeminars__item__grid__description">{description}</p>
+                
                     <p className="mainSeminars__item__grid__time">{timeStartDisplay} to {timeEndDisplay}</p>
                     <p className="mainSeminars__item__grid__notify">{isNow()}</p>
                 </div>
             </li>
+        
     
     )}else{return null}
     

@@ -21,64 +21,9 @@ export default function dev() {
 
 
 
-  function Slideshow() {
+  
 
-    const colors = ["#0088FE", "#00C49F", "#FFBB28"];
-    const delay = 2500;
-    let [index, setIndex] = React.useState(0);
-    let timeoutRef = React.useRef(null);
-    function resetTimeout() {
-      if (timeoutRef.current) {
-        clearTimeout(timeoutRef.current);
-      }
-    }
-  
-    React.useEffect(() => {
-      resetTimeout();
-      timeoutRef.current = setTimeout(
-        () =>
-          setIndex((prevIndex) =>
-            prevIndex === colors.length - 1 ? 0 : prevIndex + 1,
-            console.log("caca")
-          ),delay
-          
-        
-        
-      );
-  
-      return () => {
-        resetTimeout();
-      };
-    }, [index]);
-  
-    return (
-      <div className="slideshow">
-        <div
-          className="slideshowSlider"
-          style={{ transform: `translate3d(${-index * 100}%, 0, 0)` }}
-        >
-          {colors.map((backgroundColor, index) => (
-            <img src="http://localhost:1337/uploads/photo_1497366811353_6870744d04b2_97cb596f08.jpeg" alt="" className="adsConainer__main__img"/>
-          ))}
-        </div>
-  
-        <div className="slideshowDots">
-          {colors.map((_, idx) => (
-            <div
-              key={idx}
-              className={`slideshowDot${index === idx ? " active" : ""}`}
-              onClick={() => {
-                setIndex(idx);
-              }}
-            ></div>
-          ))}
-        </div>
-      </div>
-    );
-  }
-
-  return <Slideshow></Slideshow>
-  
+  return 
         
     
 }

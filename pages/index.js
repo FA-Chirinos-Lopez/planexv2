@@ -6,7 +6,7 @@ import useSWR from "swr"
 import ContainerSeminars from "../components/ContainerSeminars";
 
 
-const URL = "http://localhost:1337" //"https://backend-l3ahb.ondigitalocean.app"
+const URL = process.env.NEXT_PUBLIC_DBURL 
 
 export {URL}
 

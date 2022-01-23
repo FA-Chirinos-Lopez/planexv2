@@ -10,7 +10,7 @@ export default function AdsContainer({timeSlide,CallToAction,Location,Title,Desc
     const Image="Image"
     const Video="Video"
    
-    const [videoRender, setVideoRender] = React.useState([])
+    
 
 
 
@@ -32,15 +32,11 @@ const img = null
 
 
     if(FullScreen && Type=="Video"){
-        setInterval(() => {
-            if(currentSlide==IndexNumber)
-            console.log("puesto")
-            setVideoRender(Img)
-        }, 1000);
+    
      
         return (
-            <video  className="videoFullScreen" autoPlay muted >
-                <source src={videoRender} type="video/mp4" />
+            <video  className="videoFullScreen" autoPlay muted loop >
+                <source src={Img} type="video/mp4" />
             </video>)
 
                 
@@ -60,8 +56,8 @@ const img = null
             <div className="adsConainer__main__info">
                     <h1 className="adsConainer__main__info__h1">{CallToAction}</h1>
                     <h2 className="adsConainer__main__info__h2">{Location}</h2>
-                    <p className="adsConainer__main__info__p">{Description}</p>
-                    <p className="adsConainer__main__info__p">{DescriptionSecondParagraph}</p>
+                    <p className="adsConainer__main__info__p" style={{whiteSpace: "pre-wrap"}}>{Description}</p>
+                    <p className="adsConainer__main__info__p" style={{whiteSpace: "pre-wrap"}}>{DescriptionSecondParagraph}</p>
                 </div>
             </main>
         )
@@ -72,8 +68,8 @@ const img = null
                 <div className="adsConainer__main__info">
                     <h1 className="adsConainer__main__info__h1">{CallToAction}</h1>
                     <h2 className="adsConainer__main__info__h2">{Location}</h2>
-                    <p className="adsConainer__main__info__p">{Description}</p>
-                    <p className="adsConainer__main__info__p">{DescriptionSecondParagraph}</p>
+                    <p className="adsConainer__main__info__p" style={{whiteSpace: "pre-wrap"}}>{Description}</p>
+                    <p className="adsConainer__main__info__p" style={{whiteSpace: "pre-wrap"}}>{DescriptionSecondParagraph}</p>
                 </div>
             </main>
         )

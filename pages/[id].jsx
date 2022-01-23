@@ -213,8 +213,8 @@ switch(slideImages) {
       <FullScreen handle={handle}>
       <Slider></Slider>
       </FullScreen>
-      <br/><br/><br/><br/><br/><br/><br/><br/><h1>{currentSlide}</h1>
-    <button className="btn btn-primary btn-lg" onClick={handle.enter} style={{position:"relative", bottom:"-47vh"}}>
+      
+    <button className="btn btn-primary btn-lg" onClick={handle.enter} style={{position:"relative" , left:"43%"}}>
     Enter fullscreen
     </button>
     
