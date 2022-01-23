@@ -23,14 +23,14 @@ export default function Home({initialScreensData}) {
     return (
     <div>
     <Layout 
-    contentType="Seminar" 
+    ContentType="Seminar" 
     EventName={theatreInfo.attributes.EventName} 
     EventStart={theatreInfo.attributes.EventStart} 
     EventEnd={theatreInfo.attributes.EventEnd} 
     FooterImage={theatreInfo.attributes.FooterImage.data.attributes.url} 
-    theatreName={theatreInfo.attributes.TheatreName} 
-    topicOrSubtitle={theatreInfo.attributes.TopicOrSubtitle} 
-    sponsoredByImg={theatreInfo.attributes.SponsoredBy.data.attributes.url}>
+    TheatreName={theatreInfo.attributes.TheatreName} 
+    TopicOrSubtitle={theatreInfo.attributes.TopicOrSubtitle} 
+    SponsoredByImg={theatreInfo.attributes.SponsoredBy.data.attributes.url}>
     <div className="container" >
     
     <h1 className="display-5" style={{color:"white"}}>Screens Main View </h1>

@@ -4,13 +4,13 @@ import Container from "../components/Container";
 import AdsContainer from "../components/AdsContainer";
 import { FullScreen, useFullScreenHandle } from "react-full-screen";
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Slide } from "react-slideshow-image";
-import React , { Component } from "react";
+import { Slide, Zoom } from "react-slideshow-image";
+import React , { Component, useEffect } from "react";
 import 'react-slideshow-image/dist/styles.css';
 import useSWR from "swr";
 import ContainerSeminars from "../components/ContainerSeminars";
 import { URL } from ".";
-
+import Slider ,{currentSlide} from "../components/Slider";
 
 
 
@@ -20,6 +20,7 @@ import { URL } from ".";
 //const URL =  "http://localhost:1337" //"https://backend-l3ahb.ondigitalocean.app"
 
 const slideImages=[""]
+export {slideImages}
 slideImages.length=0
 
 
@@ -33,24 +34,22 @@ function findContentURL(data, idToLookFor) {
       }
   }
 }
-function isVideo(data, idToLookFor) {
-  var categoryArray = data;
-  const videoExt=[".mp4",".mpg-4",".mov",".wmv",".avi",".avchd",".flv",".f4v",".swf",".mkv",".webm",".mpge-2"]
-  for (var i = 0; i < categoryArray.length; i++) {
 
-      if (categoryArray[i].attributes.ExhibitorAnimationOrGraphic.data.attributes.formats) {
-        
-        console.log(categoryArray[i],"no es imagen")
-        }else{ console.log("Es imagen")}
-}}
 
 export default function ScreensDisplay({ initialScreensData,initialImgDataADS }) {
+
+  
+  //initialScreensData.id
+
+  
+
     //FULLSCREEN
   const handle = useFullScreenHandle();
   //RESET ARRAY OF SLIDES
   slideImages.length=0
 // IF ONLY ONE SLIDE OR NONE DONT SCROLL
 var condSlide= false
+
 
 
 switch(slideImages) {
@@ -69,7 +68,7 @@ switch(slideImages) {
       if(!data) return "loading..." */
       const id= initialScreensData.id
       const {theatreInfo} = GetTheatreInfo()
-      
+     
       const {imgDataADS} = GetAdvertisementData()
       const { screensData, isLoading, isError } = GetScreensData(id)
       if (isError) isError
@@ -88,11 +87,13 @@ switch(slideImages) {
       
       
   //ADD SEMINARS
+  console.log(theatreInfo.attributes.SeminarsDurationSlide,"duracion de seminars")
   if(seminarsData!=0){
 
   slideImages.push(    
     
-    <Layout 
+    <Layout
+    timeSlide = {theatreInfo.attributes.SeminarsDurationSlide}
     ContentType="Seminar" 
     EventName={theatreInfo.attributes.EventName} 
     EventStart={theatreInfo.attributes.EventStart} 
@@ -118,41 +119,45 @@ switch(slideImages) {
     console.log(slideImages.length)
 
    //ADD HALL DESCRIPTORS
-   if(halldescriptorsData!=0){
+  //  if(halldescriptorsData!=0){
 
-   slideImages.push(
-
-    <Layout 
-    ContentType="seminarr" 
-    EventName={theatreInfo.attributes.EventName} 
-    EventStart={theatreInfo.attributes.EventStart} 
-    EventEnd={theatreInfo.attributes.EventEnd} 
-    FooterImage={theatreInfo.attributes.FooterImage.data.attributes.url} 
-    TheatreName={theatreInfo.attributes.TheatreName} 
-    TopicOrSubtitle={theatreInfo.attributes.TopicOrSubtitle} 
-    SponsoredByImg={theatreInfo.attributes.SponsoredBy.data.attributes.url}>
-
-    {halldescriptorsData && halldescriptorsData.map((halldescriptorsData) => (
-     
-     <Container 
-     key={halldescriptorsData.id} 
-     title={halldescriptorsData.attributes.Title} 
-     subtitle={halldescriptorsData.attributes.Subtitle} 
-     description={halldescriptorsData.attributes.Description} 
-     left1={halldescriptorsData.attributes.HallName} />
+  //  slideImages.push(
     
-    ))}
+  //   <Layout
+  //   timeSlide = {theatreInfo.attributes.HalldescriptorDurationSlide}
+  //   ContentType="Seminarr" 
+  //   EventName={theatreInfo.attributes.EventName} 
+  //   EventStart={theatreInfo.attributes.EventStart} 
+  //   EventEnd={theatreInfo.attributes.EventEnd} 
+  //   FooterImage={theatreInfo.attributes.FooterImage.data.attributes.url} 
+  //   TheatreName={theatreInfo.attributes.TheatreName} 
+  //   TopicOrSubtitle={theatreInfo.attributes.TopicOrSubtitle} 
+  //   SponsoredByImg={theatreInfo.attributes.SponsoredBy.data.attributes.url}>
 
-    </Layout>)}
+  //   {halldescriptorsData && halldescriptorsData.map((halldescriptorsData) => (
+     
+  //    <Container 
+  //    key={halldescriptorsData.id} 
+  //    title={halldescriptorsData.attributes.Title} 
+  //    subtitle={halldescriptorsData.attributes.Subtitle} 
+  //    description={halldescriptorsData.attributes.Description} 
+  //    left1={halldescriptorsData.attributes.HallName} />
+    
+  //   ))}
 
+  //   </Layout>)}
+
+    
     //ADD ADVERTISEMENTS
+    
     if(advertisementsData!=0){
-    imgDataADS && advertisementsData.map((advertisementsData) =>(
+    imgDataADS && advertisementsData.map((advertisementsData,index) =>(
         
       
           
           slideImages.push( 
-          <Layout 
+          <Layout
+          timeSlide = {advertisementsData.attributes.Duration}
           ContentType="Advertisement"
           FullScreen={advertisementsData.attributes.FullScreen}
           EventName={theatreInfo.attributes.EventName} 
@@ -165,8 +170,10 @@ switch(slideImages) {
         
               <AdsContainer
               key={advertisementsData.id}
+              IndexNumber={index}
+              CurrIndexSlider={currentSlide}
+              Type={advertisementsData.attributes.Type}
               FullScreen={advertisementsData.attributes.FullScreen} 
-              ifvideo="" 
               Img={findContentURL(imgDataADS,advertisementsData.id)} 
               CallToAction={advertisementsData.attributes.CallToAction}
               Time={advertisementsData.attributes.Time} 
@@ -174,7 +181,7 @@ switch(slideImages) {
               Location={advertisementsData.attributes.Location}
               Description={advertisementsData.attributes.Description}
               DescriptionSecondParagraph={advertisementsData.attributes.DescriptionSecondParagraph}/>
-                {console.log(advertisementsData.attributes.DescriptionSecondParagraph,"DESCRIPTION")}
+                {console.log(index,"datos desde ID")}
           </Layout>
         
         )))}
@@ -190,17 +197,30 @@ switch(slideImages) {
           default:
             condSlide = true
         }
-       console.log(slideImages)
+        
+     
+  
+       
+       
+       const zoomOutProperties = {
+        indicators: true,
+        scale: 0.4
+      }
+   
     return (
       <div >
       <FullScreen handle={handle}>
-      <Slideshow autoplay={false} duration={3000}></Slideshow>
-  
-     
-    </FullScreen>
+      <Slider></Slider>
+      </FullScreen>
+      <br/><br/><br/><br/><br/><br/><br/><br/><h1>{currentSlide}</h1>
     <button className="btn btn-primary btn-lg" onClick={handle.enter} style={{position:"relative", bottom:"-47vh"}}>
     Enter fullscreen
     </button>
+    
+    <div>
+      
+    </div>
+   
     
       </div>
     )}
@@ -209,10 +229,86 @@ switch(slideImages) {
 
 
 
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+
+
+  //       NEW SLIDER
+  
+
+  // const Slider = ({ slides }) => {
+  //   // Create a curr state indicating what's the current slide's index
+  //   const [curr, setCurr] = React.useState(0);
+  //   const effectSlider = ["Ease" , "Slide"]
+    
+    
+  //   const { length } = slides;
+  //   const delay = [2000,7000,3000]
+  //   const goToNext = () => {
+  //     // Check if we've reached the final slide in the array
+  //     // If so, go back to 0, else curr + 1
+  //     setCurr(curr === length - 1 ? 0 : curr + 1);
+  //   }
+    
+  //   // useEffect will run at every re-render
+  //   React.useEffect(() => {
+  //     // At every render, set a new timeout to go to the next slide
+      
+  //     setTimeout(goToNext, slideImages[curr].props.timeSlide*1000);
+  //     console.log(curr)
+  //     // And, when unmounting <Slider />, clear the timeout
+  //     // See the reactjs.org docs on hooks for more info
+  //     return function() {
+  //       clearTimeout(goToNext);
+  //     }
+  //   })
+  //   // setInterval(() => {
+      
+  //   //   console.log(slideImages[100000])
+  //   // }, 1000);
+  //   //slideImages[100000]=curr
+  //   if (!Array.isArray(slides) || length <= 0) {
+  //     return null;
+  //   }
+    
+  //   if(effectSlider[0]=="Ease"){
+  //     return (
+  //     <section className="slider">
+     
+  //     {slides.map((each, index) => (
+  //       <div
+  //         // if active slide, include the "active" class
+  //         className={index === curr ? "slide active" : "slide"}
+  //         key={index}
+  //         // if not active, hide from screen readers for accessibility
+  //         aria-hidden={index !== curr}
+  //       >
+  //         <div>
+  //         <div>{each}</div>
+  //         </div>
+          
+  //       </div>
+  //     ))}
+        
+  //     </section>
+  //   )}  
+  // }
+  
+
+  
+  
+
+// END OF NEW SLIDER
+
+
+
 
 
   
-  class Slideshow extends Component {
+  class Slideshoww extends Component  {
 
   
 
@@ -250,20 +346,22 @@ switch(slideImages) {
         easing: "ease",
         indicators: (i) => <div className="indicator">{i + 1}</div>
       }
-  
-  
-     
-  
+      
+      // while(true){
+      //   console.log("hola")
+      //   setTimeout(,1000)
+      // }
       
       return (
-        <div className={this.props.className}  style={{height:"100vh"}}>
+        <div className={this.props.className}  >
         
          
           <div className="slide-container">
             <Slide ref={this.slideRef} {...properties}>
               {slideImages.map((each, index) => (
                 <div key={index} className="each-slide"><div>{each}</div>
-                  
+                 
+                  {}
                 </div>
               ))}
             </Slide>

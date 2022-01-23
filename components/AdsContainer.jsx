@@ -1,11 +1,15 @@
-import FooterSL from "./FooterSL";
-import HeaderSL from "./HeaderSL";
-import Layout from "./Layout";
-import SpacerSL from "./SpacerSL";
+import React from 'react'
+import ReactPlayer from 'react-player'
+import { CurrentTimeDisplay, Player } from 'video-react';
+import {currentSlide,extraerVariable} from "../components/Slider";
 
 
-export default function AdsContainer({CallToAction,Location,Title,Description,FullScreen,Img,DescriptionSecondParagraph}) {
 
+export default function AdsContainer({CallToAction,Location,Title,Description,FullScreen,Img,DescriptionSecondParagraph,Type,IndexNumber,CurrIndexSlider}) {
+  
+    const Image="Image"
+    const Video="Video"
+   
     
 //    if (props.Time){
 //     const time = props.Time.split("");
@@ -17,31 +21,105 @@ export default function AdsContainer({CallToAction,Location,Title,Description,Fu
     
 //     //"00:00"
 //     const ftime =  time1.join("")}
-    if(FullScreen){
+const playBycurr = "autoPlay"
+
+
+
+
+
+    if(FullScreen && Type=="Video"){
+        setInterval(() => {
+            if(currentSlide==IndexNumber){
+                console.log("SON IGUALES")
+                return(
+                    <div>
+                    
+                        <video  className="videoFullScreen" autoPlay muted loop>
+                            <source src={Img} type="video/mp4" />
+                            
+                        </video>
+                        
+                    </div>
+        
+                        
+                    )
+            }
+        }, 500);
         return(
+            <div>
             
-            
-                    <img src={Img} alt="" className="adsFullScreen__main__img"/>
-          
+                <video  className="videoFullScreen"  muted loop>
+                    <source src={Img} type="video/mp4" />
+                    
+                </video>
+                
+            </div>
+
+                
+            )
+       
+    }else if(FullScreen && Type=="Image"){
+        return(
+            <img src={Img} alt="" className="adsFullScreen__main__img"/>
         )
-    }else{
-    return (
-    <main className="adsConainer__main">
-        <img src={Img} alt="" className="adsConainer__main__img"/>
-        <div className="adsConainer__main__info">
-            <h1 className="adsConainer__main__info__h1">{CallToAction}</h1>
-            <h2 className="adsConainer__main__info__h2">{Location}</h2>
-            <p className="adsConainer__main__info__p">{Description}</p>
-            <p className="adsConainer__main__info__p">{DescriptionSecondParagraph}</p>
-        </div>
-    </main>
-    )
+    }else if(!FullScreen && Type=="Video"){
+        return(
+            <main className="adsConainer__main">
+                <video className="video" autoPlay muted loop>
+                    <source src={Img} type="video/mp4" />
+                    Your browser does not support the video tag.
+                </video>
+            <div className="adsConainer__main__info">
+                    <h1 className="adsConainer__main__info__h1">{CallToAction}</h1>
+                    <h2 className="adsConainer__main__info__h2">{Location}</h2>
+                    <p className="adsConainer__main__info__p">{Description}</p>
+                    <p className="adsConainer__main__info__p">{DescriptionSecondParagraph}</p>
+                </div>
+            </main>
+        )
+    }else if(!FullScreen && Type=="Image"){
+        return(
+            <main className="adsConainer__main">
+                <img src={Img} alt="" className="adsConainer__main__img"/>
+                <div className="adsConainer__main__info">
+                    <h1 className="adsConainer__main__info__h1">{CallToAction}</h1>
+                    <h2 className="adsConainer__main__info__h2">{Location}</h2>
+                    <p className="adsConainer__main__info__p">{Description}</p>
+                    <p className="adsConainer__main__info__p">{DescriptionSecondParagraph}</p>
+                </div>
+            </main>
+        )
+        }else{
+            return <h1> not working</h1>
+        }
+
+   
 }
-}
 
 
 
 
+
+
+
+
+// else if(Type=="Video"){
+//     return <h1>Es video</h1>
+// }else{
+// return (
+
+// )
+// }
+
+
+
+
+
+
+
+
+
+// <img src={Img} alt="" className="adsFullScreen__main__img"/>
 
 // <div className="ads__screen">
            

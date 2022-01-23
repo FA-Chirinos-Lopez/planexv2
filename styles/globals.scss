@@ -18,7 +18,7 @@ a {
 
 
 @import url("https://fonts.googleapis.com/css2?family=Sen:wght@400;700;800&display=swap");
-
+@import '~video-react/styles/scss/video-react';
 // margins
 $paddingH: 60px;
 
@@ -332,6 +332,18 @@ h2 {
 }
 
 
+.video{
+	width: 100%;
+	height: 55%;
+	object-fit: cover;
+}
+.videoFullScreen{
+	
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
 .adsConainer__main {
 	color: $black;
 	overflow: auto;
@@ -433,3 +445,82 @@ h2 {
 		object-fit: cover;
 	}
 }
+
+
+
+
+
+// .slider {
+//     position: relative;
+//     height: 80vh;
+// }
+
+// .slide {
+//     position: absolute;
+//     //top: 50vh;
+//     left: 0;
+//     width: 100%;
+//     height: 100%;
+//     display: inline-block;
+//     justify-content: center;
+//     align-items: center;
+//     opacity: 0;
+//     transition: 3.3s ease;
+// }
+
+
+
+// .active {
+//     opacity: 1;
+//     transition-duration: 3.2s;
+// }
+
+
+
+// -----------------------------------------------22-01
+
+
+
+/* Slideshow */
+
+.slideshow {
+	margin: 0 auto;
+	overflow: hidden;
+	max-width: auto;
+  }
+  
+  .slideshowSlider {
+	white-space: nowrap;
+	transition: ease 1000ms;
+  }
+  
+  .slide {
+	display: inline-block;
+  
+	height: auto;
+	width: 100%;
+	border-radius: 40px;
+  }
+  
+  /* Buttons */
+  
+  .slideshowDots {
+	text-align: center;
+  }
+  
+  .slideshowDot {
+	display: inline-block;
+	height: 20px;
+	width: 20px;
+	border-radius: 50%;
+  
+	cursor: pointer;
+	margin: 15px 7px 0px;
+  
+	background-color: #c4c4c4;
+  }
+  
+  .slideshowDot.active {
+	background-color: #6a0dad;
+  }
+
