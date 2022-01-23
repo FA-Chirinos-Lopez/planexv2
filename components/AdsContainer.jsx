@@ -1,16 +1,20 @@
 import React from 'react'
 import ReactPlayer from 'react-player'
 import { CurrentTimeDisplay, Player } from 'video-react';
-import {currentSlide,extraerVariable} from "../components/Slider";
+import {currentSlide} from "../components/Slider";
 
 
 
-export default function AdsContainer({CallToAction,Location,Title,Description,FullScreen,Img,DescriptionSecondParagraph,Type,IndexNumber,CurrIndexSlider}) {
+export default function AdsContainer({timeSlide,CallToAction,Location,Title,Description,FullScreen,Img,DescriptionSecondParagraph,Type,IndexNumber,CurrIndexSlider}) {
   
     const Image="Image"
     const Video="Video"
    
-    
+    const [videoRender, setVideoRender] = React.useState([])
+
+
+
+
 //    if (props.Time){
 //     const time = props.Time.split("");
 //     //["0", "0", ":", "0", "0", ":", ......]
@@ -22,41 +26,25 @@ export default function AdsContainer({CallToAction,Location,Title,Description,Fu
 //     //"00:00"
 //     const ftime =  time1.join("")}
 const playBycurr = "autoPlay"
-
+const img = null
 
 
 
 
     if(FullScreen && Type=="Video"){
         setInterval(() => {
-            if(currentSlide==IndexNumber){
-                console.log("SON IGUALES")
-                return(
-                    <div>
-                    
-                        <video  className="videoFullScreen" autoPlay muted loop>
-                            <source src={Img} type="video/mp4" />
-                            
-                        </video>
-                        
-                    </div>
-        
-                        
-                    )
-            }
-        }, 500);
-        return(
-            <div>
-            
-                <video  className="videoFullScreen"  muted loop>
-                    <source src={Img} type="video/mp4" />
-                    
-                </video>
-                
-            </div>
+            if(currentSlide==IndexNumber)
+            console.log("puesto")
+            setVideoRender(Img)
+        }, 1000);
+     
+        return (
+            <video  className="videoFullScreen" autoPlay muted >
+                <source src={videoRender} type="video/mp4" />
+            </video>)
 
                 
-            )
+            
        
     }else if(FullScreen && Type=="Image"){
         return(

@@ -169,6 +169,7 @@ switch(slideImages) {
           SponsoredByImg={theatreInfo.attributes.SponsoredBy.data.attributes.url}>
         
               <AdsContainer
+              timeSlide = {advertisementsData.attributes.Duration}
               key={advertisementsData.id}
               IndexNumber={index}
               CurrIndexSlider={currentSlide}
@@ -206,7 +207,7 @@ switch(slideImages) {
         indicators: true,
         scale: 0.4
       }
-   
+      
     return (
       <div >
       <FullScreen handle={handle}>
