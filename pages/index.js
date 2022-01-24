@@ -105,7 +105,7 @@ async function fetcher(url){
       refreshInterval: 5 })
   if(error) return "an error has occured "+{error}
   if(!data) return "loading..."
-  console.log(data)
+ 
   return {
       screensData: data,
       isLoading: !error && !data,
