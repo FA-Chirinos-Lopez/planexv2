@@ -87,7 +87,7 @@ switch(slideImages) {
       
       
   //ADD SEMINARS
-  console.log(theatreInfo.attributes.SeminarsDurationSlide,"duracion de seminars")
+  
   if(seminarsData!=0){
 
   slideImages.push(    
@@ -116,7 +116,7 @@ switch(slideImages) {
     ))}
 
     </Layout>)}
-    console.log(slideImages.length)
+   
 
    //ADD HALL DESCRIPTORS
   //  if(halldescriptorsData!=0){
@@ -182,7 +182,7 @@ switch(slideImages) {
               Location={advertisementsData.attributes.Location}
               Description={advertisementsData.attributes.Description}
               DescriptionSecondParagraph={advertisementsData.attributes.DescriptionSecondParagraph}/>
-                {console.log(index,"datos desde ID")}
+                
           </Layout>
         
         )))}

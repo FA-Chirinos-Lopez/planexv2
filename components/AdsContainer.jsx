@@ -1,6 +1,5 @@
 import React from 'react'
-import ReactPlayer from 'react-player'
-import { CurrentTimeDisplay, Player } from 'video-react';
+
 import {currentSlide} from "../components/Slider";
 
 
@@ -9,7 +8,7 @@ export default function AdsContainer({timeSlide,CallToAction,Location,Title,Desc
   
     const Image="Image"
     const Video="Video"
-   
+   const[videoPlayer, setVideoPlayer] = React.useState([])
     
 
 
