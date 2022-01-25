@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{useState,useRef,useEffect} from 'react'
 
 import {currentSlide} from "../components/Slider";
 
@@ -8,10 +8,32 @@ export default function AdsContainer({timeSlide,CallToAction,Location,Title,Desc
   
     const Image="Image"
     const Video="Video"
-   const[videoPlayer, setVideoPlayer] = React.useState([])
-    
+   
+    /* const videoAddRef = React.useRef(null);
+    console.log(videoAddRef.current);
 
 
+    function playVid() {
+        videoAddRef.current.play()
+    }
+   
+    function pauseVid() {
+        videoAddRef.current.pause();
+    }
+
+    videoAddRef.current = function() {
+        console.log("El video ha terminado")    };
+
+
+
+    const [videoComponent, setVideoComponent] = React.useState([])
+
+    React.useEffect(() => {
+        console.log("componente listo")
+        setVideoComponent()
+        playVid()
+    }, [])
+ */
 
 
 //    if (props.Time){
@@ -24,8 +46,8 @@ export default function AdsContainer({timeSlide,CallToAction,Location,Title,Desc
     
 //     //"00:00"
 //     const ftime =  time1.join("")}
-const playBycurr = "autoPlay"
-const img = null
+
+
 
 
 
@@ -33,10 +55,10 @@ const img = null
     if(FullScreen && Type=="Video"){
     
      
-        return (
-            <video  className="videoFullScreen" autoPlay muted loop >
-                <source src={Img} type="video/mp4" />
-            </video>)
+        return ( 
+        <video  muted  loop autoPlay className="videoFullScreen"    >
+            <source src="https://backend-2-lp7nu.ondigitalocean.app/uploads/v1_37f7bfb8ea.mp4" type="video/mp4" />
+        </video>)
 
                 
             
