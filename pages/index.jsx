@@ -33,7 +33,15 @@ export default function Home({initialScreensData}) {
     SponsoredByImg={theatreInfo.attributes.SponsoredBy.data.attributes.url}>
     <div className="container" >
     
-    <h1 className="display-5" style={{color:"white"}}>Screens Main View </h1>
+    <h1 className="display-5" style={{color:"white"}}>Screens Main View </h1>  
+    <Link href={`https://viewplanex.uk/admin`}>
+    <div style={{textAlign: "center", position:"relative", top:"-20%"}} >
+            <h1 className="display-6 btn btn-primary card-title"  >Admin Panel</h1>
+            
+    </div>
+    
+    </Link> 
+    
     <div className="row g-2" >
     
     {screensData.map((screensData) => (
