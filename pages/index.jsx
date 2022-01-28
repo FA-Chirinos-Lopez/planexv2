@@ -34,7 +34,7 @@ export default function Home({initialScreensData}) {
     <div className="container" >
     
     <h1 className="display-5" style={{color:"white"}}>Screens Main View </h1>  
-    <Link href={`https://viewplanex.uk/admin`}>
+    <Link href={`https://admin.viewplanex.uk/admin`}>
     <div style={{textAlign: "center", position:"relative", top:"-20%"}} >
             <h1 className="display-6 btn btn-primary card-title"  >Admin Panel</h1>
             
