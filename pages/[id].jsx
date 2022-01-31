@@ -213,11 +213,11 @@ switch(slideImages) {
       <FullScreen handle={handle}>
       <Slider></Slider>
       </FullScreen>
-      <div class="btn-group" role="group" style={{position:"fixed" , top:"1%", left:"1%"}}>
+      <div className="btn-group" role="group" style={{position:"fixed" , top:"1%", left:"1%"}}>
         <Link href={`/`}>
-          <button type="button" class="btn btn-warning" >GoBack</button>
+          <button type="button" className="btn btn-warning" >GoBack</button>
         </Link>
-        <button type="button" class="btn btn-primary" onClick={handle.enter}>Enter FullScreen</button>
+        <button type="button" className="btn btn-primary" onClick={handle.enter}>Enter FullScreen</button>
         <h4 style={{position:"relative", left:"-40%", top:"5vh"}}>
         Press esc to exit FullScreen mode
         </h4>
