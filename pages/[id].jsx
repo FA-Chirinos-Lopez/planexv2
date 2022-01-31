@@ -38,7 +38,9 @@ function findContentURL(data, idToLookFor) {
 
 export default function ScreensDisplay({ initialScreensData,initialImgDataADS }) {
 
-  
+  React.useEffect(() => {
+    document.title = "Planex ScreensView"
+ }, [])
   //initialScreensData.id
 
   

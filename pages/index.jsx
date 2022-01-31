@@ -14,9 +14,19 @@ export {URL}
 export default function Home({initialScreensData}) {
   const {theatreInfo} = GetTheatreInfo()
   const {screensData,isLoading,isError} = GetScreensData(initialScreensData)
+
+
+  React.useEffect(() => {
+    document.title = "Planex ScreensView"
+ }, [])
+
+
+
   if(isError) return "an error has occured "+{error}
   if(isLoading) return "loading..."
-  if(!screensData) return "loading..."    
+  if(!screensData) return "loading..."
+  
+  
   if (screensData) {
       
       
