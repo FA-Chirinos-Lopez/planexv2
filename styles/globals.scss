@@ -43,7 +43,8 @@ $grey: #cacaca;
 	color: white;
 	padding: 0;
 	margin: 0;
-	
+	//padding-top: 56%;
+	//border: 5px dotted red;
 	
 	}
 
@@ -58,7 +59,10 @@ h2 {
 .screenSeminars {
 	width: 1080px; // will be 100vw in final application
 	height: 1920px; // will be 100vh in final application
-	margin: 80px 0; // delete in final application
+	aspect-ratio: 19/6;
+	//margin: 80px 0; // delete in final application
+	//padding-top: 177%;
+	
 }
 
 .dateSeminars {
@@ -650,3 +654,31 @@ h2 {
 	background-color: #6a0dad;
   }
 
+  @media (width: 1080px) and (height: 1920px) {
+  
+	.screenSeminars {
+		width: 100vw; // will be 100vw in final application
+		height: 100vh; // will be 100vh in final application
+		aspect-ratio: 19/6;
+		//background-color: #d20707;
+		//border: 5px solid blue;
+		//margin: 80px 0; // delete in final application
+		//padding-top: 177%;
+		
+	}
+
+	.layout {
+	
+		//background: lightgrey;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		font-family: Sen, Open Sans, sans-serif;
+		color: white;
+		padding: 0;
+		margin: 0;
+		//padding-top: 56%;
+		//border: 5px dotted red;
+		
+		}
+}

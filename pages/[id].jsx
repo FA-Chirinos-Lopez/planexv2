@@ -220,7 +220,7 @@ switch(slideImages) {
           <button type="button" className="btn btn-warning" >GoBack</button>
         </Link>
         <button type="button" className="btn btn-primary" onClick={handle.enter}>Enter FullScreen</button>
-        <h4 style={{position:"relative", left:"-40%", top:"5vh"}}>
+        <h4 style={{position:"relative", left:"-40%", top:"5vh", backgroundColor:"white"}}>
         Press esc to exit FullScreen mode
         </h4>
       </div>
