@@ -31,7 +31,7 @@ export default function Home({initialScreensData}) {
     TheatreName={theatreInfo.attributes.TheatreName} 
     TopicOrSubtitle={theatreInfo.attributes.TopicOrSubtitle} 
     SponsoredByImg={theatreInfo.attributes.SponsoredBy.data.attributes.url}>
-    <div className="container" style={{display:"flex", flexDirection:"column",width:"54vw", height:"60vh" }} >
+    <div className="container" style={{display:"flex", flexDirection:"column" }} >
     <div style={{ display:"flex", justifyContent:"space-between", paddingBottom:"10vh"}}>
     <h1 className="display-5" style={{color:"white"}}>Screens Main View </h1>  
     <Link href={`https://admin.viewplanex.uk/admin`}>
