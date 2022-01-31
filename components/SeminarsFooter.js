@@ -46,7 +46,7 @@ export default function SeminarsFooter({EventName, EventStart, EventEnd, FooterI
         </div>
 
         <div className="footerSeminars__flexIMG">
-            <img src={URL+FooterImage} alt="" className="footerSeminars__img"/>
+            <img src={URL+FooterImage} alt="" className="footerSeminars__flexIMG__img"/>
         </div> 
     </footer>
     )
