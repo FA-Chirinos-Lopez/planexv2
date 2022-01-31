@@ -15,6 +15,7 @@ import { FullScreen } from "react-full-screen";
 
 
 
+
 export default function Layout(props) {
   const contentType = props.ContentType;
   const fullScreen = props.FullScreen
@@ -41,10 +42,10 @@ export default function Layout(props) {
     if(contentType=="Seminar")
     {
       return (//RENDER SEMINARS
-        <div className="layout" >
-        
-          <div className="screenSeminars">
-          <div className="dateSeminars">{days[d.getDay()]} {time}</div>
+        <div className="layout"  >
+
+          <div className="screenSeminars" >
+          <div className="dateSeminars" >{days[d.getDay()]} {time}</div>
           {contentType ?(<SeminarsHeader 
                             TheatreName={props.TheatreName} 
                             TopicOrSubtitle={props.TopicOrSubtitle} 

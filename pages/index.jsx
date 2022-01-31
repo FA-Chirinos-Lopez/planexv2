@@ -31,22 +31,23 @@ export default function Home({initialScreensData}) {
     TheatreName={theatreInfo.attributes.TheatreName} 
     TopicOrSubtitle={theatreInfo.attributes.TopicOrSubtitle} 
     SponsoredByImg={theatreInfo.attributes.SponsoredBy.data.attributes.url}>
-    <div className="container" >
-    
+    <div className="container" style={{display:"flex", flexDirection:"column",width:"54vw", height:"60vh" }} >
+    <div style={{ display:"flex", justifyContent:"space-between", paddingBottom:"10vh"}}>
     <h1 className="display-5" style={{color:"white"}}>Screens Main View </h1>  
     <Link href={`https://admin.viewplanex.uk/admin`}>
-    <div style={{textAlign: "center", position:"relative", top:"-20%"}} >
-            <h1 className="display-6 btn btn-primary card-title"  >Admin Panel</h1>
+    <div>
+            <h1 className="display-6 btn btn-primary card-title" style={{position:"relative", bottom:"-20%"}} >Admin Panel</h1>
             
     </div>
     
     </Link> 
+    </div>
     
-    <div className="row g-2" >
+    <div style={{display:"flex", flexDirection:"row" , justifyContent:"space-around", flexWrap:"wrap"}} >
     
     {screensData.map((screensData) => (
-        <div  key={screensData.id} className="col-6 card " style={{width: "18rem", height:"13rem"}}>
-        <h3 className="card-title" style={{textAlign: "center"}}> {screensData.attributes.screenName}</h3>
+        <div  key={screensData.id} className="card " style={{width: "18rem", height:"13rem",marginTop:"5vh"}}>
+        <h3 className="card-title" style={{textAlign: "center", paddingTop:"5vh"}}> {screensData.attributes.screenName}</h3>
       
         <Link href={`/${screensData.id}`}>
         <div style={{textAlign: "center"}} >

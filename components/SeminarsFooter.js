@@ -43,7 +43,10 @@ export default function SeminarsFooter({EventName, EventStart, EventEnd, FooterI
         <div className="footerSeminars__grid">
             <h1 className="footerSeminars__grid__h1">{EventName}</h1>
             <h2 className="footerSeminars__grid__h2">{toPrintInDate}</h2>
-            <img src={URL+FooterImage} alt="" className="footerSeminars__grid__img"/>
+        </div>
+
+        <div className="footerSeminars__flexIMG">
+            <img src={URL+FooterImage} alt="" className="footerSeminars__img"/>
         </div> 
     </footer>
     )

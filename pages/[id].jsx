@@ -11,7 +11,7 @@ import useSWR from "swr";
 import ContainerSeminars from "../components/ContainerSeminars";
 import { URL } from ".";
 import Slider ,{currentSlide} from "../components/Slider";
-
+import Link from "next/link";
 
 
 
@@ -213,10 +213,20 @@ switch(slideImages) {
       <FullScreen handle={handle}>
       <Slider></Slider>
       </FullScreen>
-      
-    <button className="btn btn-primary btn-lg" onClick={handle.enter} style={{position:"relative" , left:"43%"}}>
-    Enter fullscreen
-    </button>
+      <div class="btn-group" role="group" style={{position:"fixed" , top:"1%", left:"1%"}}>
+        <Link href={`/`}>
+          <button type="button" class="btn btn-warning" >GoBack</button>
+        </Link>
+        <button type="button" class="btn btn-primary" onClick={handle.enter}>Enter FullScreen</button>
+        <h4 style={{position:"relative", left:"-40%", top:"5vh"}}>
+        Press esc to exit FullScreen mode
+        </h4>
+      </div>
+    <div >
+
+
+    </div>
+  
     
     <div>
       
