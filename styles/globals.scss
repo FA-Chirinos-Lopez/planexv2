@@ -681,4 +681,29 @@ h2 {
 		//border: 5px dotted red;
 		
 		}
+
+		.adsFullScreen__screen{
+		width: 100vw; // will be 100vw in final application
+		height: 100vh; // will be 100vh in final application
+		margin: 0; // delete in final application
+		
+		}
+
+		.ads__screen{
+			width: 100vw; // will be 100vw in final application
+			height: 100vh; // will be 100vh in final application
+			margin: 0; // delete in final application
+			
+			}
+
+		.ads__body{
+			background: $purple;
+		}
+		.adsFullScreen{
+			background: $purple;
+		}
+		.layout{
+			background: $purple;
+		}
 }
+
