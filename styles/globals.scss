@@ -707,3 +707,415 @@ h2 {
 		}
 }
 
+
+@media (width: 576px) and (height: 1024px),
+		(width: 648px) and (height: 1152px)
+		 {
+  
+	.screenSeminars {
+		width: 100vw; // will be 100vw in final application
+		height: 100vh; // will be 100vh in final application
+		aspect-ratio: 19/6;
+		//background-color: #d20707;
+		//border: 5px solid blue;
+		//margin: 80px 0; // delete in final application
+		//padding-top: 177%;
+		
+	}
+
+	.layout {
+	
+		//background: lightgrey;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		font-family: Sen, Open Sans, sans-serif;
+		color: white;
+		padding: 0;
+		margin: 0;
+		//padding-top: 56%;
+		//border: 5px dotted red;
+		
+		}
+
+		.adsFullScreen__screen{
+		width: 100vw; // will be 100vw in final application
+		height: 100vh; // will be 100vh in final application
+		margin: 0; // delete in final application
+		
+		}
+
+		.ads__screen{
+			width: 100vw; // will be 100vw in final application
+			height: 100vh; // will be 100vh in final application
+			margin: 0; // delete in final application
+			
+			}
+
+		.ads__body{
+			background: $purple;
+		}
+		.adsFullScreen{
+			background: $purple;
+		}
+		.layout{
+			background: $purple;
+		}
+
+		.footerSeminars__grid__h1 {
+			font-size: 5vw;
+		}
+
+		.footerSeminars__grid__h2 {
+			font-size: 4vw;
+		}
+		.headerSeminars__flexLeftHeader__grid__h1 {
+			font-size: 6vw;
+		}
+		.adsFullScreen__date{
+			font-size: 100%;
+		}
+		.dateSeminars{
+			font-size: 100%;
+		}
+		
+		.mainSeminars__item__gridLeft__description {
+			font-size: 80%;
+			position: relative;
+			top: 3%;
+		}
+		
+		.mainSeminars__item__gridLeft__h1 {
+			font-size: 100%;
+			padding-bottom: 0;
+			position: relative;
+			top: 4%;
+		}
+		.mainSeminars__item__gridLeft__h2{
+			font-size: 90%;
+			padding-bottom: 0;
+			position: relative;
+			top: 3%;
+		}
+		.mainSeminars__item__gridRight__time {
+			font-size: 100%;
+			position: relative;
+			top: 3%;
+		}
+
+        .mainSeminars__item__gridRight__notify {
+			font-size: 100%;
+			position: inherit;
+			position: relative;
+			top: 3%;
+		}
+		.mainSeminars__item__gridLeft {
+			height: 92%;
+			position: relative;
+			
+		}
+		.footerSeminars__flexIMG {
+			width: 27.5%;
+			position: relative;
+			align-self: center;
+			top: -25%;
+		}
+		.headerSeminars__flexRightHeader__p {
+			/* justify-self: end; */
+			margin-top: 1%;
+			font-size: 80%;
+		}
+		.headerSeminars__flexLeftHeader__grid__h2 {
+			font-size: 3vw;
+		}
+		.ads__date{
+			font-size: 100%;
+		}
+		.adsContainer__main__info__h1{
+			margin-bottom: 1vh;
+		}
+		.adsConainer__main{
+			overflow: hidden;
+		}
+		.adsConainer__main__info__h2{
+			margin-bottom: 1vh;
+		}
+		.adsConainer__main__info__p{
+			margin-bottom: 1vh;
+		}
+}
+
+@media (width: 720px) and (height: 1280px),
+		(width: 768px) and (height: 1366px){
+	.screenSeminars {
+		width: 100vw; // will be 100vw in final application
+		height: 100vh; // will be 100vh in final application
+		aspect-ratio: 19/6;
+		//background-color: #d20707;
+		//border: 5px solid blue;
+		//margin: 80px 0; // delete in final application
+		//padding-top: 177%;
+		
+	}
+
+	.layout {
+	
+		//background: lightgrey;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		font-family: Sen, Open Sans, sans-serif;
+		color: white;
+		padding: 0;
+		margin: 0;
+		//padding-top: 56%;
+		//border: 5px dotted red;
+		
+		}
+
+		.adsFullScreen__screen{
+		width: 100vw; // will be 100vw in final application
+		height: 100vh; // will be 100vh in final application
+		margin: 0; // delete in final application
+		
+		}
+
+		.ads__screen{
+			width: 100vw; // will be 100vw in final application
+			height: 100vh; // will be 100vh in final application
+			margin: 0; // delete in final application
+			
+			}
+
+		.ads__body{
+			background: $purple;
+		}
+		.adsFullScreen{
+			background: $purple;
+		}
+		.layout{
+			background: $purple;
+		}
+
+		.footerSeminars__grid__h1 {
+			font-size: 5vw;
+		}
+
+		.footerSeminars__grid__h2 {
+			font-size: 4vw;
+		}
+		.headerSeminars__flexLeftHeader__grid__h1 {
+			font-size: 6vw;
+		}
+		.adsFullScreen__date{
+			font-size: 100%;
+		}
+		.dateSeminars{
+			font-size: 100%;
+		}
+		
+		.mainSeminars__item__gridLeft__description {
+			font-size: 90%;
+			position: relative;
+			top: 6%;
+		}
+		
+		.mainSeminars__item__gridLeft__h1 {
+			font-size: 100%;
+			padding-bottom: 0;
+			position: relative;
+			top: 6%;
+		}
+		.mainSeminars__item__gridLeft__h2{
+			font-size: 90%;
+			padding-bottom: 0;
+			position: relative;
+			top: 6%;
+		}
+		.mainSeminars__item__gridRight__time {
+			font-size: 120%;
+			position: relative;
+			top: 3%;
+		}
+
+        .mainSeminars__item__gridRight__notify {
+			font-size: 120%;
+			position: inherit;
+			position: relative;
+			top: 3%;
+			left: -4%;
+		}
+		.mainSeminars__item__gridLeft {
+			height: 92%;
+			position: relative;
+			
+		}
+		.footerSeminars__flexIMG {
+			width: 27.5%;
+			position: relative;
+			align-self: center;
+			top: -10%;
+		}
+		.headerSeminars__flexRightHeader__p {
+			/* justify-self: end; */
+			margin-top: 1%;
+			font-size: 80%;
+		}
+		.headerSeminars__flexLeftHeader__grid__h2 {
+			font-size: 3vw;
+		}
+		.ads__date{
+			font-size: 100%;
+		}
+		.adsContainer__main__info__h1{
+			margin-bottom: 1vh;
+		}
+		.adsConainer__main{
+			overflow: hidden;
+		}
+		.adsConainer__main__info__h2{
+			margin-bottom: 1vh;
+		}
+		.adsConainer__main__info__p{
+			margin-bottom: 1vh;
+		}
+}
+
+
+@media (width: 900px) and (height: 1600px){
+	.screenSeminars {
+		width: 100vw; // will be 100vw in final application
+		height: 100vh; // will be 100vh in final application
+		aspect-ratio: 19/6;
+		//background-color: #d20707;
+		//border: 5px solid blue;
+		//margin: 80px 0; // delete in final application
+		//padding-top: 177%;
+		
+	}
+
+	.layout {
+	
+		//background: lightgrey;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		font-family: Sen, Open Sans, sans-serif;
+		color: white;
+		padding: 0;
+		margin: 0;
+		//padding-top: 56%;
+		//border: 5px dotted red;
+		
+		}
+
+		.adsFullScreen__screen{
+		width: 100vw; // will be 100vw in final application
+		height: 100vh; // will be 100vh in final application
+		margin: 0; // delete in final application
+		
+		}
+
+		.ads__screen{
+			width: 100vw; // will be 100vw in final application
+			height: 100vh; // will be 100vh in final application
+			margin: 0; // delete in final application
+			
+			}
+
+		.ads__body{
+			background: $purple;
+		}
+		.adsFullScreen{
+			background: $purple;
+		}
+		.layout{
+			background: $purple;
+		}
+
+		.footerSeminars__grid__h1 {
+			font-size: 5vw;
+		}
+
+		.footerSeminars__grid__h2 {
+			font-size: 4vw;
+		}
+		.headerSeminars__flexLeftHeader__grid__h1 {
+			font-size: 6vw;
+		}
+		.adsFullScreen__date{
+			font-size: 150%;
+		}
+		.dateSeminars{
+			font-size: 130%;
+		}
+		
+		.mainSeminars__item__gridLeft__description {
+			font-size: 90%;
+			position: relative;
+			top: 6%;
+		}
+		
+		.mainSeminars__item__gridLeft__h1 {
+			font-size: 150%;
+			padding-bottom: 0;
+			position: relative;
+			top: 6%;
+		}
+		.mainSeminars__item__gridLeft__h2{
+			font-size: 110%;
+			padding-bottom: 0;
+			position: relative;
+			top: 6%;
+		}
+		.mainSeminars__item__gridRight__time {
+			font-size: 150%;
+			position: relative;
+			top: 3%;
+		}
+
+        .mainSeminars__item__gridRight__notify {
+			font-size: 150%;
+			position: inherit;
+			position: relative;
+			top: 3%;
+			left: -4%;
+		}
+		.mainSeminars__item__gridLeft {
+			height: 92%;
+			position: relative;
+			
+		}
+		.footerSeminars__flexIMG {
+			width: 27.5%;
+			position: relative;
+			align-self: center;
+			top: -10%;
+		}
+		.headerSeminars__flexRightHeader__p {
+			/* justify-self: end; */
+			margin-top: 1%;
+			font-size: 80%;
+		}
+		.headerSeminars__flexLeftHeader__grid__h2 {
+			font-size: 3vw;
+		}
+		.ads__date{
+			font-size: 100%;
+		}
+		.adsContainer__main__info__h1{
+			margin-bottom: 1vh;
+		}
+		.adsConainer__main{
+			overflow: hidden;
+		}
+		.adsConainer__main__info__h2{
+			margin-bottom: 1vh;
+		}
+		.adsConainer__main__info__p{
+			margin-bottom: 1vh;
+		}
+		.ads__date{
+			font-size: 150%;
+		}
+}
