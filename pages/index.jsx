@@ -33,7 +33,7 @@ export default function Home({initialScreensData}) {
     return (
     <div>
     <Layout 
-    ContentType="Seminar" 
+    ContentType="1" 
     EventName={theatreInfo.attributes.EventName} 
     EventStart={theatreInfo.attributes.EventStart} 
     EventEnd={theatreInfo.attributes.EventEnd} 
@@ -43,12 +43,12 @@ export default function Home({initialScreensData}) {
     SponsoredByImg={theatreInfo.attributes.SponsoredBy.data.attributes.url}>
     <div className="container" style={{display:"flex", flexDirection:"column" }} >
     <div style={{ display:"flex",flexDirection:"column", justifyContent:"space-between", paddingBottom:"10vh"}}>
-    <h1 className="display-5" style={{color:"white", position:"relative", left:"20%"}} >Screens Main View </h1>  
+    <h1 className="display-5" style={{color:"white", position:"relative", left:"20%", paddingTop:"10%"}} >Screens Main View </h1>  
     <br/><br/>
     <Link href={`https://admin.viewplanex.uk/admin`}>
     
     <div>
-            <h1 className="display-6 btn btn-primary card-title" style={{position:"relative", left:"20%"}}  >Admin Panel</h1>
+            <h1 className="display-6 btn btn-primary card-title" style={{position:"relative", left:"38%"}}  >Admin Panel</h1>
             
     </div>
     

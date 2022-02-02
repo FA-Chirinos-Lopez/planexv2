@@ -212,18 +212,23 @@ switch(slideImages) {
       
     return (
       <div >
+        <header style={{background:"#294b79",display:"flex", flexDirection:"column",position:"absolute", left:"0",right:"0", width:"100%", height:"20%", zIndex:"100"}}>
+        <div className="btn-group" role="group" style={{display:"flex",height:"150%"}} >
+          <Link href={`/`}>
+            <button type="button" className="btn btn-primary" style={{width:"100%", background:"#2d173d", borderColor:"#7c6a86"}} >GoBack</button>
+          </Link>
+          <button type="button" className="btn btn-primary" onClick={handle.enter} style={{width:"100%", background:"#2d173d", borderColor:"#7c6a86"}}>Enter FullScreen</button>
+          
+        </div>
+        <h4 style={{ alignSelf:"center",color:"white",backgroundColor:"#294b79"}}>
+          Press esc to exit FullScreen mode
+        </h4>
+        </header>
       <FullScreen handle={handle}>
+        <div style={{paddingTop:"8%"}}></div>
       <Slider></Slider>
       </FullScreen>
-      <div className="btn-group" role="group" style={{position:"fixed" , top:"1%", left:"1%"}}>
-        <Link href={`/`}>
-          <button type="button" className="btn btn-warning" >GoBack</button>
-        </Link>
-        <button type="button" className="btn btn-primary" onClick={handle.enter}>Enter FullScreen</button>
-        <h4 style={{position:"relative", left:"-40%", top:"5vh", backgroundColor:"white"}}>
-        Press esc to exit FullScreen mode
-        </h4>
-      </div>
+
     <div >
 
 

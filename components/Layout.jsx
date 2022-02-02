@@ -37,9 +37,22 @@ export default function Layout(props) {
     // function HeaderByFullScreen(){
     //   if(fullScreen)
     // }
+    if(contentType=="1")
+    {
+      return(
+      <div className="layout">
+      <div className="ads__screen">
+        <div className="ads__date">{days[d.getDay()]} {time}</div>
 
+        <ul className="mainSeminars">{props.children}</ul>
         
-    if(contentType=="Seminar")
+      
+      </div>
+    </div>
+
+      )}
+        
+    else if(contentType=="Seminar")
     {
       return (//RENDER SEMINARS
         <div className="layout"  >

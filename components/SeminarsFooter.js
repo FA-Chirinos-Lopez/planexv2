@@ -35,7 +35,7 @@ export default function SeminarsFooter({EventName, EventStart, EventEnd, FooterI
     const endMonth=getMonth(EventEnd)
     const toPrintInDate = "From "+startDay+" "+startMonth+" To "+endDay+" "+endMonth
     if(startMonth==endMonth){
-        toPrintInDate="From "+startDay+" To "+endDay+" "+endMonth
+        toPrintInDate=startDay+" - "+endDay+" "+endMonth
     }
 
     return (
