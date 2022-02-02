@@ -6,7 +6,7 @@ import useSWR from "swr"
 import ContainerSeminars from "../components/ContainerSeminars";
 
 
-const URL = process.env.NEXT_PUBLIC_DBURL 
+const URL = "https://admin.viewplanex.uk"//process.env.NEXT_PUBLIC_DBURL 
 
 export {URL}
 
