@@ -42,11 +42,13 @@ export default function Home({initialScreensData}) {
     TopicOrSubtitle={theatreInfo.attributes.TopicOrSubtitle} 
     SponsoredByImg={theatreInfo.attributes.SponsoredBy.data.attributes.url}>
     <div className="container" style={{display:"flex", flexDirection:"column" }} >
-    <div style={{ display:"flex", justifyContent:"space-between", paddingBottom:"10vh"}}>
-    <h1 className="display-5" style={{color:"white"}}>Screens Main View </h1>  
+    <div style={{ display:"flex",flexDirection:"column", justifyContent:"space-between", paddingBottom:"10vh"}}>
+    <h1 className="display-5" style={{color:"white", position:"relative", left:"20%"}} >Screens Main View </h1>  
+    <br/><br/>
     <Link href={`https://admin.viewplanex.uk/admin`}>
+    
     <div>
-            <h1 className="display-6 btn btn-primary card-title" style={{position:"relative", bottom:"-20%"}} >Admin Panel</h1>
+            <h1 className="display-6 btn btn-primary card-title" style={{position:"relative", left:"20%"}}  >Admin Panel</h1>
             
     </div>
     
