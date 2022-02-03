@@ -34,13 +34,7 @@ export default function Home({initialScreensData}) {
     <div>
     <Layout 
     ContentType="1" 
-    EventName={theatreInfo.attributes.EventName} 
-    EventStart={theatreInfo.attributes.EventStart} 
-    EventEnd={theatreInfo.attributes.EventEnd} 
-    FooterImage={theatreInfo.attributes.FooterImage.data.attributes.url} 
-    TheatreName={theatreInfo.attributes.TheatreName} 
-    TopicOrSubtitle={theatreInfo.attributes.TopicOrSubtitle} 
-    SponsoredByImg={theatreInfo.attributes.SponsoredBy.data.attributes.url}>
+    >
     <div className="container" style={{display:"flex", flexDirection:"column" }} >
     <div style={{ display:"flex",flexDirection:"column", justifyContent:"space-between", paddingBottom:"10vh"}}>
     <h1 className="display-5" style={{color:"white", position:"relative", left:"20%", paddingTop:"10%"}} >Screens Main View </h1>  

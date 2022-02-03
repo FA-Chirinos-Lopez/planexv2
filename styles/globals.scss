@@ -375,7 +375,7 @@ h2 {
 
 .ads{
 
-		
+	overflow: hidden;
 
 
 
@@ -504,7 +504,7 @@ h2 {
 	//top: 1%;
 	color: $black;
 	overflow: auto;
-	height: 65.5%;
+	height: 500%;
 	background: $blue;
 	//border: 1px solid rgb(255, 0, 0);
 	//display: flex;
@@ -755,8 +755,11 @@ h2 {
 			//top: 1%;
 			color: $black;
 			overflow: auto;
-			height: 65.5%;
+			height: 500%;
 			background: $blue;
+			width: 148%;
+			position: relative;
+			right: 26%;
 			//border: 1px solid rgb(255, 0, 0);
 			//display: flex;
 			//flex-direction: column;

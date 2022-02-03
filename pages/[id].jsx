@@ -69,7 +69,7 @@ switch(slideImages) {
       if(error) return "an error has occured "+{error}
       if(!data) return "loading..." */
       const id= initialScreensData.id
-      const {theatreInfo} = GetTheatreInfo()
+      
      
       const {imgDataADS} = GetAdvertisementData()
       const { screensData, isLoading, isError } = GetScreensData(id)
@@ -86,7 +86,7 @@ switch(slideImages) {
     //let advertisementsData= screensData.attributes.advertisementsToAdd.data;
     let advertisementsData= screensData.attributes.advertisements.data;
   
-      
+      console.log(screensData.attributes.FooterImge.data.attributes.url)
       
   //ADD SEMINARS
   
@@ -95,15 +95,15 @@ switch(slideImages) {
   slideImages.push(    
     
     <Layout
-    timeSlide = {theatreInfo.attributes.SeminarsDurationSlide}
+    timeSlide = {screensData.attributes.SeminarsDurationSlide}
     ContentType="Seminar" 
-    EventName={theatreInfo.attributes.EventName} 
-    EventStart={theatreInfo.attributes.EventStart} 
-    EventEnd={theatreInfo.attributes.EventEnd} 
-    FooterImage={theatreInfo.attributes.FooterImage.data.attributes.url} 
-    TheatreName={theatreInfo.attributes.TheatreName} 
-    TopicOrSubtitle={theatreInfo.attributes.TopicOrSubtitle} 
-    SponsoredByImg={theatreInfo.attributes.SponsoredBy.data.attributes.url}
+    EventName={screensData.attributes.EventName} 
+    EventStart={screensData.attributes.EventStart} 
+    EventEnd={screensData.attributes.EventEnd} 
+    FooterImage={screensData.attributes.FooterImge.data.attributes.url} 
+    TheatreName={screensData.attributes.TheatreName} 
+    TopicOrSubtitle={screensData.attributes.TopicOrSubtitle} 
+    SponsoredByImg={screensData.attributes.FooterImge.data.attributes.url}
     >
     {seminarsData && seminarsData.map((seminarsData) => (
      
@@ -158,17 +158,17 @@ switch(slideImages) {
       
           
           slideImages.push( 
-          <Layout
-          timeSlide = {advertisementsData.attributes.Duration}
-          ContentType="Advertisement"
-          FullScreen={advertisementsData.attributes.FullScreen}
-          EventName={theatreInfo.attributes.EventName} 
-          EventStart={theatreInfo.attributes.EventStart} 
-          EventEnd={theatreInfo.attributes.EventEnd} 
-          FooterImage={theatreInfo.attributes.FooterImage.data.attributes.url} 
-          TheatreName={theatreInfo.attributes.TheatreName} 
-          TopicOrSubtitle={theatreInfo.attributes.TopicOrSubtitle} 
-          SponsoredByImg={theatreInfo.attributes.SponsoredBy.data.attributes.url}>
+            <Layout
+            timeSlide = {screensData.attributes.SeminarsDurationSlide}
+            ContentType="Seminar" 
+            EventName={screensData.attributes.EventName} 
+            EventStart={screensData.attributes.EventStart} 
+            EventEnd={screensData.attributes.EventEnd} 
+            FooterImage={screensData.attributes.FooterImge.data.attributes.url} 
+            TheatreName={screensData.attributes.TheatreName} 
+            TopicOrSubtitle={screensData.attributes.TopicOrSubtitle} 
+            SponsoredByImg={screensData.attributes.FooterImge.data.attributes.url}
+            >
         
               <AdsContainer
               timeSlide = {advertisementsData.attributes.Duration}
@@ -461,24 +461,6 @@ switch(slideImages) {
 
 
 
-  function GetTheatreInfo(initialTheatreInfo) {
-  
-    const {data,error} = useSWR(
-      "/api/theatre-info?populate=*",
-      fetcher,
-      {fallbackData:initialTheatreInfo,
-        revalidateOnMount:true,
-        refreshInterval: 5 })
-
-    if(error) return "an error has occured "+{error}
-    if(!data) return "loading..."
-    
-    return {
-        theatreInfo: data,
-        isLoading: !error && !data,
-        isError: error
-    }
-  }
 
 
   function GetScreensData(id, initialScreensData) {
