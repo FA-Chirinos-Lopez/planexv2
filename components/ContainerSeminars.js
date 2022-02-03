@@ -72,19 +72,19 @@ export default function ContainerSeminars({title, subtitle, description,timeStar
     return (
       
             <li className="mainSeminars__item">
-              
+              <div style={{ padding:"2%"}}>
                 <div className="mainSeminars__item__gridLeft">                          
                             <h1 className="mainSeminars__item__gridLeft__h1">{title}</h1>
                             <h2 className="mainSeminars__item__gridLeft__h2">{subtitle}</h2>
                             <p className="mainSeminars__item__gridLeft__description">{description}</p>
                     </div>
-
+                    </div>
 
                     <div className="mainSeminars__item__gridRight">
                     <p className="mainSeminars__item__gridRight__time">{timeStartDisplay} to <br/>{timeEndDisplay}</p>
                             <p className="mainSeminars__item__gridRight__notify">{isNow()}</p>
                     </div>
-
+              
             </li>
         
     
