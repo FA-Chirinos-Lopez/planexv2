@@ -212,10 +212,10 @@ switch(slideImages) {
       
     return (
       <div >
-        <header style={{background:"#294b79",display:"flex", flexDirection:"column",position:"absolute", left:"0",right:"0", width:"100%", height:"20%", zIndex:"100"}}>
+        <header style={{background:"#294b79",display:"flex", flexDirection:"column",position:"relative", left:"0",right:"0", width:"100%", height:"10%", zIndex:"1"}}>
         <div className="btn-group" role="group" style={{display:"flex",height:"150%"}} >
           <Link href={`/`}>
-            <button type="button" className="btn btn-primary" style={{width:"100%", background:"#2d173d", borderColor:"#7c6a86"}} >GoBack</button>
+            <button type="button" className="btn btn-primary" style={{width:"100%", background:"#2d173d", borderColor:"#7c6a86", fontSize:"150%"}} >GoBack</button>
           </Link>
           <button type="button" className="btn btn-primary" onClick={handle.enter} style={{width:"100%", background:"#2d173d", borderColor:"#7c6a86"}}>Enter FullScreen</button>
           
@@ -225,7 +225,7 @@ switch(slideImages) {
         </h4>
         </header>
       <FullScreen handle={handle}>
-        <div style={{paddingTop:"8%"}}></div>
+        
       <Slider></Slider>
       </FullScreen>
 

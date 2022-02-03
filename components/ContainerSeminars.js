@@ -81,8 +81,8 @@ export default function ContainerSeminars({title, subtitle, description,timeStar
 
 
                     <div className="mainSeminars__item__gridRight">
-                    <p className="mainSeminars__item__gridRight__time">{timeStartDisplay} to {timeEndDisplay}</p>
-                            <p className="mainSeminars__item__gridRight__notify parpadea">{isNow()}</p>
+                    <p className="mainSeminars__item__gridRight__time">{timeStartDisplay} to <br/>{timeEndDisplay}</p>
+                            <p className="mainSeminars__item__gridRight__notify">{isNow()}</p>
                     </div>
 
             </li>
