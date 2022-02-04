@@ -68,16 +68,15 @@ switch(slideImages) {
   /* const {data,error} = useSWR("/api/screens/"+initialScreensData.id+"?populate=*",fetcher,{revalidateOnMount:true,refreshInterval: 5 })
       if(error) return "an error has occured "+{error}
       if(!data) return "loading..." */
-      const id= initialScreensData.id
-      
+      const id = initialScreensData.id
      
       const {imgDataADS} = GetAdvertisementData()
       const { screensData, isLoading, isError } = GetScreensData(id)
       if (isError) isError
       if(!screensData) return "loading..."    
       if (screensData) {
-        
-     
+        console.log(initialScreensData)
+
         
        
     //ARRAYS DEFINITION
@@ -103,7 +102,7 @@ switch(slideImages) {
     FooterImage={screensData.attributes.FooterImge.data.attributes.url} 
     TheatreName={screensData.attributes.TheatreName} 
     TopicOrSubtitle={screensData.attributes.TopicOrSubtitle} 
-    SponsoredByImg={screensData.attributes.FooterImge.data.attributes.url}
+    SponsoredByImg={screensData.attributes.EventName}
     >
     {seminarsData && seminarsData.map((seminarsData) => (
      
@@ -167,7 +166,7 @@ switch(slideImages) {
             FooterImage={screensData.attributes.FooterImge.data.attributes.url} 
             TheatreName={screensData.attributes.TheatreName} 
             TopicOrSubtitle={screensData.attributes.TopicOrSubtitle} 
-            SponsoredByImg={screensData.attributes.FooterImge.data.attributes.url}
+            SponsoredByImg={screensData.attributes.EventName}
             >
         
               <AdsContainer
@@ -437,7 +436,7 @@ switch(slideImages) {
         const initialTheatreInfo = theatreInfo.data
         const initialScreensData = dataScreens.data
         const initialImgDataADS = imgAdsData.data
-        
+        console.log(initialScreensData,"esto es initialScreensdata")
       
       return {
         props: {
