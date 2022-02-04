@@ -86,7 +86,7 @@ switch(slideImages) {
     let halldescriptorsData= screensData.attributes.hall_descriptors.data;
     //let advertisementsData= screensData.attributes.advertisementsToAdd.data;
     let advertisementsData= screensData.attributes.advertisements.data;
-  
+    let {currDay, currMonth} = actualDay()
       
       
   //ADD SEMINARS
@@ -96,22 +96,26 @@ switch(slideImages) {
 
 
 const addSeminarsIfDate = () =>{
-
-  for (let index = 0; index < seminarsData.length; ++index) {
-    let monthCutted = seminarsData[index].attributes.SeminarDate.split("")
-    let b = monthCutted.slice(5, 10)
-  
+  console.log("2222")
+  console.log(seminarsData.length)
+  for (let i = 0; i < seminarsData.length; ++i) {
+    console.log("si")
+    let monthCutted = seminarsData[i].attributes.SeminarDate.split("")
+    let m = monthCutted.slice(5, 7)
+    let d = monthCutted.slice(8,10)
+    if(d[0]==0){d = d[1]}else{d = d[0]+d[1]}
+    if(m[0]==0){m = m[1]}else{m = m[0]+m[1]}
     
-    console.log(b.join())
-    if(seminarsData[index].attributes.SeminarDate =="2022-02-03"){
+    if (currMonth==m && currDay==d ){
+      
       return(
 
         <ContainerSeminars  
-        title={seminarsData[index].attributes.title} 
-        subtitle={seminarsData[index].attributes.subtitle} 
-        description={seminarsData[index].attributes.description} 
-        timeStart={seminarsData[index].attributes.TimeStart} 
-        timeEnd={seminarsData[index].attributes.TimeEnd}/>
+        title={seminarsData[i].attributes.title} 
+        subtitle={seminarsData[i].attributes.subtitle} 
+        description={seminarsData[i].attributes.description} 
+        timeStart={seminarsData[i].attributes.TimeStart} 
+        timeEnd={seminarsData[i].attributes.TimeEnd}/>
         
       )
     }
@@ -119,8 +123,8 @@ const addSeminarsIfDate = () =>{
 
 
 }
-let {currDay, currMonth} = actualDay()
-console.log(currMonth, currDay)
+
+
 
 
 
@@ -140,19 +144,11 @@ console.log(currMonth, currDay)
     TopicOrSubtitle={screensData.attributes.TopicOrSubtitle} 
     SponsoredByImg={screensData.attributes.FooterImge.data.attributes.url}
     >
-    
     {addSeminarsIfDate()}
-
-     
-
     </Layout>
-
-
-
-
-     
-    
 )}
+
+
    
 
    //ADD HALL DESCRIPTORS
