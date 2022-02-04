@@ -217,7 +217,7 @@ switch(slideImages) {
           <Link href={`/`}>
             <button type="button" className="btn btn-primary" style={{width:"100%", background:"#2d173d", borderColor:"#7c6a86", fontSize:"150%"}} >GoBack</button>
           </Link>
-          <button type="button" className="btn btn-primary" onClick={handle.enter} style={{width:"100%", background:"#2d173d", borderColor:"#7c6a86"}}>Enter FullScreen</button>
+          <button type="button" className="btn btn-primary" onClick={handle.enter} style={{width:"100%", background:"#2d173d", borderColor:"#7c6a86", fontSize:"150%"}}>Enter FullScreen</button>
           
         </div>
         <h4 style={{ alignSelf:"center",color:"white",backgroundColor:"#294b79"}}>
@@ -437,7 +437,7 @@ switch(slideImages) {
         const initialTheatreInfo = theatreInfo.data
         const initialScreensData = dataScreens.data
         const initialImgDataADS = imgAdsData.data
-        console.log(initialScreensData,"esto es initialScreensdata")
+        
       
       return {
         props: {

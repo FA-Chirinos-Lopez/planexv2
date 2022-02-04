@@ -57,7 +57,8 @@ export default function AdsContainer({timeSlide,CallToAction,Location,Title,Desc
      
         return ( 
         <video  muted  loop autoPlay className="videoFullScreen"    >
-            <source src="https://backend-2-lp7nu.ondigitalocean.app/uploads/v1_37f7bfb8ea.mp4" type="video/mp4" />
+        <source src={Img} type="video/mp4" />
+        Your browser does not support the video tag.
         </video>)
 
                 

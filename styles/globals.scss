@@ -84,6 +84,7 @@ h2 {
 	justify-content: space-between;
 	align-items: center;
 	//border: 2px dashed black;
+	
 	&__flexLeftHeader{
 		//border: 8px dashed rgb(255, 0, 0);
 		width: 72.5%;
@@ -94,14 +95,16 @@ h2 {
 			&__h1 {
 			/* 	grid-row: 1 / 2;
 				grid-column: 1 / 2; */
-				font-size: 4rem;
+				font-size: 400%;
 				white-space: pre-wrap;
+				line-height: 80%;
+				padding-bottom: 2%;
 				
 			}
 			&__h2 {
 				/* grid-row: 2 / 3;
 				grid-column: 1 / 2; */
-				font-size: 2.5rem;
+				font-size: 260%;
 			}
 
 	}
@@ -349,7 +352,7 @@ h2 {
 		}
 		&__h2 {
 	
-			font-size: 2.5rem;
+			font-size: 260%;
 		}
 		
 	}
@@ -408,6 +411,7 @@ h2 {
 }
 
 &__header {
+	
 	height: 15%;
 	background: $blue;
 	padding: 0 $paddingH 0 $paddingH;
@@ -422,6 +426,7 @@ h2 {
 			grid-row: 1 / 2;
 			grid-column: 1 / 2;
 			font-size: 4rem;
+			
 		}
 		&__h2 {
 			grid-row: 2 / 3;
