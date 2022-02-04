@@ -102,7 +102,7 @@ switch(slideImages) {
     FooterImage={screensData.attributes.FooterImge.data.attributes.url} 
     TheatreName={screensData.attributes.TheatreName} 
     TopicOrSubtitle={screensData.attributes.TopicOrSubtitle} 
-    SponsoredByImg={screensData.attributes.EventName}
+    SponsoredByImg={screensData.attributes.SponsoredBy.data[0].attributes.url}
     >
     {seminarsData && seminarsData.map((seminarsData) => (
      
@@ -159,14 +159,14 @@ switch(slideImages) {
           slideImages.push( 
             <Layout
             timeSlide = {screensData.attributes.SeminarsDurationSlide}
-            ContentType="Seminar" 
+            ContentType="Advertisement" 
             EventName={screensData.attributes.EventName} 
             EventStart={screensData.attributes.EventStart} 
             EventEnd={screensData.attributes.EventEnd} 
             FooterImage={screensData.attributes.FooterImge.data.attributes.url} 
             TheatreName={screensData.attributes.TheatreName} 
             TopicOrSubtitle={screensData.attributes.TopicOrSubtitle} 
-            SponsoredByImg={screensData.attributes.EventName}
+            SponsoredByImg={screensData.attributes.SponsoredBy.data[0].attributes.url}
             >
         
               <AdsContainer
