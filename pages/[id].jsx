@@ -167,7 +167,8 @@ switch(slideImages) {
             TheatreName={screensData.attributes.TheatreName} 
             TopicOrSubtitle={screensData.attributes.TopicOrSubtitle} 
             SponsoredByImg={screensData.attributes.SponsoredBy.data[0].attributes.url}
-            >
+            FullScreen={advertisementsData.attributes.FullScreen} 
+            >{console.log(advertisementsData.attributes.FullScreen)}
         
               <AdsContainer
               timeSlide = {advertisementsData.attributes.Duration}

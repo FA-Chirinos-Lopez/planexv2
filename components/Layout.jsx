@@ -78,6 +78,7 @@ export default function Layout(props) {
   }else if(contentType=="Advertisement" && !fullScreen){
     return(//RENDER NORMAL ADVERTS
       <div className="layout">
+      
       <div className="ads__screen">
         <div className="ads__date">{days[d.getDay()]} {time}</div>
 
