@@ -80,7 +80,7 @@ export default function Layout(props) {
       <div className="layout">
       
       <div className="ads__screen">
-        <div className="ads__date">{days[d.getDay()]} {time}</div>
+      <div className="dateSeminars" >{days[d.getDay()]} {time}</div>
 
         <SeminarsHeader 
         TheatreName={props.TheatreName} 
@@ -101,7 +101,7 @@ export default function Layout(props) {
     return(
       <div className="layout">
         <div className="adsFullScreen__screen">
-            <div className="adsFullScreen__date">{days[d.getDay()]} {time}</div>
+        <div className="dateSeminars" >{days[d.getDay()]} {time}</div>
             <main className="adsFullScreen__main">
                 {props.children}
             </main>
