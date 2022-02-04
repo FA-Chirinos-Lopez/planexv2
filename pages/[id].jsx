@@ -158,7 +158,7 @@ switch(slideImages) {
           
           slideImages.push( 
             <Layout
-            timeSlide = {screensData.attributes.SeminarsDurationSlide}
+            timeSlide = {advertisementsData.attributes.Duration}
             ContentType="Advertisement" 
             EventName={screensData.attributes.EventName} 
             EventStart={screensData.attributes.EventStart} 

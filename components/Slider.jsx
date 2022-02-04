@@ -11,6 +11,7 @@ export default function Slider() {
     let [index, setIndex] = React.useState(0);
     let timeoutRef = React.useRef(null);
     const delay = slideImages[index].props.timeSlide*1000;
+    console.log(slideImages[index])
     currentSlide = index
     
    
