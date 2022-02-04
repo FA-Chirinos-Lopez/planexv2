@@ -652,7 +652,6 @@ h2 {
 // -----------------------------------------------22-01
 
 
-
 /* Slideshow */
 
  .slideshow {
@@ -663,12 +662,13 @@ h2 {
   
    .slideshowSlider {
  	white-space: nowrap;
- 	transition: ease 1000ms;
+ 	transition: linear 300ms;
    }
+
   
    .slide {
 	display: inline-block;
-  
+	
 	height: auto;
 	width: 100%;
 	border-radius: 40px;

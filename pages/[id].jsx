@@ -12,6 +12,7 @@ import ContainerSeminars from "../components/ContainerSeminars";
 import { URL } from ".";
 import Slider ,{currentSlide} from "../components/Slider";
 import Link from "next/link";
+import { actualDay } from "../utils/daysandmonths";
 
 
 
@@ -86,14 +87,48 @@ switch(slideImages) {
     //let advertisementsData= screensData.attributes.advertisementsToAdd.data;
     let advertisementsData= screensData.attributes.advertisements.data;
   
-      console.log(screensData.attributes.FooterImge.data.attributes.url)
+      
       
   //ADD SEMINARS
-  
-  if(seminarsData!=0){
+//   for (let index = 0; index < seminarsData.length; ++index) {
+//     console.log(seminarsData[index].attributes.SeminarDate)
+// }
 
-  slideImages.push(    
+
+const addSeminarsIfDate = () =>{
+
+  for (let index = 0; index < seminarsData.length; ++index) {
+    let monthCutted = seminarsData[index].attributes.SeminarDate.split("")
+    let b = monthCutted.slice(5, 10)
+  
     
+    console.log(b.join())
+    if(seminarsData[index].attributes.SeminarDate =="2022-02-03"){
+      return(
+
+        <ContainerSeminars  
+        title={seminarsData[index].attributes.title} 
+        subtitle={seminarsData[index].attributes.subtitle} 
+        description={seminarsData[index].attributes.description} 
+        timeStart={seminarsData[index].attributes.TimeStart} 
+        timeEnd={seminarsData[index].attributes.TimeEnd}/>
+        
+      )
+    }
+}
+
+
+}
+let {currDay, currMonth} = actualDay()
+console.log(currMonth, currDay)
+
+
+
+
+  if(seminarsData!=0){
+  
+  slideImages.push(
+
     <Layout
     timeSlide = {screensData.attributes.SeminarsDurationSlide}
     ContentType="Seminar" 
@@ -105,19 +140,19 @@ switch(slideImages) {
     TopicOrSubtitle={screensData.attributes.TopicOrSubtitle} 
     SponsoredByImg={screensData.attributes.FooterImge.data.attributes.url}
     >
-    {seminarsData && seminarsData.map((seminarsData) => (
-     
-     <ContainerSeminars 
-     key={seminarsData.id} 
-     title={seminarsData.attributes.title} 
-     subtitle={seminarsData.attributes.subtitle} 
-     description={seminarsData.attributes.description} 
-     timeStart={seminarsData.attributes.TimeStart} 
-     timeEnd={seminarsData.attributes.TimeEnd}/>
     
-    ))}
+    {addSeminarsIfDate()}
 
-    </Layout>)}
+     
+
+    </Layout>
+
+
+
+
+     
+    
+)}
    
 
    //ADD HALL DESCRIPTORS
@@ -244,7 +279,48 @@ switch(slideImages) {
     )}
   }
 
+  // slideImages.push(    
+    
+  //   <Layout
+  //   timeSlide = {screensData.attributes.SeminarsDurationSlide}
+  //   ContentType="Seminar" 
+  //   EventName={screensData.attributes.EventName} 
+  //   EventStart={screensData.attributes.EventStart} 
+  //   EventEnd={screensData.attributes.EventEnd} 
+  //   FooterImage={screensData.attributes.FooterImge.data.attributes.url} 
+  //   TheatreName={screensData.attributes.TheatreName} 
+  //   TopicOrSubtitle={screensData.attributes.TopicOrSubtitle} 
+  //   SponsoredByImg={screensData.attributes.FooterImge.data.attributes.url}
+  //   >
+    
+  //   {seminarsData && seminarsData.map((seminarsData) => (
+     
+  //     <ContainerSeminars 
+  //     key={seminarsData.id} 
+  //     title={seminarsData.attributes.title} 
+  //     subtitle={seminarsData.attributes.subtitle} 
+  //     description={seminarsData.attributes.description} 
+  //     timeStart={seminarsData.attributes.TimeStart} 
+  //     timeEnd={seminarsData.attributes.TimeEnd}/>
+     
+  //    ))}    
 
+     
+
+  //   </Layout>)
+
+
+  // {seminarsData && seminarsData.map((seminarsData) => (
+     
+  //   <ContainerSeminars 
+  //   key={seminarsData.id} 
+  //   title={seminarsData.attributes.title} 
+  //   subtitle={seminarsData.attributes.subtitle} 
+  //   description={seminarsData.attributes.description} 
+  //   timeStart={seminarsData.attributes.TimeStart} 
+  //   timeEnd={seminarsData.attributes.TimeEnd}/>
+   
+  //  ))}
 
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

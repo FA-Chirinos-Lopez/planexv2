@@ -11,7 +11,7 @@ export default function SeminarsFooter({EventName, EventStart, EventEnd, FooterI
         
         if(t1.slice(3,4)>0){
             const monthNumber = t1.slice(3,5)
-         
+            
             return months[monthNumber-1]
 
         }else{
@@ -57,9 +57,9 @@ export default function SeminarsFooter({EventName, EventStart, EventEnd, FooterI
     const startMonth=getMonth(EventStart)
     const endDay=getDayNumber(EventEnd)
     const endMonth=getMonth(EventEnd)
-    const toPrintInDate = startDay+" "+startMonth+" - "+endDay+" "+endMonth
+    const toPrintInDate = startDay+" "+startMonth+"  -  "+endDay+" "+endMonth
     if(startMonth==endMonth){
-        toPrintInDate=startDay+"-"+endDay+" "+endMonth
+        toPrintInDate=startDay+" - "+endDay+" "+endMonth
     }
 
     return (
