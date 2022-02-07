@@ -33,40 +33,42 @@ export default function Home({initialScreensData}) {
     return (
     <div>
     <Layout 
-    ContentType="1" 
+    ContentType="Index"
     >
-    <div className="container" style={{display:"flex", flexDirection:"column" }} >
-    <div style={{ display:"flex",flexDirection:"column", justifyContent:"space-between", paddingBottom:"10vh"}}>
-    <h1 className="display-5" style={{color:"white", position:"relative", left:"20%", paddingTop:"10%"}} >Screens Main View </h1>  
+    <div className="mainIndexContainer"  >
+    
+    <h1  className="textIndex">Event name placeHolder </h1>  
     <br/><br/>
-    <Link href={`https://admin.viewplanex.uk/admin`}>
+
+   
     
-    <div>
-            <h1 className="display-6 btn btn-primary card-title" style={{position:"relative", left:"38%"}}  >Admin Panel</h1>
-            
-    </div>
-    
-    </Link> 
-    </div>
-    
-    <div style={{display:"flex", flexDirection:"row" , justifyContent:"space-around", flexWrap:"wrap"}} >
+    <div className="cardsContainer" >
     
     {screensData.map((screensData) => (
-        <div  key={screensData.id} className="card " style={{width: "18rem", height:"13rem",marginTop:"5vh"}}>
-        <h3 className="card-title" style={{textAlign: "center", paddingTop:"5vh"}}> {screensData.attributes.screenName}</h3>
+        <div  key={screensData.id}  style={{ paddingBottom:"5%"}} className="mainCards" >
+        <div className="indexCard">
+        <h3 className="titleScreens" style={{textAlign: "center"}}> {screensData.attributes.screenName}</h3>
       
         <Link href={`/${screensData.id}`}>
-        <div style={{textAlign: "center"}} >
-                <h1 className="display-6 btn btn-primary card-title"  >Go to screen</h1>
+        <div className="cardBtn" style={{textAlign: "center"}} >
+                <h1 className=" btn btn-primary"  >Go to screen</h1>
                 
         </div>
         
-        </Link>       
+        </Link>
+        </div>
         </div>
     ))}
 
     </div>
+    <Link href={`https://admin.viewplanex.uk/admin`}>
+    <div>
+            <h1 className="btn btn-primary adminBtn">Admin Panel</h1>
+            
     </div>
+    </Link> 
+    </div>
+
     </Layout>
     </div>
   )}

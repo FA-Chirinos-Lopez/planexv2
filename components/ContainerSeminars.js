@@ -72,7 +72,7 @@ export default function ContainerSeminars({title, subtitle, description,timeStar
     return (
       
             <li className="mainSeminars__item">
-              <div style={{ padding:"2%" , paddingLeft:"0%"}}>
+              <div >
                 <div className="mainSeminars__item__gridLeft">                          
                             <h1 className="mainSeminars__item__gridLeft__h1">{title}</h1>
                             <h2 className="mainSeminars__item__gridLeft__h2">{subtitle}</h2>

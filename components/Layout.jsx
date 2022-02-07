@@ -37,12 +37,12 @@ export default function Layout(props) {
     // function HeaderByFullScreen(){
     //   if(fullScreen)
     // }
-    if(contentType=="1")
+    if(contentType=="Index")
     {
       return(
       <div className="layout">
-      <div className="ads__screen">
-        <div className="ads__date">{days[d.getDay()]} {time}</div>
+      <div className="screenSeminars" >
+      <div className="dateSeminars" >{days[d.getDay()]} {time}</div>
 
         <ul className="mainSeminars">{props.children}</ul>
         
