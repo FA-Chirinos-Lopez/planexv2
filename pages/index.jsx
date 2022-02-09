@@ -4,9 +4,10 @@ import Link from "next/link";
 import React from 'react';
 import useSWR from "swr"
 import ContainerSeminars from "../components/ContainerSeminars";
+import { Logged } from "../utils/uc";
+import { useRouter } from 'next/router'
 
-
-const URL = "https://admin.viewplanex.uk"//process.env.NEXT_PUBLIC_DBURL 
+const URL = "http://localhost:1337"//process.env.NEXT_PUBLIC_DBURL 
 
 export {URL}
 
@@ -14,14 +15,18 @@ export {URL}
 export default function Home({initialScreensData}) {
   const {theatreInfo} = GetTheatreInfo()
   const {screensData,isLoading,isError} = GetScreensData(initialScreensData)
-
+  const router = useRouter()
 
   React.useEffect(() => {
     document.title = "Planex ScreensView"
  }, [])
 
 
-
+ React.useEffect(() => {
+  if (!(Logged)) {
+    router.push('/login')
+  }
+}, [Logged])
   if(isError) return "an error has occured "+{error}
   if(isLoading) return "loading..."
   if(!screensData) return "loading..."

@@ -5,7 +5,7 @@ import SeminarsFooter from "./SeminarsFooter"
 import { months,days } from "../utils/daysandmonths"
 import AdsContainer from "./AdsContainer";
 import { FullScreen } from "react-full-screen";
-
+import React from "react";
 
 
 
@@ -25,11 +25,20 @@ export default function Layout(props) {
     let d = new Date();
     //setTime(d.toString().slice(16, 24))
     // update
-    const [time,setTime] = useState(d.toString().slice(16, 24))    
-    setInterval(() => {
-      d = new Date();
-      setTime( d.toString().slice(16, 24))
-    }, 1000);
+    const [time,setTime] = useState(d.toString().slice(16, 21))  
+
+    React.useEffect(() => {
+        
+      const interval = setInterval(() => {
+        d = new Date();
+        setTime( d.toString().slice(16, 21))
+      }, 30000);
+
+      return () =>{
+        clearInterval(interval)
+      }
+      
+    }, [time]);
     
 
 
@@ -113,6 +122,18 @@ export default function Layout(props) {
         </div>
     </div>
    
+    )
+  }else{
+    return( 
+      <div className="layout">
+      <div className="screenSeminars" >
+      <div className="dateSeminars" >{days[d.getDay()]} {time}</div>
+
+        <ul className="mainSeminars">{props.children}</ul>
+        
+      
+      </div>
+    </div>
     )
   }
 }
