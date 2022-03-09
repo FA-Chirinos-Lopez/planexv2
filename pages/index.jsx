@@ -4,52 +4,86 @@ import Link from "next/link";
 import React from 'react';
 import useSWR from "swr"
 import ContainerSeminars from "../components/ContainerSeminars";
+import { InfoUser, isLogged, Token, checkLogs } from "../utils/logs";
+import Router from 'next/router';
 
 
-const URL = "https://admin.viewplanex.uk"//process.env.NEXT_PUBLIC_DBURL 
+
+
+
+const URL = "http://localhost:1337"//"https://admin.viewplanex.uk"//process.env.NEXT_PUBLIC_DBURL 
 
 export {URL}
-
+const router = Router
 
 export default function Home({initialScreensData}) {
-  const {theatreInfo} = GetTheatreInfo()
+  
+  
+  //const {theatreInfo} = GetTheatreInfo()
+  checkLogs()
   const {screensData,isLoading,isError} = GetScreensData(initialScreensData)
-
-
+  //console.log(screensData)
+  const {screensID,issLoading,issError} = GetScreensID()
   React.useEffect(() => {
     document.title = "Planex ScreensView"
+    
+    if(!isLogged) Router.push('/login')
+    console.log(sessionStorage.getItem("ViewPlanexFrontendToken"))
+    console.log(sessionStorage.getItem("ViewPlanexFrontendUserInfoName"))
  }, [])
-
-
-
+ 
+ 
+  
+ 
+//  console.log(screensID)
+  
   if(isError) return "an error has occured "+{error}
   if(isLoading) return "loading..."
   if(!screensData) return "loading..."
   
-  
-  if (screensData) {
-      
-      
+  if(isLogged){
+
+  if (screensID) {
+    const firstNameActualUser = sessionStorage.getItem("ViewPlanexFrontendUserInfoName")
+    
+    console.log(screensID)
+
+    const logout = () =>{
+      sessionStorage.clear()
+      Router.push('/login')
+    }
+
+    //console.log(screensID)
+
     return (
     <div>
+
+
     <Layout 
     ContentType="Index"
     >
+    
     <div className="mainIndexContainer"  >
+    <div className="topInfo">
+    <div  className="userInfo">
+    <h3>{firstNameActualUser}</h3>
+    <button className="btn btn-primary logoutButton"  onClick={logout}>Logout</button>
+    </div>
     
     <h1  className="textIndex">Event name placeHolder </h1>  
+    </div>
     <br/><br/>
 
    
     
     <div className="cardsContainer" >
     
-    {screensData.map((screensData) => (
-        <div  key={screensData.id}  style={{ paddingBottom:"5%"}} className="mainCards" >
+    {screensID.map((screensID) => (
+        <div  key={screensID.id}  style={{ paddingBottom:"5%"}} className="mainCards" >
         <div className="indexCard">
-        <h3 className="titleScreens" style={{textAlign: "center"}}> {screensData.attributes.screenName}</h3>
+        <h3 className="titleScreens" style={{textAlign: "center"}}> {screensID.ScreenName}</h3>
       
-        <Link href={`/${screensData.id}`}>
+        <Link href={`/${screensID.id}`}>
         <div className="cardBtn" style={{textAlign: "center"}} >
                 <h1 className=" btn btn-primary"  >Go to screen</h1>
                 
@@ -61,9 +95,10 @@ export default function Home({initialScreensData}) {
     ))}
 
     </div>
+    
     <Link href={`https://admin.viewplanex.uk/admin`}>
-    <div>
-            <h1 className="btn btn-primary adminBtn">Admin Panel</h1>
+    <div className="adminBtn">
+            <h1 className="btn btn-primary">Admin Panel</h1>
             
     </div>
     </Link> 
@@ -71,7 +106,14 @@ export default function Home({initialScreensData}) {
 
     </Layout>
     </div>
-  )}
+  )} } else{
+    return (
+      
+      <Layout ContentType="Index">
+      <h1 style={{ color:"white"}}>Please log in</h1>
+      </Layout>
+      )
+  }
 }
 
 
@@ -80,43 +122,91 @@ export async function getStaticProps() {
   
   try {
  const resScreens = await fetch(URL+"/api/screens?populate=%2A");
- const resTheatreInfo = await fetch(URL+"/api/theatre-info?populate=*");
+ //const resTheatreInfo = await fetch(URL+"/api/theatre-info?populate=*");
  
  
  const dataScreens = await resScreens.json();
- const theatreInfo = await resTheatreInfo.json();
+ //const theatreInfo = await resTheatreInfo.json();
 
- 
+ //console.log(dataScreens)
  const initialScreensData = dataScreens.data
- const initialTheatreInfo = theatreInfo.data
+ //const initialTheatreInfo = theatreInfo.data
 
  
- 
+ //console.log(initialScreensData)
  
    return {
      props: {
-      initialScreensData,initialTheatreInfo
+      initialScreensData
      }, revalidate:1
    };
  } catch (error) {
    console.log(error);
  }
 }
-
-
-
-async function fetcher(url){
-  const res = await fetch(URL+url)
-  const {data} = await res.json();
+// async function screenIdFetcher(){
+        
+//   const res = await fetch("http://localhost:1337/content-manager/collection-types/api::screen.screen", {
+//           method: 'GET',
+//           headers: myHeaders,
+//       })
   
-  return data
+//   const {data} = await res.json()
+  
+//   return data
+// }
+
+
+const GetScreensID = () => {
+  
+  const {data,error} = useSWR(
+    "/content-manager/collection-types/api::screen.screen",
+    fetcherWithToken,
+    {revalidateOnMount:true,
+      refreshInterval: 5 })
+  if(error) return "an error has occured "+{error}
+  if(!data) return "loading..."
+ 
+
+  return {
+      screensID: data,
+      isLoading: !error && !data,
+      isError: error
+  }
 }
 
 
-  function GetScreensData({initialScreensData}) {
+async function fetcherWithToken(url){
+
+  const res = await fetch(URL+"/content-manager/collection-types/api::screen.screen", {
+              method: 'GET',
+              headers: new Headers({
+                "Authorization": "Bearer " + sessionStorage.getItem("ViewPlanexFrontendToken")
+              })
+            })
+
+
+  const {results} = await res.json();
+  
+  return results
+}
+
+async function fetcher(url){
+    const res = await fetch(URL+url)
+    const {data} = await res.json();
+    //console.log(data, URL,url)
+    return data
+  }
+
+
+
+
+
+
+  const GetScreensData = ({initialScreensData}) => {
   
   const {data,error} = useSWR(
-    "/api/screens?populate=*",
+    "/api/screens?populate=%2A",
     fetcher,
     {fallbackData:initialScreensData,
       revalidateOnMount:true,
@@ -131,7 +221,7 @@ async function fetcher(url){
   }
 }
 
-function GetTheatreInfo(initialTheatreInfo) {
+/* function GetTheatreInfo(initialTheatreInfo) {
   
   const {data,error} = useSWR(
     "/api/theatre-info?populate=*",
@@ -146,4 +236,4 @@ function GetTheatreInfo(initialTheatreInfo) {
       isLoading: !error && !data,
       isError: error
   }
-}
+} */

@@ -33,11 +33,13 @@ $grey: #cacaca;
 .mainIndexContainer{
 	display:flex;
 	flex-direction: column;
-	align-items: center;
+	//align-items: center;
+	//text-align: center;
+	//height: 50%;
 	
 }
 .textIndex{
-	color:white;
+	color:$white;
 	padding-top:5%;
 	text-align: center;
 	
@@ -46,6 +48,39 @@ $grey: #cacaca;
 
 	padding:5%
 }
+.topInfo{
+	
+	display: flex;
+	flex-direction: row-reverse;
+	//border: 5px dotted red;
+	position: relative;
+	left: 5%;
+	padding-top: 3%;
+}
+
+
+.userInfo{
+	position: relative;
+	left: 12%;
+	width: 20%;
+	color: $white;
+	display: flex;
+	flex-direction:column;
+	flex-wrap:wrap;
+	align-items:center;
+	background: $purple;
+	padding: 3%;
+	border-radius: 10px;
+	border: 10px solid rgba(67, 86, 172, 0.568);
+}
+.logoutButton{
+	position: relative;
+	//right:5%
+	top: 20%;
+	
+}
+
+
 .cardsContainer{
 	display: flex;
 	flex-direction:row;
@@ -65,12 +100,12 @@ $grey: #cacaca;
 
 
 .indexCard{
-	height:15vh;
-	width:10vw;
+	//height:500%;
+	width:150%;
 	background: #30437c;
 	display: flex;
 	flex-direction: column;
-	position: relative;
+	//position: relative;
 	border-radius: 10px;
 	padding: 10%;
 }
@@ -79,18 +114,22 @@ $grey: #cacaca;
 	align-items: flex-start;
 	color: $white;
 	//background: #1b3685a4;
-	border-radius: 10px;
+	//border-radius: 10px;
 	height: 50%;
-	padding-top: 5%;
+	padding: 20%;
+
 	
 }
 .cardBtn{
-	position: absolute;
-    bottom: 0;
-    right: 15%;
+	//position: absolute;
+    //bottom: 0;
+    //right: 15%;
 }
 .adminBtn{
-	padding-top: 60vh;
+	padding: 3%;
+	position: relative;
+	left:2%;
+	align-self: center;
 }
 
 // imaginary screen
@@ -341,48 +380,6 @@ h2 {
 	
 }
 }
-// .parpadea {
-// 	animation-name: parpadeo;
-// 	animation-duration: 1.5s;
-// 	animation-timing-function: linear;
-// 	animation-iteration-count: infinite;
-  
-// 	-webkit-animation-name:parpadeo;
-// 	-webkit-animation-duration: 1.5s;
-// 	-webkit-animation-timing-function: linear;
-// 	-webkit-animation-iteration-count: infinite;
-
-// 	text-shadow:
-//     0 0 7px #fff,
-//     0 0 10px #fff,
-//     0 0 21px #fff,
-//     0 0 42px rgb(238, 154, 151),
-//     0 0 82px rgb(228, 143, 141),
-//     //0 0 92px rgb(235, 46, 40),
-//     //0 0 102px rgb(235, 46, 40),
-   
-
-//   }
-  
-//   @-moz-keyframes parpadeo{
-// 	0% { opacity: 1.0; }
-// 	50% { opacity: 0.5; }
-// 	100% { opacity: 1.0; }
-//   }
-  
-//   @-webkit-keyframes parpadeo {
-// 	0% { opacity: 1.0; }
-// 	50% { opacity: 0.5; }
-// 	100% { opacity: 1.0; }
-//   }
-  
-//   @keyframes parpadeo {
-// 	0% { opacity: 1.0; }
-// 	50% { opacity: 0.5; }
-// 	100% { opacity: 1.0; }
-//   }
-
-
 
 
 

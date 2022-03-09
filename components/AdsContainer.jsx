@@ -8,7 +8,7 @@ export default function AdsContainer({timeSlide,CallToAction,Location,Title,Desc
   
     const Image="Image"
     const Video="Video"
-   
+   console.log(FullScreen)
     /* const videoAddRef = React.useRef(null);
     console.log(videoAddRef.current);
 
@@ -69,6 +69,7 @@ export default function AdsContainer({timeSlide,CallToAction,Location,Title,Desc
             <img src={Img} alt="" className="adsFullScreen__main__img"/>
         )
     }else if(!FullScreen && Type=="Video"){
+        console.log(Img)
         return(
             <main className="adsConainer__main">
                 <video className="video" autoPlay muted loop>

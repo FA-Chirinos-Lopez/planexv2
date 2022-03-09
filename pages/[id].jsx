@@ -80,39 +80,39 @@ switch(slideImages) {
         
        
     //ARRAYS DEFINITION
-    let seminarsData= screensData.attributes.stage_timetables.data;
-    let halldescriptorsData= screensData.attributes.hall_descriptors.data;
+    let seminarsData= screensData.attributes.timetable_events.data;
+    //let halldescriptorsData= screensData.attributes.hall_descriptors.data;
     //let advertisementsData= screensData.attributes.advertisementsToAdd.data;
     let advertisementsData= screensData.attributes.advertisements.data;
-  
-      console.log(screensData.attributes.FooterImge.data.attributes.url)
+      console.log(screensData.attributes.timetable_events.data,"estessssss")
+      //console.log(screensData.attributes.FooterImge.data.attributes.url)
       
   //ADD SEMINARS
   
   if(seminarsData!=0){
-
+    console.log(screensData.attributes.SponsoredBy.data.attributes.url,"SponsoredBY")
   slideImages.push(    
     
     <Layout
-    timeSlide = {screensData.attributes.SeminarsDurationSlide}
     ContentType="Seminar" 
+    timeSlide = {screensData.attributes.SeminarsDurationSlide}
     EventName={screensData.attributes.EventName} 
     EventStart={screensData.attributes.EventStart} 
     EventEnd={screensData.attributes.EventEnd} 
     FooterImage={screensData.attributes.FooterImge.data.attributes.url} 
     TheatreName={screensData.attributes.TheatreName} 
     TopicOrSubtitle={screensData.attributes.TopicOrSubtitle} 
-    SponsoredByImg={screensData.attributes.SponsoredBy.data[0].attributes.url}
+    SponsoredByImg={screensData.attributes.SponsoredBy.data.attributes.url}
     >
     {seminarsData && seminarsData.map((seminarsData) => (
      
      <ContainerSeminars 
      key={seminarsData.id} 
-     title={seminarsData.attributes.title} 
-     subtitle={seminarsData.attributes.subtitle} 
-     description={seminarsData.attributes.description} 
+     title={seminarsData.attributes.Title} 
+     subtitle={seminarsData.attributes.Subtitle} 
+     description={seminarsData.attributes.Description} 
      timeStart={seminarsData.attributes.TimeStart} 
-     timeEnd={seminarsData.attributes.TimeEnd}/>
+     timeEnd={seminarsData.attributes.TimeEnd}>{console.log(seminarsData,"dspifndsfisdnfids")}</ContainerSeminars>
     
     ))}
 
@@ -152,6 +152,7 @@ switch(slideImages) {
     //ADD ADVERTISEMENTS
     
     if(advertisementsData!=0){
+      console.log()
     imgDataADS && advertisementsData.map((advertisementsData,index) =>(
         
       
@@ -166,7 +167,7 @@ switch(slideImages) {
             FooterImage={screensData.attributes.FooterImge.data.attributes.url} 
             TheatreName={screensData.attributes.TheatreName} 
             TopicOrSubtitle={screensData.attributes.TopicOrSubtitle} 
-            SponsoredByImg={screensData.attributes.SponsoredBy.data[0].attributes.url}
+            SponsoredByImg={screensData.attributes.SponsoredBy.data.attributes.url}
             FullScreen={advertisementsData.attributes.FullScreen} 
             >{console.log(advertisementsData.attributes.FullScreen)}
         
@@ -184,7 +185,7 @@ switch(slideImages) {
               Location={advertisementsData.attributes.Location}
               Description={advertisementsData.attributes.Description}
               DescriptionSecondParagraph={advertisementsData.attributes.DescriptionSecondParagraph}/>
-                
+                {console.log(findContentURL(imgDataADS,advertisementsData.id))}
           </Layout>
         
         )))}
