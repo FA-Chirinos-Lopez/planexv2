@@ -65,7 +65,7 @@ export default function Home() {
 
         colorc1 = color1ref.current.value
 
-   }, [])
+   }, [colorCambiar])
       
   }
     console.log(colorc1)
