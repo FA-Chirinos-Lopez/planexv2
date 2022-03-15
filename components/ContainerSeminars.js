@@ -1,34 +1,81 @@
-import { useState } from "react";
+import React, { useState } from "react";
 
-export default function ContainerSeminars({title, subtitle, description,timeStart,timeEnd, left2}) {
-    
-    /* const date = new Date();
-    const [hour, minutes, seconds] = [date.getHours(), date.getMinutes(), date.getSeconds()];
+export default function ContainerSeminars({title, subtitle, description,seminarDate,timeStart,timeEnd, left2}) {
 
-    console.log(hour, minutes, seconds)
-    
- */
+  const [time,setTime] = useState("")
 
-    //Thu Jan 13 2022 14:20:47 GMT+0000 (Greenwich Mean Time)
-
-
-    const [time,setTime] = useState("")
-    // initial
   let d = new Date();
-  //setTime(d.toString().slice(16, 24))
 
-  // update
-  setInterval(() => {
-    d = new Date();
-    setTime( d.toString().slice(16, 24))
-  }, 1000);
+
+  // update and clean when unmount
+
+  React.useEffect(()=>{
+
+    let timeUpdateInterval = setInterval(() => {
+      d = new Date();
+      setTime( d.toString().slice(16, 24))
+      //console.log(time)
+    }, 5000)
+
+    return ()=>{
+      clearInterval(timeUpdateInterval)
+    }
+    },[])
+
 
 
 
     const date = new Date()
     const date1 = date.toString()
     const date2 = date1.split(" ")[4]
+    let dayOfTheMonth = date.getDate()
+    let actualMonth = date.getMonth()+1
     
+    function getDayNumber(DateToCut){
+      
+      if(DateToCut){
+        const cuttedDate = DateToCut.split("-")
+        const t1 = cuttedDate[2]+"-"+cuttedDate[1]
+        
+        if(cuttedDate[2].slice(0,1)<=0)
+        {
+          return cuttedDate[2].slice(1,2)
+        }else{
+          return cuttedDate[2]
+        }
+        
+        
+      }}
+
+
+      function getMonthNumber(DateToCut){
+        if(DateToCut){
+          const cuttedDate = DateToCut.split("-")
+          
+          const t1 = cuttedDate[2]+"-"+cuttedDate[1]
+          
+          if(cuttedDate[1].slice(0,1)<=0)
+          {
+            return cuttedDate[1].slice(1,2)
+          }else{
+            return cuttedDate[1]
+          }
+          
+          
+        }}
+      
+
+
+      const checkDateForSeminar =()=>{
+        if(dayOfTheMonth == getDayNumber(seminarDate) && actualMonth == getMonthNumber(seminarDate)){
+        return true
+      }else{
+        return false
+      }}
+
+    //console.log(checkDateForSeminar())
+
+
     function getValueInMinutes(timeToTransform){
         const t1 = timeToTransform.split(":")
         const hoursToMinutes = t1[0]*60
@@ -66,13 +113,16 @@ export default function ContainerSeminars({title, subtitle, description,timeStar
         timeEndDisplay =  time1.join("")
     
    }
-    
-
- if(getValueInMinutes(time)<getValueInMinutes(timeEnd)){
+   //console.log(getValueInMinutes(time))
+    //let seminarsCounter = 0
+    //seminarsCounter = seminarsCounter +1
+ if(getValueInMinutes(time)<getValueInMinutes(timeEnd) && checkDateForSeminar()){
+  
+  //console.log(seminarsCounter)
     return (
       
             <li className="mainSeminars__item">
-              <div >
+              <div className="mainSeminars__item2">
                 <div className="mainSeminars__item__gridLeft">                          
                             <h1 className="mainSeminars__item__gridLeft__h1">{title}</h1>
                             <h2 className="mainSeminars__item__gridLeft__h2">{subtitle}</h2>
@@ -88,7 +138,7 @@ export default function ContainerSeminars({title, subtitle, description,timeStar
             </li>
         
     
-    )}else{return null}
+    )}else{return false}
     
 }
 

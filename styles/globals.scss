@@ -18,17 +18,29 @@ a {
 
 
 @import url("https://fonts.googleapis.com/css2?family=Sen:wght@400;700;800&display=swap");
-
+@import "./colors.module";
 // margins
 $paddingH: 60px;
 
-// colours
+/* // colours
 $purple: #020f42;
 $blue: #19327a;
 $red: #d20707;
 $white: #fff;
 $black: #000;
 $grey: #cacaca;
+
+
+
+
+
+:export {
+    c1: $blue;
+    c2: $purple;
+} */
+
+
+
 
 .mainIndexContainer{
 	display:flex;
@@ -56,9 +68,12 @@ $grey: #cacaca;
 	position: relative;
 	left: 5%;
 	padding-top: 3%;
+	background: var(--color1, $blue);
 }
 
-
+.mainStyle{
+	background: var(--color1, $blue);
+}
 .userInfo{
 	position: relative;
 	left: 12%;
@@ -68,7 +83,8 @@ $grey: #cacaca;
 	flex-direction:column;
 	flex-wrap:wrap;
 	align-items:center;
-	background: $purple;
+	//background: $purple;
+	background: var(--color1, $purple);
 	padding: 3%;
 	border-radius: 10px;
 	border: 10px solid rgba(67, 86, 172, 0.568);
@@ -87,7 +103,8 @@ $grey: #cacaca;
 	justify-content:space-evenly;
 	flex-wrap:wrap;
 	align-items: flex-start;
-	background: $purple;
+	//background: $purple;
+	background: var(--color2, $purple);
 	padding: 10%;
 	width: 140%;
 	align-self: center;
@@ -102,7 +119,8 @@ $grey: #cacaca;
 .indexCard{
 	//height:500%;
 	width:150%;
-	background: #30437c;
+	//background: #30437c;
+	background: var(--color1, $blue);
 	display: flex;
 	flex-direction: column;
 	//position: relative;
@@ -120,11 +138,7 @@ $grey: #cacaca;
 
 	
 }
-.cardBtn{
-	//position: absolute;
-    //bottom: 0;
-    //right: 15%;
-}
+
 .adminBtn{
 	padding: 3%;
 	position: relative;
@@ -168,7 +182,8 @@ h2 {
 .dateSeminars {
 	height: 5%;
 	font-size: 2rem;
-	background-color: $purple;
+	//background-color: $purple;
+	background: var(--color2, $purple);
 	display: flex;
 	align-items: center;
 	padding-left: $paddingH;
@@ -176,7 +191,7 @@ h2 {
 
 .headerSeminars {
 	height: 15%;
-	background: $blue;
+	background: var(--color1,$blue);
 	padding: 0 $paddingH 0 $paddingH;
 	display: flex;
 	flex-direction: row;
@@ -237,19 +252,38 @@ h2 {
 	
 }
 
+
+
+
 .mainSeminars {
 	//border: 5px dashed blue;
 	color: $black;
 	overflow: auto;
 	height: 65%;
-	background: $blue;
+	background: var(--color2,$purple);
+	background: var(--color1,$blue);
 	display: grid;
-	grid-auto-rows: 20%;//240px;
+	grid-auto-rows: 19.3%;//240px;
 	grid-row-gap: 10px;
 	width: 100%;
 	grid-auto-columns: 70% 30%;
 	justify-content: center;
 	
+	&__item2{
+				//border: 5px dotted yellow;
+		//border-radius: 5px;
+		//list-style: none;
+		background-color: $white;
+		padding: 0 $paddingH 0 $paddingH;
+		//display: flex;
+		//justify-content: center;
+		//align-items: center;
+		//position: relative;
+		//right: 22%;
+		display: grid;
+		grid-template-columns: 70% 30%;
+		width: 140%;
+	}
 	
 	&__item {
 		
@@ -386,7 +420,8 @@ h2 {
 
 .footerSeminars {
 	height: 15%;
-	background: $purple;
+	//background: $purple;
+	background: var(--color2, $purple);
 	padding: 0 $paddingH 0 $paddingH;
 	display: flex;
 	flex-direction: row;
@@ -455,7 +490,8 @@ h2 {
 &__screen {
 	width: 1080px; // will be 100vw in final application
 	height: 1920px; // will be 100vh in final application
-	margin: 80px 0; // delete in final application
+	aspect-ratio: 19/6;
+	//margin: 80px 0; // delete in final application
 }
 
 }
@@ -479,8 +515,9 @@ h2 {
 	//top: 1%;
 	color: $black;
 	overflow: auto;
-	height: 65.5%;
-	background: $blue;
+	height: 65.85%;
+	//background: $blue;
+	background: var(--color1, $blue);
 	//border: 1px solid rgb(255, 0, 0);
 	//display: flex;
 	//flex-direction: column;
@@ -525,6 +562,7 @@ h2 {
 		align-items: center;
 		font-family: Sen, Open Sans, sans-serif;
 		color: white;
+		height: 100vh;
 		//height: 100vh;
 
 	
@@ -533,7 +571,7 @@ h2 {
 	&__screen {
 		width: 1080px; // will be 100vw in final application
 		height: 1920px; // will be 100vh in final application
-		margin: 80px 0; // delete in final application
+		//margin: 80px 0; // delete in final application
 	}
 	
 	&__date {
@@ -584,7 +622,7 @@ h2 {
 
 .adsFullScreen__main{
 	color: $black;
-	//height: 80%;
+	height: 80.9%;
 	background: $blue;
 	//width: 102%;
 	

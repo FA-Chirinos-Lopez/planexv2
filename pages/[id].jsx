@@ -12,7 +12,7 @@ import ContainerSeminars from "../components/ContainerSeminars";
 import { URL } from ".";
 import Slider ,{currentSlide} from "../components/Slider";
 import Link from "next/link";
-
+import {TimetablesBuilder} from "../components/TimetablesBuilder";
 
 
 
@@ -20,7 +20,8 @@ import Link from "next/link";
 //const URL =  "http://localhost:1337" //"https://backend-l3ahb.ondigitalocean.app"
 
 const slideImages=[""]
-export {slideImages}
+let SeminarsDataToExport = [""]
+export {slideImages,SeminarsDataToExport}
 slideImages.length=0
 
 
@@ -88,11 +89,25 @@ switch(slideImages) {
       //console.log(screensData.attributes.FooterImge.data.attributes.url)
       
   //ADD SEMINARS
+
+  SeminarsDataToExport = seminarsData
   
+
+
+  const getTimetables = async =>{
+    let {timetables} = TimetablesBuilder()
+
+    return timetables
+  }
+
   if(seminarsData!=0){
-    console.log(screensData.attributes.SponsoredBy.data.attributes.url,"SponsoredBY")
-  slideImages.push(    
+   
+      let timetables = getTimetables()
     
+    
+    console.log(getTimetables().length, "timetables desde id")
+for (let index = 0; index < getTimetables().length; ++index) { 
+  slideImages.push(
     <Layout
     ContentType="Seminar" 
     timeSlide = {screensData.attributes.SeminarsDurationSlide}
@@ -104,20 +119,11 @@ switch(slideImages) {
     TopicOrSubtitle={screensData.attributes.TopicOrSubtitle} 
     SponsoredByImg={screensData.attributes.SponsoredBy.data.attributes.url}
     >
-    {seminarsData && seminarsData.map((seminarsData) => (
-     
-     <ContainerSeminars 
-     key={seminarsData.id} 
-     title={seminarsData.attributes.Title} 
-     subtitle={seminarsData.attributes.Subtitle} 
-     description={seminarsData.attributes.Description} 
-     timeStart={seminarsData.attributes.TimeStart} 
-     timeEnd={seminarsData.attributes.TimeEnd}>{console.log(seminarsData,"dspifndsfisdnfids")}</ContainerSeminars>
-    
-    ))}
-
-    </Layout>)}
+    {timetables[index].map((seminars)=> seminars)}
+ 
+    </Layout>)}}
    
+
 
    //ADD HALL DESCRIPTORS
   //  if(halldescriptorsData!=0){
@@ -152,7 +158,7 @@ switch(slideImages) {
     //ADD ADVERTISEMENTS
     
     if(advertisementsData!=0){
-      console.log()
+     
     imgDataADS && advertisementsData.map((advertisementsData,index) =>(
         
       
@@ -210,7 +216,7 @@ switch(slideImages) {
         indicators: true,
         scale: 0.4
       }
-      
+      console.log(slideImages)
     return (
       <div >
         <header style={{background:"#294b79",display:"flex", flexDirection:"column",position:"relative", left:"0",right:"0", width:"100%", height:"10%", zIndex:"1"}}>

@@ -6,6 +6,8 @@ import useSWR from "swr"
 import ContainerSeminars from "../components/ContainerSeminars";
 import { InfoUser, isLogged, Token, checkLogs } from "../utils/logs";
 import Router from 'next/router';
+import { c1, c2 } from '../styles/colors.module.scss';
+
 
 
 
@@ -16,12 +18,17 @@ const URL = "http://localhost:1337"//"https://admin.viewplanex.uk"//process.env.
 export {URL}
 const router = Router
 
-export default function Home({initialScreensData}) {
+export default function Home() {
   
   
   //const {theatreInfo} = GetTheatreInfo()
   checkLogs()
-  const {screensData,isLoading,isError} = GetScreensData(initialScreensData)
+  const color1ref = React.useRef(null) 
+  const color2ref = React.useRef(null) 
+
+  const colorCambiar = React.useRef(null) 
+
+  const {screensData,isLoading,isError} = GetScreensData()
   //console.log(screensData)
   const {screensID,issLoading,issError} = GetScreensID()
   React.useEffect(() => {
@@ -31,11 +38,11 @@ export default function Home({initialScreensData}) {
     console.log(sessionStorage.getItem("ViewPlanexFrontendToken"))
     console.log(sessionStorage.getItem("ViewPlanexFrontendUserInfoName"))
  }, [])
- 
- 
   
  
-//  console.log(screensID)
+ const [colorc1, setColorc1] = React.useState("")
+/*  console.log(c1,c2,"COLOR VARIABLES FROM SASS")
+ *///  console.log(screensID)
   
   if(isError) return "an error has occured "+{error}
   if(isLoading) return "loading..."
@@ -46,31 +53,46 @@ export default function Home({initialScreensData}) {
   if (screensID) {
     const firstNameActualUser = sessionStorage.getItem("ViewPlanexFrontendUserInfoName")
     
-    console.log(screensID)
 
     const logout = () =>{
       sessionStorage.clear()
       Router.push('/login')
-    }
 
-    //console.log(screensID)
+
+      
+      setColorc1(c1)
+      React.useEffect(() => {
+
+        colorc1 = color1ref.current.value
+
+   }, [])
+      
+  }
+    console.log(colorc1)
 
     return (
-    <div>
+    <div   ref={colorCambiar} className="mainStyle">
 
 
     <Layout 
     ContentType="Index"
     >
     
-    <div className="mainIndexContainer"  >
-    <div className="topInfo">
+    <input ref={color1ref} type="color" onChange={(evt) => {colorCambiar.current.style.setProperty("--color1", evt.target.value)}}/>
+    <input ref={color2ref} type="color" onChange={(evt) => {colorCambiar.current.style.setProperty("--color2", evt.target.value)}}/>
+    
+    <div  className="mainIndexContainer" style={{background:{colorc1}}} >
+    <div   className="topInfo">
     <div  className="userInfo">
     <h3>{firstNameActualUser}</h3>
     <button className="btn btn-primary logoutButton"  onClick={logout}>Logout</button>
     </div>
     
     <h1  className="textIndex">Event name placeHolder </h1>  
+    <div>
+    
+    
+    </div>
     </div>
     <br/><br/>
 
@@ -79,9 +101,9 @@ export default function Home({initialScreensData}) {
     <div className="cardsContainer" >
     
     {screensID.map((screensID) => (
-        <div  key={screensID.id}  style={{ paddingBottom:"5%"}} className="mainCards" >
+        <div  key={screensID.id}  style={{ paddingBottom:"5%" }} className="mainCards" >
         <div className="indexCard">
-        <h3 className="titleScreens" style={{textAlign: "center"}}> {screensID.ScreenName}</h3>
+        <h3 className="titleScreens" style={{textAlign: "center"}}> {screensID.ScreenName}{console.log(screensID.Color1)}</h3>
       
         <Link href={`/${screensID.id}`}>
         <div className="cardBtn" style={{textAlign: "center"}} >
@@ -106,7 +128,7 @@ export default function Home({initialScreensData}) {
 
     </Layout>
     </div>
-  )} } else{
+  )}else{return <h1>Reload the page</h1>} } else{
     return (
       
       <Layout ContentType="Index">
@@ -203,12 +225,12 @@ async function fetcher(url){
 
 
 
-  const GetScreensData = ({initialScreensData}) => {
+  const GetScreensData = () => {
   
   const {data,error} = useSWR(
     "/api/screens?populate=%2A",
     fetcher,
-    {fallbackData:initialScreensData,
+    {
       revalidateOnMount:true,
       refreshInterval: 5 })
   if(error) return "an error has occured "+{error}
