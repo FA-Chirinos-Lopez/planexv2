@@ -8,7 +8,7 @@ export default function AdsContainer({timeSlide,CallToAction,Location,Title,Desc
   
     const Image="Image"
     const Video="Video"
-   console.log(FullScreen)
+  
     /* const videoAddRef = React.useRef(null);
     console.log(videoAddRef.current);
 

@@ -76,7 +76,7 @@ switch(slideImages) {
       if (isError) isError
       if(!screensData) return "loading..."    
       if (screensData) {
-        console.log(initialScreensData)
+       
 
         
        
@@ -85,8 +85,7 @@ switch(slideImages) {
     //let halldescriptorsData= screensData.attributes.hall_descriptors.data;
     //let advertisementsData= screensData.attributes.advertisementsToAdd.data;
     let advertisementsData= screensData.attributes.advertisements.data;
-      console.log(screensData.attributes.timetable_events.data,"estessssss")
-      //console.log(screensData.attributes.FooterImge.data.attributes.url)
+
       
   //ADD SEMINARS
 
@@ -100,12 +99,13 @@ switch(slideImages) {
     return timetables
   }
 
-  if(seminarsData!=0){
+
+  if(getTimetables()!=0){
    
       let timetables = getTimetables()
+
     
     
-    console.log(getTimetables().length, "timetables desde id")
 for (let index = 0; index < getTimetables().length; ++index) { 
   slideImages.push(
     <Layout
@@ -175,7 +175,7 @@ for (let index = 0; index < getTimetables().length; ++index) {
             TopicOrSubtitle={screensData.attributes.TopicOrSubtitle} 
             SponsoredByImg={screensData.attributes.SponsoredBy.data.attributes.url}
             FullScreen={advertisementsData.attributes.FullScreen} 
-            >{console.log(advertisementsData.attributes.FullScreen)}
+            >
         
               <AdsContainer
               timeSlide = {advertisementsData.attributes.Duration}
@@ -191,7 +191,7 @@ for (let index = 0; index < getTimetables().length; ++index) {
               Location={advertisementsData.attributes.Location}
               Description={advertisementsData.attributes.Description}
               DescriptionSecondParagraph={advertisementsData.attributes.DescriptionSecondParagraph}/>
-                {console.log(findContentURL(imgDataADS,advertisementsData.id))}
+                
           </Layout>
         
         )))}

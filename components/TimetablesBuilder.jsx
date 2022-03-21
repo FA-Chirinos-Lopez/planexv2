@@ -66,12 +66,15 @@ const TimetablesBuilder = () => {
   
   
   
-      function getValueInMinutes(timeToTransform){
+      const getValueInMinutes = (timeToTransform) => {
+          if(timeToTransform != null){//console.log(timeToTransform)
           const t1 = timeToTransform.split(":")
           const hoursToMinutes = t1[0]*60
           const a = parseInt(t1[1])
           const timeInMinutes = a+hoursToMinutes
-          return timeInMinutes
+          return timeInMinutes}else{
+            console.log("Add a time to the seminar")
+          }
       }
 
     if(SeminarsDataToExport!=0){
@@ -83,7 +86,7 @@ const TimetablesBuilder = () => {
             let seminarDate=seminarsData.attributes.SeminarDate
             let timeStart=seminarsData.attributes.TimeStart
             let timeEnd=seminarsData.attributes.TimeEnd
-           console.log(checkDateAndTimeForSeminar(seminarDate, timeEnd))
+           //console.log(checkDateAndTimeForSeminar(seminarDate, timeEnd))
             if(checkDateAndTimeForSeminar(seminarDate, timeEnd))return(
           <ContainerSeminars 
           key={key}
@@ -100,7 +103,7 @@ const TimetablesBuilder = () => {
         });
             
 
-         console.log(seminars,"chequeo de condicion")
+         //console.log(seminars,"chequeo de condicion")
 
          if(seminars.length > 5 ){
              timesTimetable  = Math.trunc(seminars.length / 5)
@@ -131,7 +134,7 @@ const TimetablesBuilder = () => {
         }
 
         
-        console.log(timetables[timetables.length],"desde return")
+        //console.log(timetables[timetables.length],"desde return")
         return {timetables}
 }
 

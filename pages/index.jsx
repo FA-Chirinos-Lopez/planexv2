@@ -85,7 +85,7 @@ export default function Home() {
     <div   className="topInfo">
     <div  className="userInfo">
     <h3>{firstNameActualUser}</h3>
-    <button className="btn btn-primary logoutButton"  onClick={logout}>Logout</button>
+    <button className="btn btn-primary logoutButton" style={{position:"relative", top:"0"}}  onClick={logout}>Logout</button>
     </div>
     
     <h1  className="textIndex">Event name placeHolder </h1>  
