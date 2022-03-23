@@ -30,7 +30,7 @@ export default function login() {
    const registerUser = async (event) => {
       event.preventDefault()
     
-        const res = await fetch("http://localhost:1337/admin/login", {
+        const res = await fetch(URL+"/admin/login", {
           method: 'POST',
           body: new URLSearchParams({
             'password': event.target.password.value,

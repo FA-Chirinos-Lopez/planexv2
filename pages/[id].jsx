@@ -39,13 +39,11 @@ function findContentURL(data, idToLookFor) {
 
 export default function ScreensDisplay({ initialScreensData,initialImgDataADS }) {
 
-  React.useEffect(() => {
-    document.title = "Planex ScreensView"
- }, [])
+
   //initialScreensData.id
 
   
-
+  
     //FULLSCREEN
   const handle = useFullScreenHandle();
   //RESET ARRAY OF SLIDES
@@ -70,32 +68,43 @@ switch(slideImages) {
       if(error) return "an error has occured "+{error}
       if(!data) return "loading..." */
       const id = initialScreensData.id
-     
+      let {idsForAdsAndTimetable} = GetIdsForAdsAndTimetable(id)
+      
       const {imgDataADS} = GetAdvertisementData()
       const { screensData, isLoading, isError } = GetScreensData(id)
+      const idEvent = initialScreensData.attributes.event.data.id //screensData.attributes.event.data.id
+      const idTimetable = initialScreensData.attributes.AddTimetable.id
+      const  {TheatreData}  = GetTheatreData(idEvent)
+      const {TimetableData} = GetTimetableData(idTimetable)
       if (isError) isError
       if(!screensData) return "loading..."    
-      if (screensData) {
+      if (screensData && imgDataADS && TheatreData && TimetableData) {
        
-
-        
+    
+  
        
     //ARRAYS DEFINITION
     let seminarsData= screensData.attributes.timetable_events.data;
     //let halldescriptorsData= screensData.attributes.hall_descriptors.data;
     //let advertisementsData= screensData.attributes.advertisementsToAdd.data;
     let advertisementsData= screensData.attributes.advertisements.data;
+    
+
 
       
   //ADD SEMINARS
 
-  SeminarsDataToExport = seminarsData
+  //SeminarsDataToExport = seminarsData
+
+  SeminarsDataToExport = TimetableData
   
 
+// console.log(TimetableData)
+// console.log(seminarsData)
 
   const getTimetables = async =>{
     let {timetables} = TimetablesBuilder()
-
+    
     return timetables
   }
 
@@ -103,18 +112,23 @@ switch(slideImages) {
   if(getTimetables()!=0){
    
       let timetables = getTimetables()
+        console.log(timetables ,"Timtables 3")
+    
+      
 
-    
-    
+
+
 for (let index = 0; index < getTimetables().length; ++index) { 
+  
+  console.log(idsForAdsAndTimetable,"Screens info")
   slideImages.push(
     <Layout
     ContentType="Seminar" 
     timeSlide = {screensData.attributes.SeminarsDurationSlide}
-    EventName={screensData.attributes.EventName} 
-    EventStart={screensData.attributes.EventStart} 
-    EventEnd={screensData.attributes.EventEnd} 
-    FooterImage={screensData.attributes.FooterImge.data.attributes.url} 
+    EventName={TheatreData.attributes.EventName} 
+    EventStart={TheatreData.attributes.EventStart} 
+    EventEnd={TheatreData.attributes.EventEnd} 
+    FooterImage={TheatreData.attributes.FooterImge.data.attributes.url} 
     TheatreName={screensData.attributes.TheatreName} 
     TopicOrSubtitle={screensData.attributes.TopicOrSubtitle} 
     SponsoredByImg={screensData.attributes.SponsoredBy.data.attributes.url}
@@ -156,9 +170,9 @@ for (let index = 0; index < getTimetables().length; ++index) {
 
     
     //ADD ADVERTISEMENTS
-    
+    console.log(screensData.attributes.AddAdverts, "SCREENS DATA")
     if(advertisementsData!=0){
-     
+     console.log(advertisementsData,"AdvertisementData")
     imgDataADS && advertisementsData.map((advertisementsData,index) =>(
         
       
@@ -167,10 +181,10 @@ for (let index = 0; index < getTimetables().length; ++index) {
             <Layout
             timeSlide = {advertisementsData.attributes.Duration}
             ContentType="Advertisement" 
-            EventName={screensData.attributes.EventName} 
-            EventStart={screensData.attributes.EventStart} 
-            EventEnd={screensData.attributes.EventEnd} 
-            FooterImage={screensData.attributes.FooterImge.data.attributes.url} 
+            EventName={TheatreData.attributes.EventName} 
+            EventStart={TheatreData.attributes.EventStart} 
+            EventEnd={TheatreData.attributes.EventEnd} 
+            FooterImage={TheatreData.attributes.FooterImge.data.attributes.url} 
             TheatreName={screensData.attributes.TheatreName} 
             TopicOrSubtitle={screensData.attributes.TopicOrSubtitle} 
             SponsoredByImg={screensData.attributes.SponsoredBy.data.attributes.url}
@@ -248,7 +262,7 @@ for (let index = 0; index < getTimetables().length; ++index) {
    
     
       </div>
-    )}
+    )}else return "Loading..."
   }
 
 
@@ -462,13 +476,33 @@ for (let index = 0; index < getTimetables().length; ++index) {
 
     const res = await fetch(URL+url)
     const {data} = await res.json()
-    
+   
     return data
   }
 
 
+async function fetcherWithToken(url){
+
+  const res = await fetch(URL+url, {
+              method: 'GET',
+              headers: new Headers({
+                "Accept": "*/*",
+                "Accept-Encoding":"gzip, deflate, br",
+                "Connection":"keep-alive",
+                "Authorization": "Bearer " + sessionStorage.getItem("ViewPlanexFrontendToken"),
+              })
+            })
 
 
+  const data = await res.json();
+  
+  
+  return data
+}
+
+
+
+  
 
   function GetScreensData(id, initialScreensData) {
   
@@ -488,6 +522,65 @@ for (let index = 0; index < getTimetables().length; ++index) {
     }
   }
 
+//screensData.attributes.event.data
+
+   function GetTheatreData(idEvent) {
+  
+    const {data,error} = useSWR(
+      "/api/events/"+idEvent+"?populate=*",
+      fetcher,{
+        revalidateOnMount:true,
+        refreshInterval: 5 })
+
+
+    if(error) return "an error has occured "+{error}
+    if(!data) return "loading..."
+    //console.log(data)
+    return {
+        TheatreData : data
+    }
+  }
+
+
+  function GetTimetableData(idTimetable) {
+  
+    const {data,error} = useSWR(
+      "/content-manager/collection-types/api::timetable.timetable/"+idTimetable,
+      fetcherWithToken,{
+        revalidateOnMount:true,
+        refreshInterval: 5 })
+
+
+    if(error) return "an error has occured "+{error}
+    if(!data) return "loading..."
+    
+    data = data.AddEvents.timetable_events
+    
+    return {
+        TimetableData : data
+    }
+  }
+
+
+
+  function GetIdsForAdsAndTimetable(id) {
+  
+    const {data,error} = useSWR(
+      "/content-manager/collection-types/api::screen.screen/"+id,
+      fetcherWithToken,{
+        revalidateOnMount:true,
+        refreshInterval: 5 })
+
+
+    if(error) return "an error has occured "+{error}
+    if(!data) return "loading..."
+    
+    
+    
+    return {
+        idsForAdsAndTimetable : data
+    }
+  }
 
 
 

@@ -76,16 +76,17 @@ const TimetablesBuilder = () => {
             console.log("Add a time to the seminar")
           }
       }
-
-    if(SeminarsDataToExport!=0){
+      console.log(SeminarsDataToExport.length)
+      
+    if(SeminarsDataToExport.length!=0){
         let seminarsWithiutFilter = SeminarsDataToExport && SeminarsDataToExport.map((seminarsData) => {
             let key = seminarsData.id 
-            let title=seminarsData.attributes.Title
-            let subtitle=seminarsData.attributes.Subtitle 
-            let description=seminarsData.attributes.Description
-            let seminarDate=seminarsData.attributes.SeminarDate
-            let timeStart=seminarsData.attributes.TimeStart
-            let timeEnd=seminarsData.attributes.TimeEnd
+            let title=seminarsData.Title
+            let subtitle=seminarsData.Subtitle 
+            let description=seminarsData.Description
+            let seminarDate=seminarsData.SeminarDate
+            let timeStart=seminarsData.TimeStart
+            let timeEnd=seminarsData.TimeEnd
            //console.log(checkDateAndTimeForSeminar(seminarDate, timeEnd))
             if(checkDateAndTimeForSeminar(seminarDate, timeEnd))return(
           <ContainerSeminars 
@@ -134,7 +135,7 @@ const TimetablesBuilder = () => {
         }
 
         
-        //console.log(timetables[timetables.length],"desde return")
+        console.log(timetables,"desde return")
         return {timetables}
 }
 
