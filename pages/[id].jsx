@@ -68,8 +68,8 @@ switch(slideImages) {
       if(error) return "an error has occured "+{error}
       if(!data) return "loading..." */
       const id = initialScreensData.id
-      let {idsForAdsAndTimetable} = GetIdsForAdsAndTimetable(id)
-      
+      const {AddAdverts,AddTimetable,Color1,Color2} = GetIdsForAdsAndTimetable(id)
+      if(AddTimetable)console.log(AddTimetable[0],"TIMETABLE")
       const {imgDataADS} = GetAdvertisementData()
       const { screensData, isLoading, isError } = GetScreensData(id)
       const idEvent = initialScreensData.attributes.event.data.id //screensData.attributes.event.data.id
@@ -81,7 +81,7 @@ switch(slideImages) {
       if (screensData && imgDataADS && TheatreData && TimetableData) {
        
     
-  
+    
        
     //ARRAYS DEFINITION
     let seminarsData= screensData.attributes.timetable_events.data;
@@ -119,8 +119,9 @@ switch(slideImages) {
 
 
 for (let index = 0; index < getTimetables().length; ++index) { 
-  
-  console.log(idsForAdsAndTimetable,"Screens info")
+   //idsForAdsAndTimetable = JSON.stringify(JSON.parse(idsForAdsAndTimetable))//idsForAdsAndTimetable
+  //     let mdata= data.map((data)=> data)
+  //  console.log(data,"Screens info")
   slideImages.push(
     <Layout
     ContentType="Seminar" 
@@ -486,13 +487,10 @@ async function fetcherWithToken(url){
   const res = await fetch(URL+url, {
               method: 'GET',
               headers: new Headers({
-                "Accept": "*/*",
-                "Accept-Encoding":"gzip, deflate, br",
-                "Connection":"keep-alive",
                 "Authorization": "Bearer " + sessionStorage.getItem("ViewPlanexFrontendToken"),
               })
             })
-
+            //console.log(sessionStorage.getItem("ViewPlanexFrontendToken"),"URL   ",URL,url)
 
   const data = await res.json();
   
@@ -549,7 +547,7 @@ async function fetcherWithToken(url){
       fetcherWithToken,{
         revalidateOnMount:true,
         refreshInterval: 5 })
-
+    
 
     if(error) return "an error has occured "+{error}
     if(!data) return "loading..."
@@ -574,11 +572,15 @@ async function fetcherWithToken(url){
 
     if(error) return "an error has occured "+{error}
     if(!data) return "loading..."
-    
-    
+    console.log(data,"SWR")
+    let AddAdverts = data.AddAdverts
+    let AddTimetable = data.AddTimetable.timetables
+    let Color1 = data.Color1
+    let Color2 = data.Color2
+    //console.log(AddTimetable,"TIMETABLE FROM SWR")
     
     return {
-        idsForAdsAndTimetable : data
+      AddAdverts,AddTimetable,Color1,Color2
     }
   }
 
