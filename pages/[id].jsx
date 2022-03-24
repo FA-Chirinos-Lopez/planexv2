@@ -365,11 +365,6 @@ switch(slideImages) {
         indicators: (i) => <div className="indicator">{i + 1}</div>
       }
       
-      // while(true){
-      //   console.log("hola")
-      //   setTimeout(,1000)
-      // }
-      
       return (
         <div className={this.props.className}  >
         
