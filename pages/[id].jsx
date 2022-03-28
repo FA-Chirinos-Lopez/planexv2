@@ -120,17 +120,73 @@ export default function ScreensDisplay({
           timetablesIds[i] = AddTimetable[i].id;
         }
       }
-    };
+      };
 
-    GetTimetablesIdAndData();
+    
 
 
+  
 
-    const getTimetables = async => {
-      let timetables = TimetablesBuilder();
 
-      return timetables;
-    };
+      if (timetablesIds.length != 0) {
+          console.log(timetablesIds)
+
+          for (let i = 0; i < timetablesIds.length; ++i) {
+              if (Timetables[i].attributes.AddEvents){
+                  
+
+                  let timetables = TimetablesBuilder(Timetables[i].attributes.AddEvents.timetable_events.data)
+
+                  for (let i = 0; i < timetables.length; ++i) {
+
+                        slideImages.push(
+                            <Layout
+                                ContentType="Seminar"
+                                timeSlide={screensData.attributes.SeminarsDurationSlide}
+                                EventName={TheatreData.attributes.EventName}
+                                EventStart={TheatreData.attributes.EventStart}
+                                EventEnd={TheatreData.attributes.EventEnd}
+                                FooterImage={TheatreData.attributes.FooterImge.data.attributes.url}
+                                TheatreName={screensData.attributes.TheatreName}
+                                TopicOrSubtitle={screensData.attributes.TopicOrSubtitle}
+                                SponsoredByImg={screensData.attributes.SponsoredBy.data.attributes.url}
+                            >
+                                {timetables[i].map((seminars) => seminars)}
+
+                    </Layout>)}
+                  
+              }
+
+          }
+    }
+        
+    
+
+
+    const colorChanger = () => {
+        let color1 = [""]
+        let color2 = [""]
+        if (EventData.data.attributes.ChangeColors && !screensData.attributes.ChangeColors) {
+            console.log(screensData.attributes.ChangeColors)
+            allowColorChanger = true
+            color1 = EventData.data.attributes.PrimaryColor
+            color2 = EventData.data.attributes.SecondaryColor
+        }
+        if (screensData.attributes.ChangeColors) {
+            console.log(screensData)
+            allowColorChanger = true
+            color1 = screensData.attributes.Color1
+            color2 = screensData.attributes.Color2
+        }
+        if (allowColorChanger) {
+            setTimeout(() => {
+                colorCambiar.current.style.setProperty("--color1", color1)
+                colorCambiar.current.style.setProperty("--color2", color2)
+            }, 1)
+        }
+    }
+
+
 
     if (AdsData) {
       for (let i = 0; i < AdsData.length; i++) {
@@ -182,67 +238,8 @@ export default function ScreensDisplay({
           );
         }
         }
-    
 
-        const colorChanger = () => {
-            let color1 = [""]
-            let color2 = [""]
-            if (EventData.data.attributes.ChangeColors && !screensData.attributes.ChangeColors) {
-                console.log(screensData.attributes.ChangeColors)
-                allowColorChanger = true
-                color1 = EventData.data.attributes.PrimaryColor
-                color2 = EventData.data.attributes.SecondaryColor
-            }
-            if (screensData.attributes.ChangeColors) {
-                console.log(screensData)
-                allowColorChanger = true
-                color1 = screensData.attributes.Color1
-                color2 = screensData.attributes.Color2
-            }
-            if (allowColorChanger){
-                setTimeout(() => {
-                    colorCambiar.current.style.setProperty("--color1", color1)
-                    colorCambiar.current.style.setProperty("--color2", color2)
-                }, 1)
-            }
-        }
-
-      //  AdsData.map((advertisementsData,index) =>(
-
-      //slideImages.push(
-      //  <Layout
-      //  timeSlide = {advertisementsData.attributes.Duration}
-      //  ContentType="Advertisement"
-      //  EventName={TheatreData.attributes.EventName}
-      //  EventStart={TheatreData.attributes.EventStart}
-      //  EventEnd={TheatreData.attributes.EventEnd}
-      //  FooterImage={TheatreData.attributes.FooterImge.data.attributes.url}
-      //  TheatreName={screensData.attributes.TheatreName}
-      //  TopicOrSubtitle={screensData.attributes.TopicOrSubtitle}
-      //  SponsoredByImg={screensData.attributes.SponsoredBy.data.attributes.url}
-      //  FullScreen={advertisementsData.attributes.FullScreen}
-      //  >
-
-      //    <AdsContainer
-      //    timeSlide = {advertisementsData.attributes.Duration}
-      //    key={advertisementsData.id}
-      //    IndexNumber={index}
-      //    CurrIndexSlider={currentSlide}
-      //    Type={advertisementsData.attributes.Type}
-      //    FullScreen={advertisementsData.attributes.FullScreen}
-      //    Img={findContentURL(imgDataADS,advertisementsData.id)}
-      //    CallToAction={advertisementsData.attributes.CallToAction}
-      //    Time={advertisementsData.attributes.Time}
-      //    Title={advertisementsData.attributes.Title}
-      //    Location={advertisementsData.attributes.Location}
-      //    Description={advertisementsData.attributes.Description}
-      //    DescriptionSecondParagraph={advertisementsData.attributes.DescriptionSecondParagraph}/>
-
-      //</Layout>
-
-      //      )))
     }
-    //               {findContentURL(imgDataADS,advertisementsData.id)} {isVideo(imgDataADS,advertisementsData.id)}
 
     switch (slideImages.length) {
       case 0:

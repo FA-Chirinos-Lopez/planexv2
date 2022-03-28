@@ -77,19 +77,23 @@ const TimetablesBuilder = (SeminarsDataToExport) => {
             console.log("Add a time to the seminar")
           }
       }
-      //console.log(SeminarsDataToExport,"DESDE TIMETABLES BUILDEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEER")
       
-    if(SeminarsDataToExport.length!=0){
-        let seminarsWithiutFilter = SeminarsDataToExport && SeminarsDataToExport.map((seminarsData) => {
-            let key = seminarsData.id 
-            let title=seminarsData.Title
-            let subtitle=seminarsData.Subtitle 
-            let description=seminarsData.Description
-            let seminarDate=seminarsData.SeminarDate
-            let timeStart=seminarsData.TimeStart
-            let timeEnd=seminarsData.TimeEnd
+      
+    if (SeminarsDataToExport.length != 0) {
+            let seminarsWithiutFilter = SeminarsDataToExport && SeminarsDataToExport.map((seminarsData) => {
+            let key = seminarsData.attributes.id
+            let title = seminarsData.attributes.Title
+            let subtitle = seminarsData.attributes.Subtitle
+            let description = seminarsData.attributes.Description
+            let seminarDate = seminarsData.attributes.SeminarDate
+            let timeStart = seminarsData.attributes.TimeStart
+            let timeEnd = seminarsData.attributes.TimeEnd
            //console.log(checkDateAndTimeForSeminar(seminarDate, timeEnd))
-            if(checkDateAndTimeForSeminar(seminarDate, timeEnd))return(
+                if (checkDateAndTimeForSeminar(seminarDate, timeEnd)) {
+                    //console.log(SeminarsDataToExport, "DESDE TIMETABLES BUILDEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEER")
+
+
+                    return (
           <ContainerSeminars 
           key={key}
           title={title}
@@ -98,8 +102,8 @@ const TimetablesBuilder = (SeminarsDataToExport) => {
           seminarDate={seminarDate}
           timeStart={timeStart}
           timeEnd={timeEnd} ></ContainerSeminars>
-            )})
-
+            )}})
+        
         let seminars = seminarsWithiutFilter.filter(function(x) {
             return x !== undefined;
         });
