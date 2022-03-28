@@ -230,7 +230,7 @@ export default function ScreensDisplay({initialScreensData}) {
       scale: 0.4
     };
         console.log(slideImages);
-        console.log(initialScreensData)
+        //console.log(initialScreensData)
     return (
         <div>
             <div ref={colorCambiar} className="mainStyle" >
