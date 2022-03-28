@@ -13,6 +13,7 @@ import Slider, { currentSlide } from "../components/Slider";
 import Link from "next/link";
 import { TimetablesBuilder } from "../components/TimetablesBuilder ";
 import { checkDate, checkTime } from "../components/TimeAndDateValidator";
+import Head from 'next/head'
 
 //const URL =  "http://localhost:1337" //"https://backend-l3ahb.ondigitalocean.app"
 
@@ -228,10 +229,15 @@ export default function ScreensDisplay({initialScreensData}) {
       indicators: true,
       scale: 0.4
     };
-    console.log(slideImages);
+        console.log(slideImages);
+        console.log(initialScreensData)
     return (
         <div>
             <div ref={colorCambiar} className="mainStyle" >
+                <Head>
+                    <title>Planex {initialScreensData.attributes.ScreenName}</title>
+                    <meta property="og:title" content="Planex" key="title" />
+                </Head>
                 
         <header
           style={{

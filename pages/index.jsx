@@ -7,7 +7,7 @@ import ContainerSeminars from "../components/ContainerSeminars";
 import { InfoUser, isLogged, Token, checkLogs } from "../utils/logs";
 import Router from 'next/router';
 import { c1, c2 } from '../styles/colors.module.scss';
-
+import Head from 'next/head'
 
 
 
@@ -56,19 +56,16 @@ export default function Home() {
 
     const logout = () =>{
       sessionStorage.clear()
-      Router.push('/login')
-
-
-      
-      setColorc1(c1)
-
-      
+      Router.push('/login')      
   }
     
 
     return (
     <div   ref={colorCambiar} className="mainStyle">
-
+            <Head>
+                <title>Planex</title>
+                <meta property="og:title" content="Planex" key="title" />
+            </Head>
 
     <Layout 
     ContentType="Index"

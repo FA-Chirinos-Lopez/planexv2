@@ -4,14 +4,18 @@ import Layout from '../components/Layout';
 import { URL } from '.';
 import { InfoUser, isLogged, Token , setIsLogged, setToken, setInfoUser, myHeaders, setHeader } from '../utils/logs';
 import Router from 'next/router';
-
+import Head from 'next/head'
 
 export default function login() {
 
 
   return (
    
-    <Layout ContentType="Index">
+      <Layout ContentType="Index">
+          <Head>
+              <title>Planex Login</title>
+              <meta property="og:title" content="Planex" key="title" />
+          </Head>
       <Form></Form>
     </Layout>
    
