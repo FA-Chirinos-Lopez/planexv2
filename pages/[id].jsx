@@ -92,26 +92,16 @@ export default function ScreensDisplay({
 
   const { TheatreData, isLoadingTheatreData } = GetTheatreData(idEvent);
 
-  const { TimetableData, isLoadingTimetableData } = GetTimetableData(
-    idTimetable
-  );
 
   if (isError) isError;
 
   if (
     isLoadingScreensData ||
-    isLoadingTheatreData ||
-    isLoadingIdsForAdsAndTimetable ||
-    isLoadingAdvertisementData
+    isLoadingIdsForAdsAndTimetable
   )
     return "loading...";
 
-  if (screensData && imgDataADS && TheatreData) {
-    //ARRAYS DEFINITION
-    //let seminarsData= screensData.attributes.timetable_events.data;
-    //let halldescriptorsData= screensData.attributes.hall_descriptors.data;
-    //let advertisementsData= screensData.attributes.advertisementsToAdd.data;
-    let advertisementsData = AdsData;
+    if (screensData && AddTimetable) {
     let timetablesIds = [""];
 
     const GetTimetablesIdAndData = () => {
@@ -127,12 +117,12 @@ export default function ScreensDisplay({
 
   
 
-
-      if (timetablesIds.length != 0) {
+        GetTimetablesIdAndData()
+      if (timetablesIds.length != 0 ) {
           console.log(timetablesIds)
 
           for (let i = 0; i < timetablesIds.length; ++i) {
-              if (Timetables[i].attributes.AddEvents){
+              if (Timetables[i]){
                   
 
                   let timetables = TimetablesBuilder(Timetables[i].attributes.AddEvents.timetable_events.data)

@@ -13,7 +13,7 @@ import { c1, c2 } from '../styles/colors.module.scss';
 
 
 
-const URL = "http://A17576152:1337"      //"http://felixchls-imac:1337"    //"https://admin.viewplanex.uk"//process.env.NEXT_PUBLIC_DBURL
+const URL = process.env.NEXT_PUBLIC_DBURL
 
 export {URL}
 const router = Router
