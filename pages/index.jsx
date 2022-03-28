@@ -61,11 +61,7 @@ export default function Home() {
 
       
       setColorc1(c1)
-      React.useEffect(() => {
 
-        colorc1 = color1ref.current.value
-
-   }, [colorCambiar])
       
   }
     
