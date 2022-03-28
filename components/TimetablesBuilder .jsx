@@ -6,7 +6,7 @@ import ContainerSeminars from './ContainerSeminars'
 
 
 const TimetablesBuilder = (SeminarsDataToExport) => {
-    console.log(SeminarsDataToExport)
+    //console.log(SeminarsDataToExport)
     let timetables = []
     let timesTimetable = 0   
     let d = new Date();
@@ -74,7 +74,7 @@ const TimetablesBuilder = (SeminarsDataToExport) => {
           const a = parseInt(t1[1])
           const timeInMinutes = a+hoursToMinutes
           return timeInMinutes}else{
-            console.log("Add a time to the seminar")
+            //console.log("Add a time to the seminar")
           }
       }
       
@@ -140,7 +140,7 @@ const TimetablesBuilder = (SeminarsDataToExport) => {
         }
 
         
-        console.log(timetables,"desde return")
+        //console.log(timetables,"desde return")
         return timetables
 }
 

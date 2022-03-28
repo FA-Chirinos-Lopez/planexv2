@@ -21,35 +21,16 @@ let SeminarsDataToExport = [""];
 export { slideImages, SeminarsDataToExport };
 slideImages.length = 0;
 
-function findContentURL(data, idToLookFor) {
-  var categoryArray = data;
-  for (var i = 0; i < categoryArray.length; i++) {
-    if (categoryArray[i].id == idToLookFor) {
-      return (
-        URL +
-        categoryArray[i].attributes.ExhibitorAnimationOrGraphic.data.attributes
-          .url
-      );
-    }
-  }
-}
 
-export default function ScreensDisplay({
-  initialScreensData,
-  initialImgDataADS
-}) {
-  //initialScreensData.id
+export default function ScreensDisplay({initialScreensData}) {
+  
 
   //FULLSCREEN
   const handle = useFullScreenHandle();
   //RESET ARRAY OF SLIDES
   slideImages.length = 0;
   // IF ONLY ONE SLIDE OR NONE DONT SCROLL
-    var condSlide = false;
-
-    const color1ref = React.useRef(null)
-    const color2ref = React.useRef(null)
-
+    let condSlide = false;
     const colorCambiar = React.useRef(null)
 
   switch (slideImages) {
@@ -61,21 +42,18 @@ export default function ScreensDisplay({
       break;
     default:
       condSlide = true;
-  }
+    }
 
-  const id = initialScreensData.id;
-    let color1 = "#FF5050"
-    let color2 = "#FF0000"
+    
+
+    const id = initialScreensData.id;
     let allowColorChanger = false
   const {
-    AddAdverts,
     AddTimetable,
-    Color1,
-    Color2,
     isLoadingIdsForAdsAndTimetable
   } = GetIdsForAdsAndTimetable(id);
 
-  const { imgDataADS, isLoadingAdvertisementData } = GetAdvertisementData();
+  //const { imgDataADS, isLoadingAdvertisementData } = GetAdvertisementData();
 
   const {
     EventData,
@@ -84,13 +62,14 @@ export default function ScreensDisplay({
     screensData,
     isLoadingScreensData,
     isError
-  } = GetScreensData(id);
+    } = GetScreensData(id);
+    let idEvent =[""]
+  if (initialScreensData.attributes.event.data){
+        idEvent = initialScreensData.attributes.event.data.id;
+    }else{return <h1>Need to add event</h1>}
+  //const idTimetable = initialScreensData.attributes.AddTimetable.id;
 
-  const idEvent = initialScreensData.attributes.event.data.id;
-
-  const idTimetable = initialScreensData.attributes.AddTimetable.id;
-
-  const { TheatreData, isLoadingTheatreData } = GetTheatreData(idEvent);
+  //const { TheatreData, isLoadingTheatreData } = GetTheatreData(idEvent);
 
 
   if (isError) isError;
@@ -119,27 +98,30 @@ export default function ScreensDisplay({
 
         GetTimetablesIdAndData()
       if (timetablesIds.length != 0 ) {
-          console.log(timetablesIds)
+          //console.log(timetablesIds)
 
           for (let i = 0; i < timetablesIds.length; ++i) {
               if (Timetables[i]){
                   
 
                   let timetables = TimetablesBuilder(Timetables[i].attributes.AddEvents.timetable_events.data)
-
+                  let eventData = EventData.data.attributes;
+                  //console.log(eventData)
                   for (let i = 0; i < timetables.length; ++i) {
 
                         slideImages.push(
                             <Layout
                                 ContentType="Seminar"
                                 timeSlide={screensData.attributes.SeminarsDurationSlide}
-                                EventName={TheatreData.attributes.EventName}
-                                EventStart={TheatreData.attributes.EventStart}
-                                EventEnd={TheatreData.attributes.EventEnd}
-                                FooterImage={TheatreData.attributes.FooterImge.data.attributes.url}
+                                EventName={eventData.EventName}
+                                EventStart={eventData.EventStart}
+                                EventEnd={eventData.EventEnd}
+                                FooterImage={eventData.FooterImge.data.attributes.url}
                                 TheatreName={screensData.attributes.TheatreName}
                                 TopicOrSubtitle={screensData.attributes.TopicOrSubtitle}
-                                SponsoredByImg={screensData.attributes.SponsoredBy.data.attributes.url}
+                                SponsoredByImg={
+                                    screensData.attributes.SponsoredBy.data.attributes.url
+                                }
                             >
                                 {timetables[i].map((seminars) => seminars)}
 
@@ -184,7 +166,7 @@ export default function ScreensDisplay({
         let data = AdsData[i].attributes;
         let eventData = EventData.data.attributes;
 
-          console.log(eventData)
+          //console.log(eventData)
         
         if (data.AddTime) {
               allowToAdd = checkTime(data.AddTime.timeStart, data.AddTime.timeEnd)
@@ -222,7 +204,7 @@ export default function ScreensDisplay({
                 Title={data.Title}
                 Location={data.Location}
                 Description={data.Description}
-                //DescriptionSecondParagraph={data.DescriptionSecondParagraph}
+                DescriptionSecondParagraph={data.DescriptionSecondParagraph}
               />
             </Layout>
           );
@@ -384,71 +366,68 @@ export default function ScreensDisplay({
 
 // END OF NEW SLIDER
 
-class Slideshoww extends Component {
-  constructor() {
-    super();
-    this.slideRef = React.createRef();
-    this.back = this.back.bind(this);
-    this.next = this.next.bind(this);
-    this.state = { current: 0 };
-  }
+//class Slideshoww extends Component {
+//  constructor() {
+//    super();
+//    this.slideRef = React.createRef();
+//    this.back = this.back.bind(this);
+//    this.next = this.next.bind(this);
+//    this.state = { current: 0 };
+//  }
 
-  back() {
-    this.slideRef.current.goBack();
-  }
+//  back() {
+//    this.slideRef.current.goBack();
+//  }
 
-  next() {
-    this.slideRef.current.goNext();
-  }
+//  next() {
+//    this.slideRef.current.goNext();
+//  }
 
-  render() {
-    const properties = {
-      duration: this.props.duration,
-      autoplay: this.props.autoplay,
-      transitionDuration: 500,
-      arrows: false,
-      infinite: true,
-      easing: "ease",
-      indicators: i => <div className="indicator">{i + 1}</div>
-    };
+//  render() {
+//    const properties = {
+//      duration: this.props.duration,
+//      autoplay: this.props.autoplay,
+//      transitionDuration: 500,
+//      arrows: false,
+//      infinite: true,
+//      easing: "ease",
+//      indicators: i => <div className="indicator">{i + 1}</div>
+//    };
 
-    // while(true){
-    //   console.log("hola")
-    //   setTimeout(,1000)
-    // }
 
-    return (
-      <div className={this.props.className}>
-        <div className="slide-container">
-          <Slide ref={this.slideRef} {...properties}>
-            {slideImages.map((each, index) => (
-              <div key={index} className="each-slide">
-                <div>{each}</div>
 
-                {}
-              </div>
-            ))}
-          </Slide>
-        </div>
+//    return (
+//      <div className={this.props.className}>
+//        <div className="slide-container">
+//          <Slide ref={this.slideRef} {...properties}>
+//            {slideImages.map((each, index) => (
+//              <div key={index} className="each-slide">
+//                <div>{each}</div>
 
-        <div
-          className="btn-group"
-          style={{ position: "relative", right: "-25vh", top: "-13vh" }}
-        >
-          <button className="btn btn-success" onClick={this.back} type="button">
-            Go Back
-          </button>
-          <button className="btn btn-warning" onClick={this.next} type="button">
-            Play
-          </button>
-          <button className="btn btn-success" onClick={this.next} type="button">
-            Go Next
-          </button>
-        </div>
-      </div>
-    );
-  }
-}
+//                {}
+//              </div>
+//            ))}
+//          </Slide>
+//        </div>
+
+//        <div
+//          className="btn-group"
+//          style={{ position: "relative", right: "-25vh", top: "-13vh" }}
+//        >
+//          <button className="btn btn-success" onClick={this.back} type="button">
+//            Go Back
+//          </button>
+//          <button className="btn btn-warning" onClick={this.next} type="button">
+//            Play
+//          </button>
+//          <button className="btn btn-success" onClick={this.next} type="button">
+//            Go Next
+//          </button>
+//        </div>
+//      </div>
+//    );
+//  }
+//}
 
 export async function getStaticPaths() {
   try {
@@ -544,9 +523,18 @@ function GetScreensData(id, initialScreensData) {
 
   if (error) return "an error has occured " + { error };
   if (!data) return "loading...";
-  let AdsData = data.attributes.AddAdverts.advertisements.data;
-  let Timetables = data.attributes.AddTimetable.timetables.data;
-  let EventData = data.attributes.event;
+    let AdsData = [""]
+    let Timetables = [""]
+    let EventData = [""]
+
+    try {
+        AdsData = data.attributes.AddAdverts.advertisements.data;
+        Timetables = data.attributes.AddTimetable.timetables.data;
+        EventData = data.attributes.event;
+    }
+    catch (err) {
+        console.log(err)
+    }
   return {
     EventData,
     AdsData,
@@ -615,10 +603,19 @@ function GetIdsForAdsAndTimetable(id) {
   if (error) return "an error has occured " + { error };
   if (!data) return "loading...";
 
-  let AddAdverts = data.AddAdverts;
-  let AddTimetable = data.AddTimetable.timetables;
-  let Color1 = data.Color1;
-  let Color2 = data.Color2;
+    let AddAdverts = [""]
+    let AddTimetable = [""]
+    let Color1 = [""]
+    let Color2 = [""]
+    try {
+        AddAdverts = data.AddAdverts;
+        AddTimetable = data.AddTimetable.timetables;
+        Color1 = data.Color1;
+        Color2 = data.Color2;
+    }
+    catch (err) {
+        console.log(err)
+    }
 
   return {
     AddAdverts,
