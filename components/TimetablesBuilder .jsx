@@ -1,11 +1,12 @@
 import React, {useState} from 'react'
 import { slideImages } from '../pages/[id]'
-import { SeminarsDataToExport } from '../pages/[id]'
+//import { SeminarsDataToExport } from '../pages/[id]'
 import ContainerSeminars from './ContainerSeminars'
 
 
 
-const TimetablesBuilder = () => {
+const TimetablesBuilder = (SeminarsDataToExport) => {
+    console.log(SeminarsDataToExport)
     let timetables = []
     let timesTimetable = 0   
     let d = new Date();
@@ -76,7 +77,7 @@ const TimetablesBuilder = () => {
             console.log("Add a time to the seminar")
           }
       }
-      console.log(SeminarsDataToExport.length)
+      //console.log(SeminarsDataToExport,"DESDE TIMETABLES BUILDEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEER")
       
     if(SeminarsDataToExport.length!=0){
         let seminarsWithiutFilter = SeminarsDataToExport && SeminarsDataToExport.map((seminarsData) => {
@@ -136,7 +137,7 @@ const TimetablesBuilder = () => {
 
         
         console.log(timetables,"desde return")
-        return {timetables}
+        return timetables
 }
 
 
@@ -148,4 +149,4 @@ const TimetablesBuilder = () => {
 
 
 
-export {TimetablesBuilder}
+export { TimetablesBuilder }

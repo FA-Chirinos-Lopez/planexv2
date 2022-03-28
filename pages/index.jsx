@@ -13,7 +13,7 @@ import { c1, c2 } from '../styles/colors.module.scss';
 
 
 
-const URL = "http://felixchls-imac:1337"//"https://admin.viewplanex.uk"//process.env.NEXT_PUBLIC_DBURL 
+const URL = "http://A17576152:1337"      //"http://felixchls-imac:1337"    //"https://admin.viewplanex.uk"//process.env.NEXT_PUBLIC_DBURL
 
 export {URL}
 const router = Router
@@ -68,7 +68,7 @@ export default function Home() {
    }, [colorCambiar])
       
   }
-    console.log(colorc1)
+    
 
     return (
     <div   ref={colorCambiar} className="mainStyle">
@@ -78,8 +78,7 @@ export default function Home() {
     ContentType="Index"
     >
     
-    <input ref={color1ref} type="color" onChange={(evt) => {colorCambiar.current.style.setProperty("--color1", evt.target.value)}}/>
-    <input ref={color2ref} type="color" onChange={(evt) => {colorCambiar.current.style.setProperty("--color2", evt.target.value)}}/>
+
     
     <div  className="mainIndexContainer" style={{background:{colorc1}}} >
     <div   className="topInfo">
@@ -88,7 +87,7 @@ export default function Home() {
     <button className="btn btn-primary logoutButton" style={{position:"relative", top:"0"}}  onClick={logout}>Logout</button>
     </div>
     
-    <h1  className="textIndex">Event name placeHolder </h1>  
+    <h1  className="textIndex">Planex ScreenViewer</h1>  
     <div>
     
     
@@ -103,10 +102,10 @@ export default function Home() {
     {screensID.map((screensID) => (
         <div  key={screensID.id}  style={{ paddingBottom:"5%" }} className="mainCards" >
         <div className="indexCard">
-        <h3 className="titleScreens" style={{textAlign: "center"}}> {screensID.ScreenName}{console.log(screensID.Color1)}</h3>
+        <h3 className="titleScreens" style={{ textAlign: "center"}}> {screensID.ScreenName}{console.log(screensID.Color1)}</h3>
       
         <Link href={`/${screensID.id}`}>
-        <div className="cardBtn" style={{textAlign: "center"}} >
+        <div className="cardBtn" style={{ textAlign: "center"}} >
                 <h1 className=" btn btn-primary"  >Go to screen</h1>
                 
         </div>
@@ -203,7 +202,10 @@ async function fetcherWithToken(url){
   const res = await fetch(URL+"/content-manager/collection-types/api::screen.screen", {
               method: 'GET',
               headers: new Headers({
-                "Authorization": "Bearer " + sessionStorage.getItem("ViewPlanexFrontendToken")
+                  "Accept": "*/*",
+                  "Accept-Encoding": "gzip, deflate, br",
+                  "Connection": "keep-alive",
+                  "Authorization": "Bearer " + sessionStorage.getItem("ViewPlanexFrontendToken"),
               })
             })
 
