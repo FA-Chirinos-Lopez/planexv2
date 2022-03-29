@@ -99,17 +99,19 @@ export default function ScreensDisplay({initialScreensData}) {
 
         GetTimetablesIdAndData()
       if (timetablesIds.length != 0 ) {
-          //console.log(timetablesIds)
+          
 
           for (let i = 0; i < timetablesIds.length; ++i) {
-              if (Timetables[i]){
+              if (Timetables[i]) {
+
                   
 
                   let timetables = TimetablesBuilder(Timetables[i].attributes.AddEvents.timetable_events.data)
                   let eventData = EventData.data.attributes;
-                  //console.log(eventData)
+                  
+                  
                   for (let i = 0; i < timetables.length; ++i) {
-
+                      if(timetables[i].length!=0){
                         slideImages.push(
                             <Layout
                                 ContentType="Seminar"
@@ -126,7 +128,7 @@ export default function ScreensDisplay({initialScreensData}) {
                             >
                                 {timetables[i].map((seminars) => seminars)}
 
-                    </Layout>)}
+                    </Layout>)}}
                   
               }
 
