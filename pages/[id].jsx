@@ -153,12 +153,24 @@ export default function ScreensDisplay({initialScreensData}) {
             color1 = screensData.attributes.Color1
             color2 = screensData.attributes.Color2
         }
-        if (allowColorChanger) {
-            setTimeout(() => {
-                colorCambiar.current.style.setProperty("--color1", color1)
-                colorCambiar.current.style.setProperty("--color2", color2)
-            }, 1)
+
+        try {
+            if (allowColorChanger) {
+                setTimeout(() => {
+                    try {
+                        colorCambiar.current.style.setProperty("--color1", color1)
+                        colorCambiar.current.style.setProperty("--color2", color2)
+                    }
+                    catch (err) {
+                        console.log(err)
+                    }
+                }, 1)
+            }
         }
+        catch (err) {
+            console.log(err)
+        }
+
     }
 
 
@@ -232,7 +244,9 @@ export default function ScreensDisplay({initialScreensData}) {
       scale: 0.4
     };
         console.log(slideImages);
+        //const slider = Slider
         //console.log(initialScreensData)
+        //window.location.reload()
     return (
         <div>
             <div ref={colorCambiar} className="mainStyle" >
@@ -299,8 +313,8 @@ export default function ScreensDisplay({initialScreensData}) {
             Press esc to exit FullScreen mode
           </h4>
         </header>
-        <FullScreen handle={handle}>
-          <Slider />
+                <FullScreen handle={handle}>
+                    <Slider slideImages={slideImages} />
         </FullScreen>
 
         

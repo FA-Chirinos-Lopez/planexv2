@@ -4,10 +4,11 @@ import {currentSlide} from "../components/Slider";
 
 
 
-export default function AdsContainer({timeSlide,CallToAction,Location,Title,Description,FullScreen,Img,DescriptionSecondParagraph,Type,IndexNumber,CurrIndexSlider}) {
+export default function AdsContainer({VideoRef,timeSlide,CallToAction,Location,Title,Description,FullScreen,Img,DescriptionSecondParagraph,Type,IndexNumber,CurrIndexSlider}) {
   
     const Image="Image"
-    const Video="Video"
+    const Video = "Video"
+    const videoRef = React.useRef(null)
   
     /* const videoAddRef = React.useRef(null);
     console.log(videoAddRef.current);
@@ -46,8 +47,12 @@ export default function AdsContainer({timeSlide,CallToAction,Location,Title,Desc
     
 //     //"00:00"
 //     const ftime =  time1.join("")}
-
-
+    React.useEffect(() => {
+        //const vid = [""]
+        //console.log(vid)
+       
+        //vid.play()
+    }, [])
 
 
 
@@ -56,7 +61,7 @@ export default function AdsContainer({timeSlide,CallToAction,Location,Title,Desc
     
      
         return ( 
-        <video  muted  loop autoPlay className="videoFullScreen"    >
+            <video ref={videoRef} id="vid"  muted className="videoFullScreen"    >
         <source src={Img} type="video/mp4" />
         Your browser does not support the video tag.
         </video>)

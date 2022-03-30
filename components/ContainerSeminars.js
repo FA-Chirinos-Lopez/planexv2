@@ -23,7 +23,7 @@ export default function ContainerSeminars({title, subtitle, description,seminarD
     },[])
 
 
-
+    //console.log(timeStart, " ", timeEnd)
 
     const date = new Date()
     const date1 = date.toString()
@@ -90,7 +90,8 @@ export default function ContainerSeminars({title, subtitle, description,seminarD
         if(
             getValueInMinutes(timeStart)<getValueInMinutes(time) 
             && 
-            getValueInMinutes(time)<getValueInMinutes(timeEnd)){
+            getValueInMinutes(time) < getValueInMinutes(timeEnd)) {
+            
            return "ON NOW"
         }else{
             return 
