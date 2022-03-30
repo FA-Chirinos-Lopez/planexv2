@@ -1,6 +1,4 @@
 html,
-
-
 a {
   color: inherit;
   text-decoration: none;
@@ -10,20 +8,15 @@ a {
   box-sizing: border-box;
 }
 
-
-
 .variables {
-	
-	--color2: #020f42;
-	--color1: #19327a;
-
+  --color2: #020f42;
+  --color1: #19327a;
 }
 
 //Seminars Container
 
-
-@import url("https://fonts.googleapis.com/css2?family=Sen:wght@400;700;800&display=swap");
-@import "./colors.module";
+@import url('https://fonts.googleapis.com/css2?family=Sen:wght@400;700;800&display=swap');
+@import './colors.module';
 // margins
 $paddingH: 60px;
 
@@ -44,612 +37,544 @@ $grey: #cacaca;
     c2: $purple;
 } */
 
-
-
-
-.mainIndexContainer{
-	display:flex;
-	flex-direction: column;
-	//align-items: center;
-	//text-align: center;
-	//height: 50%;
-	
+.mainIndexContainer {
+  display: flex;
+  flex-direction: column;
+  //align-items: center;
+  //text-align: center;
+  //height: 50%;
 }
-.textIndex{
-	color:$white;
-	padding-top:5%;
-	text-align: center;
-	
+.textIndex {
+  color: $white;
+  padding-top: 5%;
+  text-align: center;
 }
-.mainCards{
-
-	padding:5%;
-
+.mainCards {
+  padding: 5%;
 }
-.topInfo{
-	
-	display: flex;
-	flex-direction: row-reverse;
-	//border: 5px dotted red;
-	//position: relative;
-	//left: 5%;
-	padding-top: 3%;
-	background: var(--color1, $blue);
+.topInfo {
+  display: flex;
+  flex-direction: row-reverse;
+  //border: 5px dotted red;
+  //position: relative;
+  //left: 5%;
+  padding-top: 3%;
+  background: var(--color1, $blue);
 }
 
-.mainStyle{
-	background: var(--color1, $blue);
+.mainStyle {
+  background: var(--color1, $blue);
 }
-.userInfo{
-	position: relative;
-	left: 12%;
-	width: 23%;
-	color: $white;
-	display: flex;
-	flex-direction:column;
-	flex-wrap:wrap;
-	align-items:center;
-	//background: $purple;
-	background: var(--color1, $purple);
-	padding: 3%;
-	border-radius: 10px;
-	border: 10px solid rgba(67, 86, 172, 0.568);
+.userInfo {
+  position: relative;
+  left: 12%;
+  width: 23%;
+  color: $white;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+  //background: $purple;
+  background: var(--color1, $purple);
+  padding: 3%;
+  border-radius: 10px;
+  border: 10px solid rgba(67, 86, 172, 0.568);
 }
-.logoutButton{
-	position: relative;
-	//right:5%
-	top: 20%;
-	
-}
-
-
-.cardsContainer{
-	display: flex;
-	flex-direction:row;
-	justify-content:space-evenly;
-	flex-wrap:wrap;
-	align-items: flex-start;
-	//background: $purple;
-	background: var(--color2, $purple);
-	padding: 10%;
-	width: 140%;
-	align-self: center;
-	position: relative;
-	right: 2%;
-	border-radius: 10px;
-	border: 10px solid rgba(67, 86, 172, 0.568);
-	
+.logoutButton {
+  position: relative;
+  //right:5%
+  top: 20%;
 }
 
+.cardsContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  //background: $purple;
+  background: var(--color2, $purple);
+  padding: 10%;
+  width: 140%;
+  align-self: center;
+  position: relative;
+  right: 2%;
+  border-radius: 10px;
+  border: 10px solid rgba(67, 86, 172, 0.568);
+}
 
-.indexCard{
-	height:13rem;
-	width:13rem;
-	//background: #30437c;
-	background: var(--color1, $blue);
-	display: flex;
-	flex-direction: column;
-	//position: relative;
-	border-radius: 10px;
-	padding: 10%;
+.indexCard {
+  height: 13rem;
+  width: 13rem;
+  //background: #30437c;
+  background: var(--color1, $blue);
+  display: flex;
+  flex-direction: column;
+  //position: relative;
+  border-radius: 10px;
+  padding: 10%;
 }
 .btn-primary {
-    color: #fff;
-    background-color: #0d6efd;
-    border-color: #0d6efd;
-    align-self: initial;
-	position: relative;
-	top: 55%;
-
+  color: #fff;
+  background-color: #0d6efd;
+  border-color: #0d6efd;
+  align-self: initial;
+  position: relative;
+  top: 55%;
 }
 
-.titleScreens{
-	align-items: flex-start;
-	color: $white;
-	//background: #1b3685a4;
-	//border-radius: 10px;
-	height: 50%;
-	padding: 20%;
-
-	
+.titleScreens {
+  align-items: flex-start;
+  color: $white;
+  //background: #1b3685a4;
+  //border-radius: 10px;
+  height: 50%;
+  padding: 20%;
 }
 
-.adminBtn{
-	padding: 3%;
-	position: relative;
-	left:2%;
-	align-self: center;
+.adminBtn {
+  padding: 3%;
+  position: relative;
+  left: 2%;
+  align-self: center;
 }
 
 // imaginary screen
 .layout {
-	
-	background: lightgrey;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	font-family: Sen, Open Sans, sans-serif;
-	color: white;
-	padding: 0;
-	margin: 0;
-	//padding-top: 56%;
-	//border: 5px dotted red;
-	
-	}
+  background: lightgrey;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: Sen, Open Sans, sans-serif;
+  color: white;
+  padding: 0;
+  margin: 0;
+  //padding-top: 56%;
+  //border: 5px dotted red;
+}
 
 h1 {
-	font-size: 3rem;
+  font-size: 3rem;
 }
 
 h2 {
-	font-size: 2rem;
+  font-size: 2rem;
 }
 
 .screenSeminars {
-	width: 1080px; // will be 100vw in final application
-	height: 1920px; // will be 100vh in final application
-	aspect-ratio: 19/6;
-	//margin: 80px 0; // delete in final application
-	//padding-top: 177%;
-	
+  width: 1080px; // will be 100vw in final application
+  height: 1920px; // will be 100vh in final application
+  aspect-ratio: 19/6;
+  //margin: 80px 0; // delete in final application
+  //padding-top: 177%;
 }
 
 .dateSeminars {
-	height: 5%;
-	font-size: 2rem;
-	//background-color: $purple;
-	background: var(--color2, $purple);
-	display: flex;
-	align-items: center;
-	padding-left: $paddingH;
+  height: 5%;
+  font-size: 2rem;
+  //background-color: $purple;
+  background: var(--color2, $purple);
+  display: flex;
+  align-items: center;
+  padding-left: $paddingH;
 }
 
 .headerSeminars {
-	height: 15%;
-	background: var(--color1,$blue);
-	padding: 0 $paddingH 0 $paddingH;
-	display: flex;
-	flex-direction: row;
-	justify-content: space-between;
-	align-items: center;
-	//border: 2px dashed black;
-	
-	&__flexLeftHeader{
-		//border: 8px dashed rgb(255, 0, 0);
-		width: 72.5%;
-		&__grid {
-			/* display: grid;
+  height: 15%;
+  background: var(--color1, $blue);
+  padding: 0 $paddingH 0 $paddingH;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  //border: 2px dashed black;
+
+  &__flexLeftHeader {
+    //border: 8px dashed rgb(255, 0, 0);
+    width: 72.5%;
+    &__grid {
+      /* display: grid;
 			grid-auto-rows: auto;
 			grid-auto-columns: 72.5% 27.5%; */
-			&__h1 {
-			/* 	grid-row: 1 / 2;
+      &__h1 {
+        /* 	grid-row: 1 / 2;
 				grid-column: 1 / 2; */
-				font-size: 400%;
-				white-space: pre-wrap;
-				line-height: 80%;
-				padding-bottom: 2%;
-				
-			}
-			&__h2 {
-				/* grid-row: 2 / 3;
+        font-size: 400%;
+        white-space: pre-wrap;
+        line-height: 100%;
+        padding-bottom: 2%;
+      }
+      &__h2 {
+        /* grid-row: 2 / 3;
 				grid-column: 1 / 2; */
-				font-size: 260%;
-			}
-
-	}
-
-	}
-	&__flexRightHeader{
-		//border: 8px dashed rgb(9, 226, 38);
-		width: 27.5%;
-		align-self: flex-end;
-		position: relative;
-		top: -10%;
-		margin-left: 3%;
-		&__img {
-			/* grid-area: sidebar; */
-			width: 100%;
-			height: 100%;
-			object-fit: cover;
-			/* grid-row: 1 / 3;
+        white-space: pre-wrap;
+        font-size: 260%;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        max-height: 140px;
+      }
+    }
+  }
+  &__flexRightHeader {
+    //border: 8px dashed rgb(9, 226, 38);
+    width: 27.5%;
+    align-self: flex-end;
+    position: relative;
+    top: -10%;
+    margin-left: 3%;
+    &__img {
+      /* grid-area: sidebar; */
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      /* grid-row: 1 / 3;
 			grid-column: 2 / 3; */
-			aspect-ratio: 16 / 9;
-		}
-		&__p {
-			/* grid-row: 3 / 4;
+      aspect-ratio: 16 / 9;
+    }
+    &__p {
+      /* grid-row: 3 / 4;
 			grid-column: 2 / 3; */
-			/* justify-self: end; */
-			margin-top: 10px;
-			font-size: 1.25rem;
-		}
-	}
-		
-	
+      /* justify-self: end; */
+      margin-top: 10px;
+      font-size: 1.25rem;
+    }
+  }
 }
-
-
-
 
 .mainSeminars {
-	//border: 5px dashed blue;
-	color: $black;
-	overflow: auto;
-	height: 65%;
-	background: var(--color2,$purple);
-	background: var(--color1,$blue);
-	display: grid;
-	grid-auto-rows: 19.3%;//240px;
-	grid-row-gap: 10px;
-	width: 100%;
-	grid-auto-columns: 70% 30%;
-	justify-content: center;
-	
-	&__item2{
-				//border: 5px dotted yellow;
-		//border-radius: 5px;
-		//list-style: none;
-		background-color: $white;
-		padding: 0 $paddingH 0 $paddingH;
-		//display: flex;
-		//justify-content: center;
-		//align-items: center;
-		//position: relative;
-		//right: 22%;
-		display: grid;
-		grid-template-columns: 70% 30%;
-		width: 140%;
-	}
-	
-	&__item {
-		
-		//border: 5px dotted yellow;
-		//border-radius: 5px;
-		//list-style: none;
-		background-color: $white;
-		padding: 0 $paddingH 0 $paddingH;
-		//display: flex;
-		//justify-content: center;
-		//align-items: center;
-		position: relative;
-		right: 22%;
-		display: grid;
-		grid-template-columns: 70% 30%;
-		width: 140%;
+  //border: 5px dashed blue;
+  color: $black;
+  overflow: auto;
+  height: 65%;
+  background: var(--color2, $purple);
+  background: var(--color1, $blue);
+  display: grid;
+  grid-auto-rows: 19.3%; //240px;
+  grid-row-gap: 8px;
+  width: 100%;
+  grid-auto-columns: 70% 30%;
+  justify-content: center;
 
-/* 		grid-auto-rows: auto;
+  &__item2 {
+    //border: 5px dotted yellow;
+    //border-radius: 5px;
+    //list-style: none;
+    background-color: $white;
+    padding: 0 $paddingH 0 $paddingH;
+    //display: flex;
+    //justify-content: center;
+    //align-items: center;
+    //position: relative;
+    //right: 22%;
+    display: grid;
+    grid-template-columns: 70% 30%;
+    width: 140%;
+  }
+
+  &__item {
+    //border: 5px dotted yellow;
+    //border-radius: 5px;
+    //list-style: none;
+    background-color: $white;
+    padding: 0 $paddingH 0 $paddingH;
+    //display: flex;
+    //justify-content: center;
+    //align-items: center;
+    position: relative;
+    right: 22%;
+    display: grid;
+    grid-template-columns: 70% 30%;
+    width: 140%;
+
+    /* 		grid-auto-rows: auto;
 		grid-row-gap: 10px;
 		grid-auto-columns: 50% 30%; */
-		//grid-column-gap: 40px;
-		//width: 100%;
-		//Get full width of row
-/* 		width: 103%; 
+    //grid-column-gap: 40px;
+    //width: 100%;
+    //Get full width of row
+    /* 		width: 103%; 
 		 */
-		
-		 &__gridRight {
-			 //grid-column: 3/3;
-			 //grid-area:right;
-			 //border: 5px dotted rgb(55, 0, 255);
-			
-			display: flex;
-			justify-content: center;
-			align-items: flex-start;
-			flex-direction: column;
-			padding-left: 15%;
-			
-			 &__time {
-				/* grid-row: 1 / 3;
+
+    &__gridRight {
+      //grid-column: 3/3;
+      //grid-area:right;
+      //border: 5px dotted rgb(55, 0, 255);
+
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      flex-direction: column;
+      padding-left: 15%;
+
+      &__time {
+        /* grid-row: 1 / 3;
 				grid-column: 3 / 3; */
-				font-size: 250%;
-				max-width: 200px;
-				padding-left: 40px;
-				font-weight: 700;
-				
-				
-				
-				position: relative;
-				right: 1.5%;
-				
-				
-			}
-			&__notify {
-				/* grid-row: 3 / 4;
+        font-size: 250%;
+        max-width: 200px;
+        padding-left: 40px;
+        font-weight: 700;
+
+        position: relative;
+        right: 1.5%;
+      }
+      &__notify {
+        /* grid-row: 3 / 4;
 				grid-column: 2 / 3; */
-				
-				color: $red;
-				font-size: 260%;
-				padding-left: 40px;
-				font-weight: 700;
-				
-	}	 
-}
-		
-		 &__gridLeft {
-			//border: 5px solid rgb(255, 0, 0);
-			 //grid-area: left;
-			 border-right: solid $grey 2px;
-			 display: flex;
-			 justify-content: center;
-			 align-items: flex-start;
-			 flex-direction: column;
-			/* display: grid;
+
+        color: $red;
+        font-size: 260%;
+        padding-left: 40px;
+        font-weight: 700;
+      }
+    }
+
+    &__gridLeft {
+      //border: 5px solid rgb(255, 0, 0);
+      //grid-area: left;
+      border-right: solid $grey 2px;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      flex-direction: column;
+      /* display: grid;
 			grid-auto-rows: auto;
 			grid-row-gap: 10px;
 			grid-auto-columns: 70% 30%;
 			grid-column-gap: 40px; */
-			//grid-column: 1/4;
-			
-			
-			&__h1 {
-				/* grid-row: 1 / 2;
+      //grid-column: 1/4;
+
+      &__h1 {
+        /* grid-row: 1 / 2;
 				grid-column: 1 / 3; */
-				//border: solid $grey 2px;;
-				padding-top: 1%;
-				
-				padding-right: 9%;
-				max-height: 50%;
-				word-wrap: normal;
-				white-space: pre-wrap;
-				font-weight: 600;
-				font-size: 320%;
-				line-height: 90%;
-			}
-			&__h2 {
-				/* grid-row: 2 / 3;
+        //border: solid $grey 2px;;
+        padding-top: 1%;
+
+        padding-right: 9%;
+        max-height: 50%;
+        word-wrap: normal;
+        white-space: pre-wrap;
+        font-weight: 600;
+        font-size: 320%;
+        line-height: 90%;
+      }
+      &__h2 {
+        /* grid-row: 2 / 3;
 				grid-column: 1 / 2; */
-				
-				padding-bottom: 10px;
-				padding-right: 9%;
-				font-weight: 500;
-				//width: 180%;
-				font-weight: 550;
-				white-space: pre-wrap;
-				
-				
-			}
-			&__description {
-				
-				/* grid-row: 3 / 4;
+
+        padding-bottom: 10px;
+        padding-right: 9%;
+        font-weight: 500;
+        //width: 180%;
+        font-weight: 550;
+        white-space: pre-wrap;
+      }
+      &__description {
+        /* grid-row: 3 / 4;
 				grid-column: 1 / 2; */
-				font-size: 140%;
-				//border: 5px solid blue;
-				padding-right: 9%;
-				font-weight: 550;
-				white-space: pre-wrap;
-				width: 100%;
-				line-height: 100%;
+        font-size: 140%;
+        //border: 5px solid blue;
+        padding-right: 9%;
+        font-weight: 550;
+        white-space: pre-wrap;
+        width: 100%;
+        line-height: 100%;
 
-				
-				 
-				word-wrap: break-word;
-			}
-			
-				
-			}
-		
-	
+        word-wrap: break-word;
+      }
+    }
+  }
 }
-}
-
-
-
 
 .footerSeminars {
-	height: 15%;
-	//background: $purple;
-	background: var(--color2, $purple);
-	padding: 0 $paddingH 0 $paddingH;
-	display: flex;
-	flex-direction: row;
-	justify-content: space-between;
-	align-items: center;
-	//border: 2px dashed black;
-	position: relative;
-	top:-0.9%;
-	&__grid {
-		
-		
-		width: 72.5%;
+  height: 15%;
+  //background: $purple;
+  background: var(--color2, $purple);
+  padding: 0 $paddingH 0 $paddingH;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  //border: 2px dashed black;
+  position: relative;
+  top: -0.9%;
+  &__grid {
+    width: 72.5%;
 
-		&__h1 {
-		
-			font-size: 400%;
-			white-space: pre-wrap;
-			line-height: 80%;
-			padding-bottom: 2%;
-		}
-		&__h2 {
-	
-			font-size: 260%;
-		}
-		
-	}
-	&__flexIMG{
-		//border: 5px dashed red;	
-		width: 27.5%;
-		align-self: center;
-		padding-left: 2%;
-	
-		&__img
-		{
-			//border:5px dotted red;
-			width: 100%;
-			height: 100%;
-			object-fit: cover;
-			aspect-ratio: 16 / 9;
+    &__h1 {
+      font-size: 400%;
+      white-space: pre-wrap;
+      line-height: 100%;
+      padding-bottom: 2%;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      max-height: 135px;
+    }
+    &__h2 {
+      font-size: 260%;
+    }
+  }
+  &__flexIMG {
+    //border: 5px dashed red;
+    width: 27.5%;
+    align-self: center;
+    padding-left: 2%;
 
-		}
-	}
+    &__img {
+      //border:5px dotted red;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      aspect-ratio: 16 / 9;
+    }
+  }
 }
 
+.ads {
+  overflow: hidden;
 
+  // imaginary screen
+  &__adsbody {
+    background: lightgrey;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Sen, Open Sans, sans-serif;
+    color: white;
+    overflow: hidden;
+  }
 
-.ads{
-
-	overflow: hidden;
-
-
-
-// imaginary screen
-&__adsbody {
-	background: lightgrey;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	font-family: Sen, Open Sans, sans-serif;
-	color: white;
-	overflow: hidden;
+  &__screen {
+    width: 1080px; // will be 100vw in final application
+    height: 1920px; // will be 100vh in final application
+    aspect-ratio: 19/6;
+    //margin: 80px 0; // delete in final application
+  }
 }
 
-
-
-&__screen {
-	width: 1080px; // will be 100vw in final application
-	height: 1920px; // will be 100vh in final application
-	aspect-ratio: 19/6;
-	//margin: 80px 0; // delete in final application
+.video {
+  width: 100%;
+  height: 55%;
+  object-fit: cover;
 }
-
-}
-
-
-	
-
-
-
-.video{
-	width: 100%;
-	height: 55%;
-	object-fit: cover;
-}
-.videoFullScreen{
-	object-fit: cover;
+.videoFullScreen {
+  object-fit: cover;
 }
 
 .adsConainer__main {
-
-	//top: 1%;
-	color: $black;
-	overflow: auto;
-	height: 65.85%;
-	//background: $blue;
-	background: var(--color1, $blue);
-	//border: 1px solid rgb(255, 0, 0);
-	//display: flex;
-	//flex-direction: column;
-	overflow: hidden;
-	&__img {
-		width: 100%;
-		height: 55%;
-		object-fit: cover;
-		overflow: hidden;
-	}
-	&__info {
-		//align-self:flex-end ;
-		position: relative;
-		//top: 15%;
-		background-color: $white;
-		padding: $paddingH;
-		height: 65.5%;
-		overflow: hidden;
-		padding-top: 15%;
-		&__h1{
-			margin-bottom: 20px;
-		}
-		&__h2{
-			margin-bottom: 20px;
-		}
-		&__p {
-			margin-bottom: 20px;
-			font-size: 140%;
-		}
-
-	}
+  //top: 1%;
+  color: $black;
+  overflow: auto;
+  height: 65.85%;
+  //background: $blue;
+  background: var(--color1, $blue);
+  //border: 1px solid rgb(255, 0, 0);
+  //display: flex;
+  //flex-direction: column;
+  overflow: hidden;
+  &__img {
+    width: 100%;
+    height: 55%;
+    object-fit: cover;
+    overflow: hidden;
+  }
+  &__info {
+    //align-self:flex-end ;
+    position: relative;
+    //top: 15%;
+    background-color: $white;
+    padding: $paddingH;
+    height: 65.5%;
+    overflow: hidden;
+    padding-top: 15%;
+    &__h1 {
+      margin-bottom: 20px;
+    }
+    &__h2 {
+      margin-bottom: 20px;
+    }
+    &__p {
+      margin-bottom: 20px;
+      font-size: 140%;
+    }
+  }
 }
-
 
 .adsFullScreen {
-	background: lightgrey;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	font-family: Sen, Open Sans, sans-serif;
-	color: white;
-	height: 100vh;
-	//height: 100vh;
+  background: lightgrey;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: Sen, Open Sans, sans-serif;
+  color: white;
+  height: 100vh;
+  //height: 100vh;
 
+  &__screen {
+    width: 1080px; // will be 100vw in final application
+    height: 1920px; // will be 100vh in final application
+    //margin: 80px 0; // delete in final application
+  }
 
+  &__date {
+    height: 5%;
+    font-size: 2rem;
+    background-color: $purple;
+    display: flex;
+    align-items: center;
+    padding-left: $paddingH;
+  }
 
-
-	&__screen {
-		width: 1080px; // will be 100vw in final application
-		height: 1920px; // will be 100vh in final application
-		//margin: 80px 0; // delete in final application
-	}
-
-	&__date {
-		height: 5%;
-		font-size: 2rem;
-		background-color: var(--color2,$purple);
-		display: flex;
-		align-items: center;
-		padding-left: $paddingH;
-	}
-
-
-	&__footer {
-		height: 15%;
-		background: var(--color2,$purple);
-		padding: 0 $paddingH 0 $paddingH;
-		display: flex;
-		justify-content: center;
-		align-items: center;
-
-		&__grid {
-			display: grid;
-			grid-auto-rows: auto;
-			grid-auto-columns: 72.5% 27.5%;
-
-			&__h1 {
-				grid-row: 1 / 2;
-				grid-column: 1 / 2;
-				font-size: 4rem;
-			}
-
-			&__h2 {
-				grid-row: 2 / 3;
-				grid-column: 1 / 2;
-				font-size: 2.5rem;
-			}
-
-			&__img {
-				width: 100%;
-				height: 100%;
-				object-fit: cover;
-				grid-row: 1 / 3;
-				grid-column: 2 / 3;
-				aspect-ratio: 16 / 9;
-			}
-		}
-	}
+  &__footer {
+    height: 15%;
+    background: $purple;
+    padding: 0 $paddingH 0 $paddingH;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    &__grid {
+      display: grid;
+      grid-auto-rows: auto;
+      grid-auto-columns: 72.5% 27.5%;
+      &__h1 {
+        grid-row: 1 / 2;
+        grid-column: 1 / 2;
+        font-size: 4rem;
+      }
+      &__h2 {
+        grid-row: 2 / 3;
+        grid-column: 1 / 2;
+        font-size: 2.5rem;
+      }
+      &__img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        grid-row: 1 / 3;
+        grid-column: 2 / 3;
+        aspect-ratio: 16 / 9;
+      }
+    }
+  }
 }
-
 
 .adsFullScreen__main {
-	color: $black;
-	height: 80.9%;
-	background: var(--color1,$blue);
-	//width: 102%;
+  color: $black;
+  height: 80.9%;
+  background: $blue;
+  //width: 102%;
 
-	&__img {
-		width: 100%;
-		height: 100%;
-		object-fit: cover;
-	}
+  &__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
 }
-
-
-
-
 
 // .slider {
 //     position: relative;
@@ -669,590 +594,544 @@ h2 {
 //     transition: 3.3s ease;
 // }
 
-
-
 // .active {
 //     opacity: 1;
 //     transition-duration: 3.2s;
 // }
 
-
-
 // -----------------------------------------------22-01
-
-
 
 /* Slideshow */
 
- .slideshow {
- 	margin: 0 auto;
- 	overflow: hidden;
- 	max-width: auto;
-   }
-  
-   .slideshowSlider {
- 	white-space: nowrap;
- 	transition: ease 1000ms;
-   }
-	.slideshowSliderTrick {
-		white-space: nowrap;
-		//transition: ease 1ms;
-		transition:fade 1000ms
-	}
-
-  
-   .slide {
-	display: inline-block;
-  
-	height: auto;
-	width: 100%;
-	border-radius: 40px;
-  }
-  
-  /* Buttons */
-  
-  .slideshowDots {
-	text-align: center;
-  }
-  
-  .slideshowDot {
-	display: inline-block;
-	height: 20px;
-	width: 20px;
-	border-radius: 50%;
-  
-	cursor: pointer;
-	margin: 15px 7px 0px;
-  
-	background-color: #c4c4c4;
-  }
-  
-  .slideshowDot.active {
-	background-color: #6a0dad;
-  }
-
-  @media (width: 1080px) and (height: 1920px) {
-  
-	.screenSeminars {
-		width: 100vw; // will be 100vw in final application
-		height: 100vh; // will be 100vh in final application
-		aspect-ratio: 19/6;
-		//background-color: #d20707;
-		//border: 5px solid blue;
-		//margin: 80px 0; // delete in final application
-		//padding-top: 177%;
-		
-	}
-
-	.layout {
-	
-		//background: lightgrey;
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		font-family: Sen, Open Sans, sans-serif;
-		color: white;
-		padding: 0;
-		margin: 0;
-		//padding-top: 56%;
-		//border: 5px dotted red;
-		
-		}
-
-		.adsFullScreen__screen{
-		width: 100vw; // will be 100vw in final application
-		height: 100vh; // will be 100vh in final application
-		margin: 0; // delete in final application
-		
-		}
-
-		.ads__screen{
-			width: 100vw; // will be 100vw in final application
-			height: 100vh; // will be 100vh in final application
-			margin: 0; // delete in final application
-			
-			}
-
-		.ads__body{
-			background: $purple;
-		}
-		.adsFullScreen{
-			background: $purple;
-		}
-		.layout{
-			background: $purple;
-		}
-	
-
-
-		.adsConainer__main {
-
-			//top: 1%;
-			color: $black;
-			overflow: auto;
-			height: 65.5%;
-			background: $blue;
-			width: 102%;
-
-			//border: 1px solid rgb(255, 0, 0);
-			//display: flex;
-			//flex-direction: column;
-			overflow: hidden;
-			&__img {
-				//width: 150%;
-				//height: 55%;
-				object-fit: cover;
-				
-				overflow: hidden;
-			}
-			&__info {
-				//align-self:flex-end ;
-				position: relative;
-				//top: 15%;
-				background-color: $white;
-				padding: $paddingH;
-				height: 65.5%;
-				overflow: hidden;
-				padding-top: 15%;
-				&__h1{
-					font-size: 280%;
-					margin-bottom: 20px;
-				}
-				&__h2{
-					font-size: 250%;
-					margin-bottom: 20px;
-				}
-				&__p {
-					margin-bottom: 20px;
-					font-size: 180%;
-				}
-		
-			}
-		}
-
-
-
-		.indexCard{
-			height:10vh;
-			width:18vw;
-			background: #30437c;
-			display: flex;
-			flex-direction: column;
-			position: relative;
-			border-radius: 10px;
-			padding: 10%;
-		}
+.slideshow {
+  margin: 0 auto;
+  overflow: hidden;
+  max-width: auto;
 }
 
+.slideshowSlider {
+  white-space: nowrap;
+  transition: ease 1000ms;
+}
+
+.slide {
+  display: inline-block;
+
+  height: auto;
+  width: 100%;
+  border-radius: 40px;
+}
+
+/* Buttons */
+
+.slideshowDots {
+  text-align: center;
+}
+
+.slideshowDot {
+  display: inline-block;
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+
+  cursor: pointer;
+  margin: 15px 7px 0px;
+
+  background-color: #c4c4c4;
+}
+
+.slideshowDot.active {
+  background-color: #6a0dad;
+}
+
+@media (width: 1080px) and (height: 1920px) {
+  .screenSeminars {
+    width: 100vw; // will be 100vw in final application
+    height: 100vh; // will be 100vh in final application
+    aspect-ratio: 19/6;
+    //background-color: #d20707;
+    //border: 5px solid blue;
+    //margin: 80px 0; // delete in final application
+    //padding-top: 177%;
+  }
+
+  .layout {
+    //background: lightgrey;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Sen, Open Sans, sans-serif;
+    color: white;
+    padding: 0;
+    margin: 0;
+    //padding-top: 56%;
+    //border: 5px dotted red;
+  }
+
+  .adsFullScreen__screen {
+    width: 100vw; // will be 100vw in final application
+    height: 100vh; // will be 100vh in final application
+    margin: 0; // delete in final application
+  }
+
+  .ads__screen {
+    width: 100vw; // will be 100vw in final application
+    height: 100vh; // will be 100vh in final application
+    margin: 0; // delete in final application
+  }
+
+  .ads__body {
+    background: $purple;
+  }
+  .adsFullScreen {
+    background: $purple;
+  }
+  .layout {
+    background: $purple;
+  }
+
+  .adsConainer__main {
+    //top: 1%;
+    color: $black;
+    overflow: auto;
+    height: 65.5%;
+    background: $blue;
+    width: 102%;
+
+    //border: 1px solid rgb(255, 0, 0);
+    //display: flex;
+    //flex-direction: column;
+    overflow: hidden;
+    &__img {
+      //width: 150%;
+      //height: 55%;
+      object-fit: cover;
+
+      overflow: hidden;
+    }
+    &__info {
+      //align-self:flex-end ;
+      position: relative;
+      //top: 15%;
+      background-color: $white;
+      padding: $paddingH;
+      height: 65.5%;
+      overflow: hidden;
+      padding-top: 15%;
+      &__h1 {
+        font-size: 280%;
+        margin-bottom: 20px;
+      }
+      &__h2 {
+        font-size: 250%;
+        margin-bottom: 20px;
+      }
+      &__p {
+        margin-bottom: 20px;
+        font-size: 180%;
+      }
+    }
+  }
+
+  .indexCard {
+    height: 10vh;
+    width: 18vw;
+    background: #30437c;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    border-radius: 10px;
+    padding: 10%;
+  }
+}
 
 @media (width: 576px) and (height: 1024px),
-		(width: 648px) and (height: 1152px)
-		 {
-  
-	.screenSeminars {
-		width: 100vw; // will be 100vw in final application
-		height: 100vh; // will be 100vh in final application
-		aspect-ratio: 19/6;
-		//background-color: #d20707;
-		//border: 5px solid blue;
-		//margin: 80px 0; // delete in final application
-		//padding-top: 177%;
-		
-	}
+  (width: 648px) and (height: 1152px) {
+  .screenSeminars {
+    width: 100vw; // will be 100vw in final application
+    height: 100vh; // will be 100vh in final application
+    aspect-ratio: 19/6;
+    //background-color: #d20707;
+    //border: 5px solid blue;
+    //margin: 80px 0; // delete in final application
+    //padding-top: 177%;
+  }
 
-	.layout {
-	
-		//background: lightgrey;
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		font-family: Sen, Open Sans, sans-serif;
-		color: white;
-		padding: 0;
-		margin: 0;
-		//padding-top: 56%;
-		//border: 5px dotted red;
-		
-		}
+  .layout {
+    //background: lightgrey;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Sen, Open Sans, sans-serif;
+    color: white;
+    padding: 0;
+    margin: 0;
+    //padding-top: 56%;
+    //border: 5px dotted red;
+  }
 
-		.adsFullScreen__screen{
-		width: 100vw; // will be 100vw in final application
-		height: 100vh; // will be 100vh in final application
-		margin: 0; // delete in final application
-		
-		}
+  .adsFullScreen__screen {
+    width: 100vw; // will be 100vw in final application
+    height: 100vh; // will be 100vh in final application
+    margin: 0; // delete in final application
+  }
 
-		.ads__screen{
-			width: 100vw; // will be 100vw in final application
-			height: 100vh; // will be 100vh in final application
-			margin: 0; // delete in final application
-			
-			}
+  .ads__screen {
+    width: 100vw; // will be 100vw in final application
+    height: 100vh; // will be 100vh in final application
+    margin: 0; // delete in final application
+  }
 
-		.ads__body{
-			background: $purple;
-		}
-		.adsFullScreen{
-			background: $purple;
-		}
-		.layout{
-			background: $purple;
-		}
+  .ads__body {
+    background: $purple;
+  }
+  .adsFullScreen {
+    background: $purple;
+  }
+  .layout {
+    background: $purple;
+  }
 
-		.footerSeminars__grid__h1 {
-			font-size: 5vw;
-		}
+  .footerSeminars__grid__h1 {
+    font-size: 5vw;
+  }
 
-		.footerSeminars__grid__h2 {
-			font-size: 4vw;
-		}
-		.headerSeminars__flexLeftHeader__grid__h1 {
-			font-size: 6vw;
-		}
-		.adsFullScreen__date{
-			font-size: 100%;
-		}
-		.dateSeminars{
-			font-size: 100%;
-		}
-		
-		.mainSeminars__item__gridLeft__description {
-			font-size: 80%;
-			position: relative;
-			top: 3%;
-		}
-		
-		.mainSeminars__item__gridLeft__h1 {
-			font-size: 100%;
-			padding-bottom: 0;
-			position: relative;
-			top: 4%;
-		}
-		.mainSeminars__item__gridLeft__h2{
-			font-size: 90%;
-			padding-bottom: 0;
-			position: relative;
-			top: 3%;
-		}
-		.mainSeminars__item__gridRight__time {
-			font-size: 100%;
-			position: relative;
-			top: 3%;
-		}
+  .footerSeminars__grid__h2 {
+    font-size: 4vw;
+  }
+  .headerSeminars__flexLeftHeader__grid__h1 {
+    font-size: 6vw;
+  }
+  .adsFullScreen__date {
+    font-size: 100%;
+  }
+  .dateSeminars {
+    font-size: 100%;
+  }
 
-        .mainSeminars__item__gridRight__notify {
-			font-size: 100%;
-			position: inherit;
-			position: relative;
-			top: 3%;
-		}
-		.mainSeminars__item__gridLeft {
-			height: 92%;
-			position: relative;
-			
-		}
-		.footerSeminars__flexIMG {
-			width: 27.5%;
-			position: relative;
-			align-self: center;
-			top: -25%;
-		}
-		.headerSeminars__flexRightHeader__p {
-			/* justify-self: end; */
-			margin-top: 1%;
-			font-size: 80%;
-		}
-		.headerSeminars__flexLeftHeader__grid__h2 {
-			font-size: 3vw;
-		}
-		.ads__date{
-			font-size: 100%;
-		}
-		.adsContainer__main__info__h1{
-			margin-bottom: 1vh;
-		}
-		.adsConainer__main{
-			overflow: hidden;
-		}
-		.adsConainer__main__info__h2{
-			margin-bottom: 1vh;
-		}
-		.adsConainer__main__info__p{
-			margin-bottom: 1vh;
-		}
+  .mainSeminars__item__gridLeft__description {
+    font-size: 80%;
+    position: relative;
+    top: 3%;
+  }
+
+  .mainSeminars__item__gridLeft__h1 {
+    font-size: 100%;
+    padding-bottom: 0;
+    position: relative;
+    top: 4%;
+  }
+  .mainSeminars__item__gridLeft__h2 {
+    font-size: 90%;
+    padding-bottom: 0;
+    position: relative;
+    top: 3%;
+  }
+  .mainSeminars__item__gridRight__time {
+    font-size: 100%;
+    position: relative;
+    top: 3%;
+  }
+
+  .mainSeminars__item__gridRight__notify {
+    font-size: 100%;
+    position: inherit;
+    position: relative;
+    top: 3%;
+  }
+  .mainSeminars__item__gridLeft {
+    height: 92%;
+    position: relative;
+  }
+  .footerSeminars__flexIMG {
+    width: 27.5%;
+    position: relative;
+    align-self: center;
+    top: -25%;
+  }
+  .headerSeminars__flexRightHeader__p {
+    /* justify-self: end; */
+    margin-top: 1%;
+    font-size: 80%;
+  }
+  .headerSeminars__flexLeftHeader__grid__h2 {
+    font-size: 3vw;
+  }
+  .ads__date {
+    font-size: 100%;
+  }
+  .adsContainer__main__info__h1 {
+    margin-bottom: 1vh;
+  }
+  .adsConainer__main {
+    overflow: hidden;
+  }
+  .adsConainer__main__info__h2 {
+    margin-bottom: 1vh;
+  }
+  .adsConainer__main__info__p {
+    margin-bottom: 1vh;
+  }
 }
 
 @media (width: 720px) and (height: 1280px),
-		(width: 768px) and (height: 1366px){
-	.screenSeminars {
-		width: 100vw; // will be 100vw in final application
-		height: 100vh; // will be 100vh in final application
-		aspect-ratio: 19/6;
-		//background-color: #d20707;
-		//border: 5px solid blue;
-		//margin: 80px 0; // delete in final application
-		//padding-top: 177%;
-		
-	}
+  (width: 768px) and (height: 1366px) {
+  .screenSeminars {
+    width: 100vw; // will be 100vw in final application
+    height: 100vh; // will be 100vh in final application
+    aspect-ratio: 19/6;
+    //background-color: #d20707;
+    //border: 5px solid blue;
+    //margin: 80px 0; // delete in final application
+    //padding-top: 177%;
+  }
 
-	.layout {
-	
-		//background: lightgrey;
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		font-family: Sen, Open Sans, sans-serif;
-		color: white;
-		padding: 0;
-		margin: 0;
-		//padding-top: 56%;
-		//border: 5px dotted red;
-		
-		}
+  .layout {
+    //background: lightgrey;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Sen, Open Sans, sans-serif;
+    color: white;
+    padding: 0;
+    margin: 0;
+    //padding-top: 56%;
+    //border: 5px dotted red;
+  }
 
-		.adsFullScreen__screen{
-		width: 100vw; // will be 100vw in final application
-		height: 100vh; // will be 100vh in final application
-		margin: 0; // delete in final application
-		
-		}
+  .adsFullScreen__screen {
+    width: 100vw; // will be 100vw in final application
+    height: 100vh; // will be 100vh in final application
+    margin: 0; // delete in final application
+  }
 
-		.ads__screen{
-			width: 100vw; // will be 100vw in final application
-			height: 100vh; // will be 100vh in final application
-			margin: 0; // delete in final application
-			
-			}
+  .ads__screen {
+    width: 100vw; // will be 100vw in final application
+    height: 100vh; // will be 100vh in final application
+    margin: 0; // delete in final application
+  }
 
-		.ads__body{
-			background: $purple;
-		}
-		.adsFullScreen{
-			background: $purple;
-		}
-		.layout{
-			background: $purple;
-		}
+  .ads__body {
+    background: $purple;
+  }
+  .adsFullScreen {
+    background: $purple;
+  }
+  .layout {
+    background: $purple;
+  }
 
-		.footerSeminars__grid__h1 {
-			font-size: 5vw;
-		}
+  .footerSeminars__grid__h1 {
+    font-size: 5vw;
+  }
 
-		.footerSeminars__grid__h2 {
-			font-size: 4vw;
-		}
-		.headerSeminars__flexLeftHeader__grid__h1 {
-			font-size: 6vw;
-		}
-		.adsFullScreen__date{
-			font-size: 100%;
-		}
-		.dateSeminars{
-			font-size: 100%;
-		}
-		
-		.mainSeminars__item__gridLeft__description {
-			font-size: 90%;
-			position: relative;
-			top: 6%;
-		}
-		
-		.mainSeminars__item__gridLeft__h1 {
-			font-size: 100%;
-			padding-bottom: 0;
-			position: relative;
-			top: 6%;
-		}
-		.mainSeminars__item__gridLeft__h2{
-			font-size: 90%;
-			padding-bottom: 0;
-			position: relative;
-			top: 6%;
-		}
-		.mainSeminars__item__gridRight__time {
-			font-size: 120%;
-			position: relative;
-			top: 3%;
-		}
+  .footerSeminars__grid__h2 {
+    font-size: 4vw;
+  }
+  .headerSeminars__flexLeftHeader__grid__h1 {
+    font-size: 6vw;
+  }
+  .adsFullScreen__date {
+    font-size: 100%;
+  }
+  .dateSeminars {
+    font-size: 100%;
+  }
 
-        .mainSeminars__item__gridRight__notify {
-			font-size: 120%;
-			position: inherit;
-			position: relative;
-			top: 3%;
-			left: -4%;
-		}
-		.mainSeminars__item__gridLeft {
-			height: 92%;
-			position: relative;
-			
-		}
-		.footerSeminars__flexIMG {
-			width: 27.5%;
-			position: relative;
-			align-self: center;
-			top: -10%;
-		}
-		.headerSeminars__flexRightHeader__p {
-			/* justify-self: end; */
-			margin-top: 1%;
-			font-size: 80%;
-		}
-		.headerSeminars__flexLeftHeader__grid__h2 {
-			font-size: 3vw;
-		}
-		.ads__date{
-			font-size: 100%;
-		}
-		.adsContainer__main__info__h1{
-			margin-bottom: 1vh;
-		}
-		.adsConainer__main{
-			overflow: hidden;
-		}
-		.adsConainer__main__info__h2{
-			margin-bottom: 1vh;
-		}
-		.adsConainer__main__info__p{
-			margin-bottom: 1vh;
-		}
+  .mainSeminars__item__gridLeft__description {
+    font-size: 90%;
+    position: relative;
+    top: 6%;
+  }
+
+  .mainSeminars__item__gridLeft__h1 {
+    font-size: 100%;
+    padding-bottom: 0;
+    position: relative;
+    top: 6%;
+  }
+  .mainSeminars__item__gridLeft__h2 {
+    font-size: 90%;
+    padding-bottom: 0;
+    position: relative;
+    top: 6%;
+  }
+  .mainSeminars__item__gridRight__time {
+    font-size: 120%;
+    position: relative;
+    top: 3%;
+  }
+
+  .mainSeminars__item__gridRight__notify {
+    font-size: 120%;
+    position: inherit;
+    position: relative;
+    top: 3%;
+    left: -4%;
+  }
+  .mainSeminars__item__gridLeft {
+    height: 92%;
+    position: relative;
+  }
+  .footerSeminars__flexIMG {
+    width: 27.5%;
+    position: relative;
+    align-self: center;
+    top: -10%;
+  }
+  .headerSeminars__flexRightHeader__p {
+    /* justify-self: end; */
+    margin-top: 1%;
+    font-size: 80%;
+  }
+  .headerSeminars__flexLeftHeader__grid__h2 {
+    font-size: 3vw;
+  }
+  .ads__date {
+    font-size: 100%;
+  }
+  .adsContainer__main__info__h1 {
+    margin-bottom: 1vh;
+  }
+  .adsConainer__main {
+    overflow: hidden;
+  }
+  .adsConainer__main__info__h2 {
+    margin-bottom: 1vh;
+  }
+  .adsConainer__main__info__p {
+    margin-bottom: 1vh;
+  }
 }
 
+@media (width: 900px) and (height: 1600px) {
+  .screenSeminars {
+    width: 100vw; // will be 100vw in final application
+    height: 100vh; // will be 100vh in final application
+    aspect-ratio: 19/6;
+    //background-color: #d20707;
+    //border: 5px solid blue;
+    //margin: 80px 0; // delete in final application
+    //padding-top: 177%;
+  }
 
-@media (width: 900px) and (height: 1600px){
-	.screenSeminars {
-		width: 100vw; // will be 100vw in final application
-		height: 100vh; // will be 100vh in final application
-		aspect-ratio: 19/6;
-		//background-color: #d20707;
-		//border: 5px solid blue;
-		//margin: 80px 0; // delete in final application
-		//padding-top: 177%;
-		
-	}
+  .layout {
+    //background: lightgrey;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Sen, Open Sans, sans-serif;
+    color: white;
+    padding: 0;
+    margin: 0;
+    //padding-top: 56%;
+    //border: 5px dotted red;
+  }
 
-	.layout {
-	
-		//background: lightgrey;
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		font-family: Sen, Open Sans, sans-serif;
-		color: white;
-		padding: 0;
-		margin: 0;
-		//padding-top: 56%;
-		//border: 5px dotted red;
-		
-		}
+  .adsFullScreen__screen {
+    width: 100vw; // will be 100vw in final application
+    height: 100vh; // will be 100vh in final application
+    margin: 0; // delete in final application
+  }
 
-		.adsFullScreen__screen{
-		width: 100vw; // will be 100vw in final application
-		height: 100vh; // will be 100vh in final application
-		margin: 0; // delete in final application
-		
-		}
+  .ads__screen {
+    width: 100vw; // will be 100vw in final application
+    height: 100vh; // will be 100vh in final application
+    margin: 0; // delete in final application
+  }
 
-		.ads__screen{
-			width: 100vw; // will be 100vw in final application
-			height: 100vh; // will be 100vh in final application
-			margin: 0; // delete in final application
-			
-			}
+  .ads__body {
+    background: $purple;
+  }
+  .adsFullScreen {
+    background: $purple;
+  }
+  .layout {
+    background: $purple;
+  }
 
-		.ads__body{
-			background: $purple;
-		}
-		.adsFullScreen{
-			background: $purple;
-		}
-		.layout{
-			background: $purple;
-		}
+  .footerSeminars__grid__h1 {
+    font-size: 5vw;
+  }
 
-		.footerSeminars__grid__h1 {
-			font-size: 5vw;
-		}
+  .footerSeminars__grid__h2 {
+    font-size: 4vw;
+  }
+  .headerSeminars__flexLeftHeader__grid__h1 {
+    font-size: 6vw;
+  }
+  .adsFullScreen__date {
+    font-size: 150%;
+  }
+  .dateSeminars {
+    font-size: 130%;
+  }
 
-		.footerSeminars__grid__h2 {
-			font-size: 4vw;
-		}
-		.headerSeminars__flexLeftHeader__grid__h1 {
-			font-size: 6vw;
-		}
-		.adsFullScreen__date{
-			font-size: 150%;
-		}
-		.dateSeminars{
-			font-size: 130%;
-		}
-		
-		.mainSeminars__item__gridLeft__description {
-			font-size: 90%;
-			position: relative;
-			top: 6%;
-		}
-		
-		.mainSeminars__item__gridLeft__h1 {
-			font-size: 150%;
-			padding-bottom: 0;
-			position: relative;
-			top: 6%;
-		}
-		.mainSeminars__item__gridLeft__h2{
-			font-size: 110%;
-			padding-bottom: 0;
-			position: relative;
-			top: 6%;
-		}
-		.mainSeminars__item__gridRight__time {
-			font-size: 150%;
-			position: relative;
-			top: 3%;
-		}
+  .mainSeminars__item__gridLeft__description {
+    font-size: 90%;
+    position: relative;
+    top: 6%;
+  }
 
-        .mainSeminars__item__gridRight__notify {
-			font-size: 150%;
-			position: inherit;
-			position: relative;
-			top: 3%;
-			left: -4%;
-		}
-		.mainSeminars__item__gridLeft {
-			height: 92%;
-			position: relative;
-			
-		}
-		.footerSeminars__flexIMG {
-			width: 27.5%;
-			position: relative;
-			align-self: center;
-			top: -10%;
-		}
-		.headerSeminars__flexRightHeader__p {
-			/* justify-self: end; */
-			margin-top: 1%;
-			font-size: 80%;
-		}
-		.headerSeminars__flexLeftHeader__grid__h2 {
-			font-size: 3vw;
-		}
-		.ads__date{
-			font-size: 100%;
-		}
-		.adsContainer__main__info__h1{
-			margin-bottom: 1vh;
-		}
-		.adsConainer__main{
-			overflow: hidden;
-		}
-		.adsConainer__main__info__h2{
-			margin-bottom: 1vh;
-		}
-		.adsConainer__main__info__p{
-			margin-bottom: 1vh;
-		}
-		.ads__date{
-			font-size: 150%;
-		}
+  .mainSeminars__item__gridLeft__h1 {
+    font-size: 150%;
+    padding-bottom: 0;
+    position: relative;
+    top: 6%;
+  }
+  .mainSeminars__item__gridLeft__h2 {
+    font-size: 110%;
+    padding-bottom: 0;
+    position: relative;
+    top: 6%;
+  }
+  .mainSeminars__item__gridRight__time {
+    font-size: 150%;
+    position: relative;
+    top: 3%;
+  }
+
+  .mainSeminars__item__gridRight__notify {
+    font-size: 150%;
+    position: inherit;
+    position: relative;
+    top: 3%;
+    left: -4%;
+  }
+  .mainSeminars__item__gridLeft {
+    height: 92%;
+    position: relative;
+  }
+  .footerSeminars__flexIMG {
+    width: 27.5%;
+    position: relative;
+    align-self: center;
+    top: -10%;
+  }
+  .headerSeminars__flexRightHeader__p {
+    /* justify-self: end; */
+    margin-top: 1%;
+    font-size: 80%;
+  }
+  .headerSeminars__flexLeftHeader__grid__h2 {
+    font-size: 3vw;
+  }
+  .ads__date {
+    font-size: 100%;
+  }
+  .adsContainer__main__info__h1 {
+    margin-bottom: 1vh;
+  }
+  .adsConainer__main {
+    overflow: hidden;
+  }
+  .adsConainer__main__info__h2 {
+    margin-bottom: 1vh;
+  }
+  .adsConainer__main__info__p {
+    margin-bottom: 1vh;
+  }
+  .ads__date {
+    font-size: 150%;
+  }
 }
