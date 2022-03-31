@@ -10,49 +10,13 @@ export default function AdsContainer({VideoRef,timeSlide,CallToAction,Location,T
     const Video = "Video"
     const videoRef = React.useRef(null)
   
-    /* const videoAddRef = React.useRef(null);
-    console.log(videoAddRef.current);
-
-
-    function playVid() {
-        videoAddRef.current.play()
-    }
    
-    function pauseVid() {
-        videoAddRef.current.pause();
-    }
-
-    videoAddRef.current = function() {
-        console.log("El video ha terminado")    };
-
-
-
-    const [videoComponent, setVideoComponent] = React.useState([])
-
-    React.useEffect(() => {
-        console.log("componente listo")
-        setVideoComponent()
-        playVid()
-    }, [])
- */
-
-
-//    if (props.Time){
-//     const time = props.Time.split("");
-//     //["0", "0", ":", "0", "0", ":", ......]
-
-//     const time1 = time.slice(0, 5);
-//     // ["0", "0", ":", "0", "0"]
-
-    
-//     //"00:00"
-//     const ftime =  time1.join("")}
-    React.useEffect(() => {
-        //const vid = [""]
-        //console.log(vid)
+    //React.useEffect(() => {
+    //    //const vid = [""]
+    //    //console.log(vid)
        
-        //vid.play()
-    }, [])
+    //    //vid.play()
+    //}, [])
 
 
 
@@ -74,10 +38,10 @@ export default function AdsContainer({VideoRef,timeSlide,CallToAction,Location,T
             <img src={Img} alt="" className="adsFullScreen__main__img"/>
         )
     }else if(!FullScreen && Type=="Video"){
-        console.log(Img)
+        //console.log(Img)
         return(
             <main className="adsConainer__main">
-                <video className="video" autoPlay muted loop>
+                <video id="vid" className="video" muted >
                     <source src={Img} type="video/mp4" />
                     Your browser does not support the video tag.
                 </video>

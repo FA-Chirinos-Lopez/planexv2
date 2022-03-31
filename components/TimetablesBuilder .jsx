@@ -150,7 +150,4 @@ const TimetablesBuilder = (SeminarsDataToExport) => {
 
 
 
-
-
-
 export { TimetablesBuilder }

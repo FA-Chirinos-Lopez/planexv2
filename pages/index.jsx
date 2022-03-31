@@ -32,7 +32,6 @@ export default function Home() {
   //console.log(screensData)
   const {screensID,issLoading,issError} = GetScreensID()
   React.useEffect(() => {
-    document.title = "Planex ScreensView"
     
     if(!isLogged) Router.push('/login')
     console.log(sessionStorage.getItem("ViewPlanexFrontendToken"))
